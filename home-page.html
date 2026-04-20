@@ -124,7 +124,7 @@
                     <li>
                       <a class="dropdown-item text-light" href="#">
                         <i class="bi bi-music-note-beamed me-2"></i>Playlist
-                      </a>                      
+                      </a>
                     </li>
                     <li>
                       <a class="dropdown-item text-light" href="#">
@@ -587,81 +587,77 @@
                 ></div>
               </div>
 
-              <!-- ----------------------------------- -->
-              <div>
-                <div>
-                  <div class="d-flex justify-content-between">
-                    <a href="#" class="text-decoration-none text-light">User</a>
-                    <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Mostra tutti</a
-                    >
-                  </div>
-                  <div class="d-flex gap-1">
-                    <div
-                      class="card bg-transparent text-light border rounded border-secondary"
-                      style="width: 10rem"
-                    >
-                      <img
-                        src="./assets/imgs/main/image-18.jpg"
-                        class="card-img-top"
-                        alt="album-picture"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Title</p>
-                      </div>
-                    </div>
-
-                    <div
-                      class="card bg-transparent text-light border rounded border-secondary"
-                      style="width: 10rem"
-                    >
-                      <img
-                        src="./assets/imgs/main/image-19.jpg"
-                        class="card-img-top"
-                        alt="album-picture"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Title</p>
-                      </div>
-                    </div>
-                    <div
-                      class="card bg-transparent text-light border rounded border-secondary"
-                      style="width: 10rem"
-                    >
-                      <img
-                        src="./assets/imgs/main/image-2.jpg"
-                        class="card-img-top"
-                        alt="album-picture"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Title</p>
-                      </div>
-                    </div>
-                    <div
-                      class="card bg-transparent text-light border rounded border-secondary"
-                      style="width: 10rem"
-                    >
-                      <img
-                        src="./assets/imgs/main/image-3.jpg"
-                        class="card-img-top"
-                        alt="album-picture"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Title</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              <!-- IN BASE A COSA HAI ASCOLTATO -->
               <div>
                 <div>
                   <div class="d-flex justify-content-between">
                     <a href="#" class="text-decoration-none text-light"
-                      >Recenti</a
+                      >Based on what you've listened to recently</a
                     >
                     <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Mostra tutti</a
+                      >Show All</a
+                    >
+                  </div>
+                  <section class="mx-2">
+                    <div
+                      id="albumCarousel"
+                      class="carousel slide container-fluid"
+                      data-bs-ride="carousel"
+                    >
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div
+                            id="album-listened"
+                            class="row g-1 flex-nowrap"
+                          ></div>
+                        </div>
+
+                        <div class="carousel-item">
+                          <div
+                            id="album-listened2"
+                            class="row g-1 flex-nowrap"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#albumCarousel"
+                        data-bs-slide="prev"
+                      >
+                        <span
+                          class="carousel-control-prev-icon"
+                          aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#albumCarousel"
+                        data-bs-slide="next"
+                      >
+                        <span
+                          class="carousel-control-next-icon"
+                          aria-hidden="true"
+                        ></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+              <!-- ASCOLTI RECENTI -->
+              <div>
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <a href="#" class="text-decoration-none text-light"
+                      >Recents</a
+                    >
+                    <a href="#" class="text-decoration-none text-light-emphasis"
+                      >Show All</a
                     >
                   </div>
                   <div class="d-flex gap-1">
