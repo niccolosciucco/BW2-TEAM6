@@ -308,3 +308,276 @@ const createCarousel2 = () => {
 createCarousel2();
 
 // #endregion
+
+// #region ASCOLTI RECENTI
+const createCarousel3 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-search");
+  row.innerHTML = "";
+
+  idAlbum2.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        const row = document.getElementById("album-search");
+        const idBtn = `btn-album${i + 99999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel3();
+
+const createCarousel4 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-search2");
+  row.innerHTML = "";
+
+  idAlbum3.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        console.log(data.title);
+        const row = document.getElementById("album-search2");
+        const idBtn = `btn-album${i + 9999999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel4();
+// # endregion
+
+// #region ASCOLTI RECENTI
+const createCarousel5 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-recommended");
+  row.innerHTML = "";
+
+  idAlbum2.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        const row = document.getElementById("album-recommended");
+        const idBtn = `btn-album${i + 999999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel5();
+
+const createCarousel6 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-recommended2");
+  row.innerHTML = "";
+
+  idAlbum3.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        console.log(data.title);
+        const row = document.getElementById("album-recommended2");
+        const idBtn = `btn-album${i + 9999999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel6();
+// # endregion
+
+// #region ASCOLTI RECENTI
+const createCarousel7 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-featuring");
+  row.innerHTML = "";
+
+  idAlbum2.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        const row = document.getElementById("album-featuring");
+        const idBtn = `btn-album${i + 999999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel7();
+
+const createCarousel8 = () => {
+  const qs = "album/";
+  const row = document.getElementById("album-featuring2");
+  row.innerHTML = "";
+
+  idAlbum3.forEach((id, i) => {
+    const fullUrl = urlSearch + qs + id;
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        console.log(data.title);
+        const row = document.getElementById("album-featuring2");
+        const idBtn = `btn-album${i + 9999999}`;
+
+        row.innerHTML += `                            
+<div class="col-6 col-md-3 col-lg-2">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}" />
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate">${data.artist.name}</p>
+      </div>
+
+      <a href="javascript:void(0)" 
+        id="${idBtn}"
+        class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill" 
+        style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+        onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div> 
+</div>`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+};
+
+createCarousel8();
+// # endregion
