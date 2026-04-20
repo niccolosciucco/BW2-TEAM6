@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/spotify.css" />
+  </head>
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black py-2">
+        <div class="container-fluid d-block">
+          <div class="row align-items-center g-0">
+            <div class="col-auto col-lg-3">
+              <a class="navbar-brand m-0" href="#">
+                <i class="bi bi-spotify fs-1"></i>
+              </a>
+            </div>
+
+            <div class="col flex-grow-1 d-flex justify-content-center px-3">
+              <div
+                class="bg-dark rounded-pill d-flex align-items-center px-3 py-2 w-100"
+                style="max-width: 500px"
+              >
+                <i class="bi bi-search text-secondary me-2"></i>
+                <input
+                  type="text"
+                  class="form-control bg-transparent border-0 text-white shadow-none p-0"
+                  placeholder="Cosa vuoi ascoltare?"
+                />
+                <div
+                  class="vr mx-2 text-secondary"
+                  style="height: 23px; opacity: 0.5"
+                ></div>
+                <i class="bi bi-collection-play text-secondary me-2"></i>
+              </div>
+            </div>
+
+            <div class="col-auto d-lg-none">
+              <button
+                class="navbar-toggler border-0 shadow-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navSpotify"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+            <div
+              class="col-lg-3 d-none d-lg-flex justify-content-end align-items-center"
+            >
+              <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
+              <a class="nav-link text-white fw-bold mx-2" href="#"
+                >Assistenza</a
+              >
+              <button class="btn btn-light rounded-pill px-4 py-2 fw-bold ms-2">
+                Accedi
+              </button>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navSpotify">
+            <div
+              class="navbar-nav flex-column d-lg-none mt-3 pb-3 border-top border-secondary"
+            >
+              <a class="nav-link text-white fw-bold py-3" href="#">Premium</a>
+              <a class="nav-link text-white fw-bold py-3" href="#"
+                >Assistenza</a
+              >
+              <a class="nav-link text-white fw-bold py-3" href="#">Scarica</a>
+              <button class="btn btn-light rounded-pill fw-bold mt-2">
+                Accedi
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/spotify.js"></script>
+  </body>
+</html>
