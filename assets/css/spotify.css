@@ -6,3 +6,7 @@
 .form-control {
   color: white;
 }
+
+body {
+  font-family: "Circular", sans-serif;
+}
