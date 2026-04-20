@@ -91,472 +91,472 @@
     <main class="d-flex flex-grow-1">
       <!-- Container principale main -->
       <div class="container-fluid">
-        <div class="row g-2">
+        <div class="row g-3 px-2">
           <!-- Container sidebar left -->
-          <div
-            class="col d-none col-md-3 d-md-inline border border-secondary rounded-2 bg-dark"
-          >
-            <!-- Hero sidebar -->
-            <div class="d-flex w-100">
-              <div class="mt-2">
-                <i
-                  class="bi bi-layout-sidebar-inset-reverse text-secondary"
-                ></i>
-              </div>
-              <div class="d-flex justify-content-between text-light w-100 mt-2">
-                <div>
-                  <p>Your Library</p>
+          <div class="col-12 col-md-3 d-none d-md-block rounded-2">
+            <div class="bg-dark">
+              <!-- Hero sidebar -->
+              <div class="d-flex w-100 bg-dark rounded-top-2">
+                <div class="mt-2">
+                  <i
+                    class="bi bi-layout-sidebar-inset-reverse text-secondary"
+                  ></i>
                 </div>
-                <div class="dropdown">
-                  <button
-                    class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
+                <div
+                  class="d-flex justify-content-between text-light w-100 mt-2"
+                >
+                  <div>
+                    <p>Your Library</p>
+                  </div>
+                  <div class="dropdown">
+                    <button
+                      class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
+                      style="--bs-bg-opacity: 0.3"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="bi bi-plus-lg"></i>Create
+                    </button>
+
+                    <ul class="dropdown-menu bg-dark">
+                      <li class="dropdown-item d-flex flex-row">
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="bi bi-music-note-beamed me-2 text-light ms-1"
+                          ></i>
+                        </div>
+
+                        <a class="dropdown-item text-light pe-2" href="#">
+                          Playlist <br />
+                          <small class="text-secondary"
+                            >Create a playlist with songs or episodes</small
+                          >
+                        </a>
+                      </li>
+                      <li class="dropdown-item d-flex flex-row">
+                        <div class="d-flex align-items-center">
+                          <i class="bi bi-intersect me-2 text-light ms-1"></i>
+                        </div>
+
+                        <a class="dropdown-item text-light" href="#">
+                          Blend <br /><small class="text-secondary"
+                            >Combine your friends' tastes into a playlist</small
+                          >
+                        </a>
+                      </li>
+                      <li class="d-flex justify-content-center">
+                        <hr class="text-light w-75" />
+                      </li>
+                      <li class="dropdown-item d-flex flex-row">
+                        <div class="d-flex align-items-center">
+                          <i class="bi bi-folder-plus me-2 text-light ms-1"></i>
+                        </div>
+
+                        <a class="dropdown-item text-light" href="#">
+                          Folder <br /><small class="text-secondary"
+                            >Orginise your playlists</small
+                          >
+                        </a>
+                      </li>
+                      <li class="dropdown-item d-flex flex-row">
+                        <div class="d-flex align-items-center">
+                          <i
+                            class="bi bi-people-fill me-2 me-2 text-light ms-1"
+                          ></i>
+                        </div>
+                        <a class="dropdown-item text-light" href="#">
+                          Jam <br /><small class="text-secondary"
+                            >Listen together from anywhere</small
+                          ></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!--BTN SHORTCUTS-->
+              <div class="d-flex flex-wrap gap-1 my-2 bg-dark">
+                <div class="my-1">
+                  <a
+                    class="bg-secondary text-light rounded-5 text-decoration-none p-2"
                     style="--bs-bg-opacity: 0.3"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    href="#"
+                    >Playlist</a
                   >
-                    <i class="bi bi-plus-lg"></i>Create
-                  </button>
-
-                  <ul
-                    class="dropdown-menu bg-dark"
+                </div>
+                <div class="my-1">
+                  <a
+                    class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                    style="--bs-bg-opacity: 0.3"
+                    href="#"
+                    >Podcast</a
                   >
-                    <li class="dropdown-item d-flex flex-row">
-                      <div class="d-flex align-items-center">
-                        <i
-                          class="bi bi-music-note-beamed me-2 text-light ms-1"
-                        ></i>
-                      </div>
-
-                      <a class="dropdown-item text-light pe-2" href="#">
-                        Playlist <br />
-                        <small class="text-secondary"
-                          >Create a playlist with songs or episodes</small
-                        >
-                      </a>
-                    </li>
-                    <li class="dropdown-item d-flex flex-row">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-intersect me-2 text-light ms-1"></i>
-                      </div>
-
-                      <a class="dropdown-item text-light" href="#">
-                        Blend <br /><small class="text-secondary"
-                          >Combine your friends' tastes into a playlist</small
-                        >
-                      </a>
-                    </li>
-                    <li class="d-flex justify-content-center">
-                      <hr class="text-light w-75" />
-                    </li>
-                    <li class="dropdown-item d-flex flex-row">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-folder-plus me-2 text-light ms-1"></i>
-                      </div>
-
-                      <a class="dropdown-item text-light" href="#">
-                        Folder <br /><small class="text-secondary"
-                          >Orginise your playlists</small
-                        >
-                      </a>
-                    </li>
-                    <li class="dropdown-item d-flex flex-row">
-                      <div class="d-flex align-items-center">
-                        <i
-                          class="bi bi-people-fill me-2 me-2 text-light ms-1"
-                        ></i>
-                      </div>
-                      <a class="dropdown-item text-light" href="#">
-                        Jam <br /><small class="text-secondary"
-                          >Listen together from anywhere</small
-                        ></a
-                      >
-                    </li>
-                  </ul>
+                </div>
+                <div class="my-1">
+                  <a
+                    class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                    style="--bs-bg-opacity: 0.3"
+                    href="#"
+                    >Album</a
+                  >
+                </div>
+                <div class="my-1">
+                  <a
+                    class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                    style="--bs-bg-opacity: 0.3"
+                    href="#"
+                    >Artisti</a
+                  >
                 </div>
               </div>
+
+              <!--SEARCH-->
+              <div class="d-flex justify-content-between mb-1">
+                <div class="d-flex">
+                  <i class="bi bi-search text-secondary"></i>
+                  <input
+                    type="text"
+                    name=""
+                    class="bg-transparent border-0 w-75"
+                    placeholder="Search"
+                  />
+                </div>
+                <div class="text-light d-flex align-items-center gap-1">
+                  <span>Recents</span>
+                  <i class="bi bi-list text-secondary"></i>
+                </div>
+              </div>
+
+              <!--ELEMENT LIST-->
+              <section
+                class="overflow-scroll hide-scrollbar bg-dark"
+                style="height: 75vh"
+              >
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-17.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Liked Songs</div>
+                    <small class="text-secondary">Playlist • 1340 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-10.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">LoFi Beats</div>
+                    <small class="text-secondary">Playlist • 60 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-2.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Dissect</div>
+                    <small class="text-secondary">Playlist • 50 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-3.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Pollen</div>
+                    <small class="text-secondary">Playlist • 10 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-4.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Mint</div>
+                    <small class="text-secondary">Playlist • 40 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-5.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Viva Latino</div>
+                    <small class="text-secondary">Playlist • 100 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-6.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">are & Be</div>
+                    <small class="text-secondary">Playlist • 50 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-7.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Rock this</div>
+                    <small class="text-secondary">Playlist • 70 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-8.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Beast Mode</div>
+                    <small class="text-secondary">Playlist • 60 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-9.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Nija</div>
+                    <small class="text-secondary">Playlist • 25 songs</small>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-11.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">
+                      Song To Sing In The Car
+                    </div>
+                    <small class="text-secondary">Playlist • 40 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-12.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">All Out 10s</div>
+                    <small class="text-secondary">Playlist • 20 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-13.jpeg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Your Summer Rewind</div>
+                    <small class="text-secondary">Playlist • 200 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-14.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Top Song Global</div>
+                    <small class="text-secondary">Playlist • 100 songs</small>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-16.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Soul Lounge</div>
+                    <small class="text-secondary">Playlist • 20 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-17.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Stress Relief</div>
+                    <small class="text-secondary">Playlist • 500 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-18.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Sleep</div>
+                    <small class="text-secondary">Playlist • 80 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-19.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Island Pop</div>
+                    <small class="text-secondary">Playlist • 40 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-20.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Jazz Appreciation</div>
+                    <small class="text-secondary">Playlist • 60 songs</small>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-22.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Indigo</div>
+                    <small class="text-secondary">Playlist • 40 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-23.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Deep Focus</div>
+                    <small class="text-secondary">Playlist • 100 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-24.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Peaceful Guitar</div>
+                    <small class="text-secondary">Playlist • 15 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-25.jpeg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Out Now</div>
+                    <small class="text-secondary">Playlist • 50 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-26.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">New Music</div>
+                    <small class="text-secondary">Playlist • 100 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-27.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Party Hits</div>
+                    <small class="text-secondary">Playlist • 100 songs</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center my-3">
+                  <img
+                    src="./assets/imgs/search/image-28.jpg"
+                    alt="img"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="px-2">
+                    <div class="fw-bold text-light">Afro Hits</div>
+                    <small class="text-secondary">Playlist • 30 songs</small>
+                  </div>
+                </div>
+              </section>
             </div>
-
-            <!--BTN SHORTCUTS-->
-            <div class="d-flex flex-wrap gap-1 my-2">
-              <div class="my-1">
-                <a
-                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
-                  style="--bs-bg-opacity: 0.3"
-                  href="#"
-                  >Playlist</a
-                >
-              </div>
-              <div class="my-1">
-                <a
-                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
-                  style="--bs-bg-opacity: 0.3"
-                  href="#"
-                  >Podcast</a
-                >
-              </div>
-              <div class="my-1">
-                <a
-                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
-                  style="--bs-bg-opacity: 0.3"
-                  href="#"
-                  >Album</a
-                >
-              </div>
-              <div class="my-1">
-                <a
-                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
-                  style="--bs-bg-opacity: 0.3"
-                  href="#"
-                  >Artisti</a
-                >
-              </div>
-            </div>
-
-            <!--SEARCH-->
-            <div class="d-flex justify-content-between mb-1">
-              <div class="d-flex">
-                <i class="bi bi-search text-secondary"></i>
-                <input
-                  type="text"
-                  name=""
-                  class="bg-transparent border-0 w-75"
-                  placeholder="Search"
-                />
-              </div>
-              <div class="text-light d-flex align-items-center gap-1">
-                <span>Recents</span>
-                <i class="bi bi-list text-secondary"></i>
-              </div>
-            </div>
-
-            <!--ELEMENT LIST-->
-            <section
-              class="overflow-scroll hide-scrollbar bg-dark"
-              style="height: 75vh"
-            >
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-17.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-10.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">LoFi Beats</div>
-                  <small class="text-secondary">Playlist • 60 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-2.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Dissect</div>
-                  <small class="text-secondary">Playlist • 50 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-3.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Pollen</div>
-                  <small class="text-secondary">Playlist • 10 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-4.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Mint</div>
-                  <small class="text-secondary">Playlist • 40 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-5.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Viva Latino</div>
-                  <small class="text-secondary">Playlist • 100 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-6.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">are & Be</div>
-                  <small class="text-secondary">Playlist • 50 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-7.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Rock this</div>
-                  <small class="text-secondary">Playlist • 70 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-8.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Beast Mode</div>
-                  <small class="text-secondary">Playlist • 60 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-9.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Nija</div>
-                  <small class="text-secondary">Playlist • 25 songs</small>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-11.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Song To Sing In The Car</div>
-                  <small class="text-secondary">Playlist • 40 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-12.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">All Out 10s</div>
-                  <small class="text-secondary">Playlist • 20 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-13.jpeg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Your Summer Rewind</div>
-                  <small class="text-secondary">Playlist • 200 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-14.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Top Song Global</div>
-                  <small class="text-secondary">Playlist • 100 songs</small>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-16.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Soul Lounge</div>
-                  <small class="text-secondary">Playlist • 20 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-17.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Stress Relief</div>
-                  <small class="text-secondary">Playlist • 500 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-18.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Sleep</div>
-                  <small class="text-secondary">Playlist • 80 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-19.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Island Pop</div>
-                  <small class="text-secondary">Playlist • 40 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-20.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Jazz Appreciation</div>
-                  <small class="text-secondary">Playlist • 60 songs</small>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-22.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Indigo</div>
-                  <small class="text-secondary">Playlist • 40 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-23.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Deep Focus</div>
-                  <small class="text-secondary">Playlist • 100 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-24.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Peaceful Guitar</div>
-                  <small class="text-secondary">Playlist • 15 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-25.jpeg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Out Now</div>
-                  <small class="text-secondary">Playlist • 50 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-26.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">New Music</div>
-                  <small class="text-secondary">Playlist • 100 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-27.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Party Hits</div>
-                  <small class="text-secondary">Playlist • 100 songs</small>
-                </div>
-              </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-28.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Afro Hits</div>
-                  <small class="text-secondary">Playlist • 30 songs</small>
-                </div>
-              </div>
-            </section>
           </div>
 
           <!-- Container main content -->
-          <div
-            class="col-12 col-md-6 border border-secondary rounded-2 bg-dark"
-          >
+          <div class="col-12 col-md-6 rounded-2 bg-dark">
             <!-- Content area -->
             <div id="playlist-card"></div>
             <div class="text-light">
@@ -726,7 +726,7 @@
 
           <!-- Container sidebar right-->
           <div
-            class="col d-none col-md-3 d-md-inline border border-secondary rounded-2 bg-dark"
+            class="col-12 col-md-3 d-none d-md-block rounded-2 bg-dark"
           ></div>
         </div>
       </div>
