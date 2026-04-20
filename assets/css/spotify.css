@@ -7,7 +7,6 @@
   color: white;
 }
 
-.row {
-  display: flex !important;
-  justify-content: space-between !important;
+body {
+  font-family: "Circular", sans-serif;
 }
