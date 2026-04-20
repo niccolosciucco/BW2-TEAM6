@@ -29,46 +29,8 @@ body {
   width: 0;
   height: 0;
 }
-
-.play-button {
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+.dropdown-item:hover i,
+.dropdown-item:hover a,
+.dropdown-item:hover small {
+  color: black !important;
 }
-
-.album-card:hover .play-button {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* .carousel-control-prev {
-  left: -30px; /* Più il valore è alto (negativo), più va a sinistra */
-/* width: 5%; Riduciamo la larghezza dell'area cliccabile se necessario */
-/* } */
-
-/* Freccia Destra */
-/* .carousel-control-next {
-  right: -30px; /* Più il valore è alto (negativo), più va a destra */
-/* width: 5%;
-} */
-
-/* Impedisce alle card di andare a capo e permette il taglio */
-/* #album-listened {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden; Nasconde quello che esce
-} */
-
-/* Forza ogni colonna a occupare uno spazio specifico (es. il 18% invece del 16.6%) */
-/* In questo modo la 6° card uscirà parzialmente dai bordi */
-/* #album-listened .col-lg-2 {
-  flex: 0 0 18%;
-  max-width: 18%;
-} */
-
-/* Rendi fluido lo scorrimento (opzionale se non usi JS) */
-/* .carousel-inner {
-  display: flex;
-} */
