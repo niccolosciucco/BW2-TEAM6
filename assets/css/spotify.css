@@ -29,8 +29,18 @@ body {
   width: 0;
   height: 0;
 }
+
 .dropdown-item:hover i,
 .dropdown-item:hover a,
 .dropdown-item:hover small {
   color: black !important;
+}
+
+.play-button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.album-card:hover .play-button {
+  opacity: 1;
 }
