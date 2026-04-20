@@ -16,14 +16,59 @@ class GeneralMusic {
   }
 }
 
-const urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/search";
-const qs = "?q=";
-let artist = "mengoni";
+// #region PLAY AND PAUSE MUSIC
+let audio = null;
 
-const fullUrlSearch = urlSearch + qs + artist;
+const handleMusic = (preview, isMobile) => {
+  if (!isMobile) {
+    const btn = document.getElementById("play");
 
-const get = () => {
-  fetch(fullUrlSearch)
+    if (!audio) {
+      audio = new Audio(preview);
+    }
+
+    if (btn.innerText === "Play") {
+      audio.play();
+      btn.innerText = "Pause";
+      btn.classList.replace("btn-success", "btn-warning");
+    } else {
+      audio.pause();
+      btn.innerText = "Play";
+      btn.classList.replace("btn-warning", "btn-success");
+    }
+  } else {
+    const btn = document.getElementById("play-mobile");
+
+    if (!audio) {
+      audio = new Audio(preview);
+    }
+
+    if (btn.classList.contains("bi-play-circle-fill")) {
+      audio.play();
+      btn.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+      btn.classList.replace("btn-success", "btn-warning");
+    } else {
+      audio.pause();
+      btn.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+      btn.classList.replace("btn-warning", "btn-success");
+    }
+  }
+};
+// #endregion
+
+let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
+let qs = "";
+let artist = "";
+let codAlbum = "";
+let fullUrl = "";
+
+// #region GET ANNUNCI
+
+const getAd = () => {
+  qs = "search?q=";
+  artist = "mengoni";
+  fullUrl = urlSearch + qs + artist;
+  fetch(fullUrl)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -64,42 +109,62 @@ const get = () => {
     });
 };
 
-get();
+getAd();
+// #endregion
 
-let audio = null;
+const idAlbum = [
+  552945182, 786324441, 234196722, 926315591, 503137, 6347177, 405134707,
+  833470021,
+];
 
-const handleMusic = (preview, isMobile) => {
-  if (!isMobile) {
-    const btn = document.getElementById("play");
+// #region ALBUM
 
-    if (!audio) {
-      audio = new Audio(preview);
-    }
+const getAlbum = () => {
+  qs = "album/";
+  idAlbum.forEach((id) => {
+    codAlbum = id;
+    fullUrl = urlSearch + qs + codAlbum;
+    console.log(fullUrl);
 
-    if (btn.innerText === "Play") {
-      audio.play();
-      btn.innerText = "Pause";
-      btn.classList.replace("btn-success", "btn-warning");
-    } else {
-      audio.pause();
-      btn.innerText = "Play";
-      btn.classList.replace("btn-warning", "btn-success");
-    }
-  } else {
-    const btn = document.getElementById("play-mobile");
+    fetch(fullUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        const row = document.getElementById("album-music");
 
-    if (!audio) {
-      audio = new Audio(preview);
-    }
+        row.innerHTML += `
+        <div class="col">
+          <div class="card bg-dark bg-gradient text-white overflow-hidden h-100">
+            <div class="row g-0 h-100"> <div class="col-4">
+                <img src="${data.cover_big}" class="img-fluid rounded-start h-100 object-fit-cover" alt="cover ${data.title}">
+              </div>
 
-    if (btn.classList.contains("bi-play-circle-fill")) {
-      audio.play();
-      btn.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
-      btn.classList.replace("btn-success", "btn-warning");
-    } else {
-      audio.pause();
-      btn.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
-      btn.classList.replace("btn-warning", "btn-success");
-    }
-  }
+              <div class="col-8">
+                <div class="card-body d-flex align-items-center h-100">
+                  <h2 class="card-title h6 mb-0 text-truncate">${data.title}</h2>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      `;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 };
+
+getAlbum();
+
+// #endregion
+
+// #region CAROSELLO ALBUM
+
+// #endregion
