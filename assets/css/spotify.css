@@ -29,3 +29,8 @@ body {
   width: 0;
   height: 0;
 }
+.dropdown-item:hover i,
+.dropdown-item:hover a,
+.dropdown-item:hover small {
+  color: black !important;
+}

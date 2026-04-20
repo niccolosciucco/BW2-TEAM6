@@ -94,22 +94,22 @@
         <div class="row g-2">
           <!-- Container sidebar left -->
           <div
-            class="col d-none col-md-3 col-lg-2 d-md-inline border border-secondary rounded-2 bg-dark"
+            class="col d-none col-md-3 d-md-inline border border-secondary rounded-2 bg-dark"
           >
             <!-- Hero sidebar -->
             <div class="d-flex w-100">
-              <div>
+              <div class="mt-2">
                 <i
                   class="bi bi-layout-sidebar-inset-reverse text-secondary"
                 ></i>
               </div>
-              <div class="d-flex justify-content-between text-light w-100">
+              <div class="d-flex justify-content-between text-light w-100 mt-2">
                 <div>
                   <p>Your Library</p>
                 </div>
                 <div class="dropdown">
                   <button
-                    class="bg-secondary text-light rounded-5 text-decoration-none p-1 border-0"
+                    class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
                     style="--bs-bg-opacity: 0.3"
                     type="button"
                     data-bs-toggle="dropdown"
@@ -119,29 +119,57 @@
                   </button>
 
                   <ul
-                    class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end bg-dark"
+                    class="dropdown-menu bg-dark"
                   >
-                    <li>
-                      <a class="dropdown-item text-light" href="#">
-                        <i class="bi bi-music-note-beamed me-2"></i>Playlist
-                      </a>                      
+                    <li class="dropdown-item d-flex flex-row">
+                      <div class="d-flex align-items-center">
+                        <i
+                          class="bi bi-music-note-beamed me-2 text-light ms-1"
+                        ></i>
+                      </div>
+
+                      <a class="dropdown-item text-light pe-2" href="#">
+                        Playlist <br />
+                        <small class="text-secondary"
+                          >Create a playlist with songs or episodes</small
+                        >
+                      </a>
                     </li>
-                    <li>
+                    <li class="dropdown-item d-flex flex-row">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-intersect me-2 text-light ms-1"></i>
+                      </div>
+
                       <a class="dropdown-item text-light" href="#">
-                        <i class="bi bi-intersect me-2"></i>Blend
+                        Blend <br /><small class="text-secondary"
+                          >Combine your friends' tastes into a playlist</small
+                        >
                       </a>
                     </li>
                     <li class="d-flex justify-content-center">
                       <hr class="text-light w-75" />
                     </li>
-                    <li>
-                      <a class="dropdown-item text-light" href="#"
-                        ><i class="bi bi-folder-plus me-2"></i> Folder
+                    <li class="dropdown-item d-flex flex-row">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-folder-plus me-2 text-light ms-1"></i>
+                      </div>
+
+                      <a class="dropdown-item text-light" href="#">
+                        Folder <br /><small class="text-secondary"
+                          >Orginise your playlists</small
+                        >
                       </a>
                     </li>
-                    <li>
+                    <li class="dropdown-item d-flex flex-row">
+                      <div class="d-flex align-items-center">
+                        <i
+                          class="bi bi-people-fill me-2 me-2 text-light ms-1"
+                        ></i>
+                      </div>
                       <a class="dropdown-item text-light" href="#">
-                        <i class="bi bi-people-fill me-2"></i>Jam</a
+                        Jam <br /><small class="text-secondary"
+                          >Listen together from anywhere</small
+                        ></a
                       >
                     </li>
                   </ul>
@@ -186,10 +214,15 @@
             </div>
 
             <!--SEARCH-->
-            <div class="d-flex justify-content-between">
-              <div class="d-flex input-group mb-2">
+            <div class="d-flex justify-content-between mb-1">
+              <div class="d-flex">
                 <i class="bi bi-search text-secondary"></i>
-                <input type="text" name="" />
+                <input
+                  type="text"
+                  name=""
+                  class="bg-transparent border-0 w-75"
+                  placeholder="Search"
+                />
               </div>
               <div class="text-light d-flex align-items-center gap-1">
                 <span>Recents</span>
@@ -222,8 +255,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">LoFi Beats</div>
+                  <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -234,8 +267,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Dissect</div>
+                  <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -246,8 +279,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Pollen</div>
+                  <small class="text-secondary">Playlist • 10 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -258,8 +291,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Mint</div>
+                  <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -270,8 +303,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Viva Latino</div>
+                  <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -282,8 +315,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">are & Be</div>
+                  <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -294,8 +327,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Rock this</div>
+                  <small class="text-secondary">Playlist • 70 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -306,8 +339,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Beast Mode</div>
+                  <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -318,22 +351,11 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Nija</div>
+                  <small class="text-secondary">Playlist • 25 songs</small>
                 </div>
               </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-10.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
-                </div>
-              </div>
+
               <div class="d-flex align-items-center my-3">
                 <img
                   src="./assets/imgs/search/image-11.jpg"
@@ -342,8 +364,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Song To Sing In The Car</div>
+                  <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -354,8 +376,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">All Out 10s</div>
+                  <small class="text-secondary">Playlist • 20 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -366,8 +388,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Your Summer Rewind</div>
+                  <small class="text-secondary">Playlist • 200 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -378,22 +400,11 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Top Song Global</div>
+                  <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
               </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-15.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
-                </div>
-              </div>
+
               <div class="d-flex align-items-center my-3">
                 <img
                   src="./assets/imgs/search/image-16.jpg"
@@ -402,8 +413,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Soul Lounge</div>
+                  <small class="text-secondary">Playlist • 20 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -414,8 +425,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Stress Relief</div>
+                  <small class="text-secondary">Playlist • 500 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -426,8 +437,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Sleep</div>
+                  <small class="text-secondary">Playlist • 80 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -438,8 +449,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Island Pop</div>
+                  <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -450,22 +461,11 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Jazz Appreciation</div>
+                  <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
               </div>
-              <div class="d-flex align-items-center my-3">
-                <img
-                  src="./assets/imgs/search/image-21.jpg"
-                  alt="img"
-                  width="50"
-                  height="50"
-                />
-                <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
-                </div>
-              </div>
+
               <div class="d-flex align-items-center my-3">
                 <img
                   src="./assets/imgs/search/image-22.jpg"
@@ -474,8 +474,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Indigo</div>
+                  <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -486,8 +486,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Deep Focus</div>
+                  <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -498,8 +498,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Peaceful Guitar</div>
+                  <small class="text-secondary">Playlist • 15 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -510,8 +510,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Out Now</div>
+                  <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -522,8 +522,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">New Music</div>
+                  <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -534,8 +534,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Party Hits</div>
+                  <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
               </div>
               <div class="d-flex align-items-center my-3">
@@ -546,8 +546,8 @@
                   height="50"
                 />
                 <div class="px-2">
-                  <div class="fw-bold text-light">Liked Songs</div>
-                  <small class="text-secondary">Playlist • 1340 songs</small>
+                  <div class="fw-bold text-light">Afro Hits</div>
+                  <small class="text-secondary">Playlist • 30 songs</small>
                 </div>
               </div>
             </section>
@@ -555,7 +555,7 @@
 
           <!-- Container main content -->
           <div
-            class="col-12 col-md-6 col-lg-8 border border-secondary rounded-2 bg-dark"
+            class="col-12 col-md-6 border border-secondary rounded-2 bg-dark"
           >
             <!-- Content area -->
             <div id="playlist-card"></div>
@@ -726,7 +726,7 @@
 
           <!-- Container sidebar right-->
           <div
-            class="col d-none col-md-3 col-lg-2 d-md-inline border border-secondary rounded-2 bg-dark"
+            class="col d-none col-md-3 d-md-inline border border-secondary rounded-2 bg-dark"
           ></div>
         </div>
       </div>
