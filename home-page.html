@@ -91,7 +91,6 @@
     <main>
       <!-- Container principale main -->
       <div class="container-fluid">
-        <div id="playlist-card"></div>
         <div class="row">
           <!-- Container sidebar left -->
           <div
@@ -100,6 +99,7 @@
             <!-- Hero sidebar -->
             <div class="d-flex w-100">
               <!-- collapse button -->
+
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,6 +126,75 @@
                 </div>
               </div>
             </div>
+            <!--BTN SHORTCUTS-->
+
+            <div class="d-flex flex-wrap gap-1 my-2">
+              <div class="my-1">
+                <a
+                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                  style="--bs-bg-opacity: 0.3"
+                  href="#"
+                  >Playlist</a
+                >
+              </div>
+              <div class="my-1">
+                <a
+                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                  style="--bs-bg-opacity: 0.3"
+                  href="#"
+                  >Podcast</a
+                >
+              </div>
+              <div class="my-1">
+                <a
+                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                  style="--bs-bg-opacity: 0.3"
+                  href="#"
+                  >Album</a
+                >
+              </div>
+              <div class="my-1">
+                <a
+                  class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+                  style="--bs-bg-opacity: 0.3"
+                  href="#"
+                  >Artisti</a
+                >
+              </div>
+            </div>
+            <!--SEARCH-->
+            <div class="d-flex justify-content-between">
+              <div class="d-flex input-group mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search text-light-emphasis"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                  />
+                </svg>
+                <input type="text" name="" />
+              </div>
+              <div class="text-light">recenti</div>
+            </div>
+            <!--ELEMENT LIST-->
+            <section>
+              <div class="d-flex align-items-center my-2"></div>
+              <div>
+                <div class="fw-bold">Brani che ti piacciono</div>
+                <small class="text-secondary"> Playlist • 1340 brani</small>
+              </div>
+              <img
+                src="./assets/imgs/search/image-17.jpg"
+                alt="img"
+                width="40"
+                height="40"
+              />
+            </section>
           </div>
 
           <!-- Container main content -->
@@ -133,6 +202,7 @@
             class="col-12 col-md-6 col-lg-8 border border-secondary rounded-2 mt-2 bg-dark"
           >
             <!-- Content area -->
+            <div id="playlist-card"></div>
             <div class="text-light">
               <!-- Buttons -->
               <div class="d-flex gap-2 my-2">
