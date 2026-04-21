@@ -47,7 +47,6 @@ body {
 
 #sidebarLeft {
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
 .sidebar-collapsed {
