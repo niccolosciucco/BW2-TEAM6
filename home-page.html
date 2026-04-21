@@ -93,7 +93,10 @@
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
-      <div id="sidebarLeft" class="d-none d-lg-block sidebar-expanded bg-dark rounded-2">
+      <div
+        id="sidebarLeft"
+        class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
+      >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
         <div class="d-flex w-100 rounded-top-2">
@@ -834,16 +837,20 @@
 
       <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
         <div
-          class="d-flex align-items-center justify-content-center bg-secondary"
-          style="height: 220px"
+          class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-4"
+          style="height: 300px; width: 300px"
         >
-          <img src="./assets/imgs/search/img.ketra.jpg" alt="img" />
+          <img
+            src="./assets/imgs/search/img.ketra.jpg"
+            alt="img"
+            class="w-100 h-100 object-fit-cover"
+          />
         </div>
         <div
           class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
         >
           <div>
-            <p class="fw-bold text-light mb-1 mt-1 small">
+            <p class="fw-bold text-light mb-1 mt-2 small">
               EVERYDAY(feat. Shiva, ANNA, Geolier)
             </p>
             <p class="text-secondary mb-0 fs-6">
@@ -865,9 +872,7 @@
             </button>
           </div>
         </div>
-        <p class="d-flex gap-2 px-3 mt-2 overflow-auto flex-nowrap text-light">
-          Video musicali correlati
-        </p>
+        <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
         <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-nowrap">
           <div class="flex-shrink-0" style="width: 130px">
             <div
@@ -922,20 +927,21 @@
             <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
           </div>
         </div>
-        <div class="rounded mx-3 mb-3 p-3 bg-black">
+        <div class="rounded mx-3 mb-3 p-3 bg-secondary">
           <p class="fw-bold mb-2 small text-light">Informazioni sull'artista</p>
           <div class="d-flex align-items-center gap-3 mb-2">
             <div
-              class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
+              class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
               style="width: 52px; height: 52px"
             >
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="8" r="4" fill="#aaa" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="#aaa" />
-              </svg>
+              <img
+                src="./assets/imgs/search/img4.jpg"
+                alt="img"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
             </div>
             <div>
-              <p class="fw-bold mb-0 small text-light">Takagi &amp; Ketra</p>
+              <p class="fw-bold mb-0 small text-dark">Takagi &amp; Ketra</p>
               <p class="text-secondary mb-0" style="font-size: 12px">
                 2.972.185 ascoltatori mensili
               </p>
@@ -948,16 +954,13 @@
               </button>
             </div>
           </div>
-          <p
-            class="text-secondary mb-0"
-            style="font-size: 11px; line-height: 2"
-          >
+          <p class="text-dark mb-0" style="font-size: 11px; line-height: 2">
             Takagi &amp; Ketra sono due produttori multiplatino, hitmakers
             italiani per eccellenza: dal 2013 oltre 230 dischi di platino fra
             produzioni e singoli. "Quiéreme...
           </p>
         </div>
-        <div class="rounded mx-3 mb-3 p-3 bg-black">
+        <div class="rounded mx-3 mb-3 p-3 bg-secondary">
           <div class="d-flex align-items-center justify-content-between mb-1">
             <p class="fw-bold mb-0 small text-light">Riconoscimenti</p>
             <a href="#" class="text-secondary text-decoration-none small"
@@ -972,7 +975,7 @@
               <p class="fw-semibold mb-0 small text-light">
                 Takagi &amp; Ketra
               </p>
-              <p class="text-secondary mb-0" style="font-size: 11px">
+              <p class="text-dark mb-0" style="font-size: 11px">
                 Artista Principale
               </p>
             </div>
@@ -989,12 +992,12 @@
           >
             <div>
               <p class="fw-semibold mb-0 small text-light">Shiva</p>
-              <p class="text-secondary mb-0" style="font-size: 11px">
+              <p class="text-dark mb-0" style="font-size: 11px">
                 Artista Principale
               </p>
             </div>
             <button
-              class="btn btn-outline-secondary btn-sm rounded-pill px-2"
+              class="btn btn-outline-dark btn-sm rounded-pill px-2"
               style="font-size: 11px"
             >
               Non seguire più
@@ -1004,7 +1007,7 @@
           <div class="d-flex align-items-center justify-content-between pt-2">
             <div>
               <p class="fw-semibold mb-0 small text-light">ANNA</p>
-              <p class="text-secondary mb-0" style="font-size: 11px">
+              <p class="text-dark mb-0" style="font-size: 11px">
                 Artista Principale
               </p>
             </div>
@@ -1014,6 +1017,39 @@
             >
               Segui
             </button>
+          </div>
+        </div>
+
+        <div class="rounded mx-3 mb-3 p-3 bg-secondary">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <p class="fw-bold mb-0 small text-black">Prossimo in coda</p>
+            <a href="#" class="text-black text-decoration-none small"
+              >Apri coda</a
+            >
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div
+              class="rounded d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
+              style="width: 40px; height: 40px"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <polygon points="8,6 18,12 8,18" fill="white" opacity="0.7" />
+              </svg>
+            </div>
+            <div>
+              <p class="fw-semibold mb-0 small text-light">NUVOLA</p>
+              <p
+                class="text-secondary mb-0 d-flex align-items-center gap-1"
+                style="font-size: 11px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 11px"
+                  >Holden</span
+                >
+                Icy Subzero
+              </p>
+            </div>
           </div>
         </div>
       </div>
