@@ -205,3 +205,75 @@ body {
   height: 4px;
   border-radius: 2px;
 }
+
+#track-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  margin-top: -4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#track-range:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+/* VOLUME MUSICA  */
+
+#volume-range {
+  -webkit-appearance: none;
+  width: 100px;
+  height: 4px;
+  background: #535353;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#volume-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    #1db954 0%,
+    #1db954 var(--vol-progress, 50%),
+    #535353 var(--vol-progress, 50%),
+    #535353 100%
+  );
+}
+
+#volume-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+  margin-top: -4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease;
+}
+
+#volume-range:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+#volume-range:hover::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    #1ed760 0%,
+    #1ed760 var(--vol-progress, 50%),
+    #535353 var(--vol-progress, 50%),
+    #535353 100%
+  );
+}
+
+#volume-range:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
