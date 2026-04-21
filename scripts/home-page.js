@@ -226,7 +226,7 @@ const getAd = () => {
             <div class="card bg-dark bg-gradient text-white overflow-hidden">
                 <div class="row g-0 align-items-center">
                     <div class="col-2">
-                        <img src="${data.data[0].album.cover_big}" class="img-fluid object-fit-cover rounded-start h-100" alt="album cover"  >
+                        <img src="${data.data[0].album.cover_big}" class="img-fluid object-fit-cover rounded-start h-100 ms-2" alt="album cover"  >
                     </div>
                     
                     <div class="col-10">
