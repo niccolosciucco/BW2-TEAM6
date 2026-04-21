@@ -24,8 +24,8 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-black">
-    <header>
+  <body class="bg-black" style="height: 100vh">
+    <header style="height: 10vh">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black py-2 mb-2">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
@@ -95,7 +95,7 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1">
+    <main class="d-flex" style="height: 80vh">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
@@ -103,6 +103,7 @@
       <div
         id="sidebarLeft"
         class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
+        style="height: 80vh"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -261,7 +262,7 @@
         <!--ELEMENT LIST-->
         <section
           class="overflow-scroll hide-scrollbar bg-dark"
-          style="height: 75vh"
+          style="height: 66vh"
         >
           <div class="d-flex align-items-center my-3">
             <img
@@ -583,7 +584,7 @@
       </div>
 
       <!-- Container main content -->
-      <div class="flex-grow-1 px-2 bg-dark rounded-2 mx-2">
+      <div class="flex-grow-1 px-2 bg-dark rounded-2 mx-2" style="height: 80vh;">
         <div class="bg-dark rounded-top-2">
           <!-- Content area -->
           <div id="playlist-card"></div>
@@ -609,256 +610,269 @@
               </div>
 
               <!-- Album section -->
-              <div class="container">
-                <div
-                  class="row row-cols-2 row-cols-lg-4 g-3 mb-3 justify-content-center"
-                  id="album-music"
-                ></div>
-              </div>
-
-              <!-- IN BASE A COSA HAI ASCOLTATO -->
-              <div>
-                <div>
-                  <div class="d-flex justify-content-between">
-                    <a href="#" class="text-decoration-none text-light"
-                      >Based on what you've listened to recently</a
-                    >
-                    <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Show All</a
-                    >
-                  </div>
-                  <section class="mx-2">
-                    <div
-                      id="albumCarousel"
-                      class="carousel slide container-fluid"
-                    >
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <div
-                            id="album-listened"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-
-                        <div class="carousel-item">
-                          <div
-                            id="album-listened2"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-                      </div>
-
-                      <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#albumCarousel"
-                        data-bs-slide="prev"
-                      >
-                        <span
-                          class="carousel-control-prev-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#albumCarousel"
-                        data-bs-slide="next"
-                      >
-                        <span
-                          class="carousel-control-next-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div>
-                  </section>
+              <section
+                class="overflow-scroll hide-scrollbar bg-dark"
+                style="height: 50vh"
+              >
+                <div class="container">
+                  <div
+                    class="row row-cols-2 row-cols-lg-4 g-3 mb-3 justify-content-center"
+                    id="album-music"
+                  ></div>
                 </div>
-              </div>
 
-              <!-- ASCOLTI RECENTI -->
-              <div>
+                <!-- IN BASE A COSA HAI ASCOLTATO -->
                 <div>
-                  <div class="d-flex justify-content-between">
-                    <a href="#" class="text-decoration-none text-light"
-                      >Recents</a
-                    >
-                    <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Show All</a
-                    >
-                  </div>
-                  <section class="mx-2">
-                    <div
-                      id="albumCarousel2"
-                      class="carousel slide container-fluid"
-                    >
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <div
-                            id="album-search"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-
-                        <div class="carousel-item">
-                          <div
-                            id="album-search2"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-                      </div>
-
-                      <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#albumCarousel2"
-                        data-bs-slide="prev"
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <a href="#" class="text-decoration-none text-light"
+                        >Based on what you've listened to recently</a
                       >
-                        <span
-                          class="carousel-control-prev-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#albumCarousel2"
-                        data-bs-slide="next"
+                      <a
+                        href="#"
+                        class="text-decoration-none text-light-emphasis"
+                        >Show All</a
                       >
-                        <span
-                          class="carousel-control-next-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
                     </div>
-                  </section>
-                </div>
-              </div>
+                    <section class="mx-2">
+                      <div
+                        id="albumCarousel"
+                        class="carousel slide container-fluid"
+                      >
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div
+                              id="album-listened"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
 
-              <!-- RECCOMENDED FOR TODAY -->
-              <div>
+                          <div class="carousel-item">
+                            <div
+                              id="album-listened2"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <button
+                          class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#albumCarousel"
+                          data-bs-slide="prev"
+                        >
+                          <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                          class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#albumCarousel"
+                          data-bs-slide="next"
+                        >
+                          <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+
+                <!-- ASCOLTI RECENTI -->
                 <div>
-                  <div class="d-flex justify-content-between">
-                    <a href="#" class="text-decoration-none text-light"
-                      >Recommend for today</a
-                    >
-                    <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Show All</a
-                    >
-                  </div>
-                  <section class="mx-2">
-                    <div
-                      id="albumCarousel3"
-                      class="carousel slide container-fluid"
-                    >
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <div
-                            id="album-recommended"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-
-                        <div class="carousel-item">
-                          <div
-                            id="album-recommended2"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-                      </div>
-
-                      <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#albumCarousel3"
-                        data-bs-slide="prev"
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <a href="#" class="text-decoration-none text-light"
+                        >Recents</a
                       >
-                        <span
-                          class="carousel-control-prev-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#albumCarousel3"
-                        data-bs-slide="next"
+                      <a
+                        href="#"
+                        class="text-decoration-none text-light-emphasis"
+                        >Show All</a
                       >
-                        <span
-                          class="carousel-control-next-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
                     </div>
-                  </section>
-                </div>
-              </div>
+                    <section class="mx-2">
+                      <div
+                        id="albumCarousel2"
+                        class="carousel slide container-fluid"
+                      >
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div
+                              id="album-search"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
 
-              <!-- FEATURING ALBUM -->
-              <div>
+                          <div class="carousel-item">
+                            <div
+                              id="album-search2"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <button
+                          class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#albumCarousel2"
+                          data-bs-slide="prev"
+                        >
+                          <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                          class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#albumCarousel2"
+                          data-bs-slide="next"
+                        >
+                          <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+
+                <!-- RECCOMENDED FOR TODAY -->
                 <div>
-                  <div class="d-flex justify-content-between">
-                    <a href="#" class="text-decoration-none text-light"
-                      >Albums featuring songs you like</a
-                    >
-                    <a href="#" class="text-decoration-none text-light-emphasis"
-                      >Show All</a
-                    >
-                  </div>
-                  <section class="mx-2">
-                    <div
-                      id="albumCarousel4"
-                      class="carousel slide container-fluid"
-                    >
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <div
-                            id="album-featuring"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-
-                        <div class="carousel-item">
-                          <div
-                            id="album-featuring2"
-                            class="row g-1 flex-nowrap"
-                          ></div>
-                        </div>
-                      </div>
-
-                      <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#albumCarousel4"
-                        data-bs-slide="prev"
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <a href="#" class="text-decoration-none text-light"
+                        >Recommend for today</a
                       >
-                        <span
-                          class="carousel-control-prev-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#albumCarousel4"
-                        data-bs-slide="next"
+                      <a
+                        href="#"
+                        class="text-decoration-none text-light-emphasis"
+                        >Show All</a
                       >
-                        <span
-                          class="carousel-control-next-icon"
-                          aria-hidden="true"
-                        ></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
                     </div>
-                  </section>
+                    <section class="mx-2">
+                      <div
+                        id="albumCarousel3"
+                        class="carousel slide container-fluid"
+                      >
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div
+                              id="album-recommended"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+
+                          <div class="carousel-item">
+                            <div
+                              id="album-recommended2"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <button
+                          class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#albumCarousel3"
+                          data-bs-slide="prev"
+                        >
+                          <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                          class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#albumCarousel3"
+                          data-bs-slide="next"
+                        >
+                          <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </section>
+                  </div>
                 </div>
-              </div>
+
+                <!-- FEATURING ALBUM -->
+                <div>
+                  <div>
+                    <div class="d-flex justify-content-between">
+                      <a href="#" class="text-decoration-none text-light"
+                        >Albums featuring songs you like</a
+                      >
+                      <a
+                        href="#"
+                        class="text-decoration-none text-light-emphasis"
+                        >Show All</a
+                      >
+                    </div>
+                    <section class="mx-2">
+                      <div
+                        id="albumCarousel4"
+                        class="carousel slide container-fluid"
+                      >
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div
+                              id="album-featuring"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+
+                          <div class="carousel-item">
+                            <div
+                              id="album-featuring2"
+                              class="row g-1 flex-nowrap"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <button
+                          class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#albumCarousel4"
+                          data-bs-slide="prev"
+                        >
+                          <span
+                            class="carousel-control-prev-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button
+                          class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#albumCarousel4"
+                          data-bs-slide="next"
+                        >
+                          <span
+                            class="carousel-control-next-icon"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
@@ -867,229 +881,237 @@
       <!-- Container sidebar right-->
 
       <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
-        <div
-          class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
+        <section
+          class="overflow-scroll hide-scrollbar bg-dark"
+          style="height: 80vh"
         >
-          <div class="d-flex align-items-center gap-2">
-            <button
-              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
-            >
-              <i class="bi bi-layout-sidebar-inset-reverse"></i>
-            </button>
-            <p id="sb-right-name-artist" class="text-light mb-0 small">
-              Takagi &amp; Ketra
-            </p>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <button
-              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
-            >
-              <i class="bi bi-three-dots"></i>
-            </button>
-            <button
-              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
-            >
-              <i class="bi bi-arrows-fullscreen"></i>
-            </button>
-          </div>
-        </div>
-        <div
-          class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-2"
-          style="height: 300px; width: 300px"
-        >
-          <img
-            id="sb-right-img"
-            src="./assets/imgs/search/img.ketra.jpg"
-            alt="img"
-            class="w-100 h-100 object-fit-cover"
-          />
-        </div>
-        <div
-          class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
-        >
-          <div>
-            <p id="sb-right-title" class="fw-bold text-light mb-1 mt-2 small">
-              EVERYDAY(feat. Shiva, ANNA, Geolier)
-            </p>
-            <p id="sb-right-subTitle" class="text-secondary mb-0 fs-6">
-              Takagi &amp; Ketra, Shiva, ANNA, Geolier
-            </p>
-          </div>
-          <div class="d-flex align-items-center gap-2 mt-2 flex-shrink-0">
-            <button
-              class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
-              style="width: 28px; height: 28px"
-            >
-              x
-            </button>
-            <button
-              class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
-              style="width: 28px; height: 28px"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
-        <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-nowrap">
-          <div class="flex-shrink-0" style="width: 130px">
-            <div
-              class="d-flex align-items-center justify-content-center rounded bg-secondary"
-              style="height: 90px"
-            >
-              <img
-                src="./assets/imgs/search/song1.jpg"
-                alt="img"
-                class="w-100 h-100 object-fit-cover"
-              />
-            </div>
-            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-              Headlights
-            </p>
-            <p class="text-secondary mb-0" style="font-size: 12px">
-              Alok, Alan Walker, Kiddo
-            </p>
-          </div>
-
-          <div class="flex-shrink-0" style="width: 130px">
-            <div
-              class="d-flex align-items-center justify-content-center rounded bg-secondary"
-              style="height: 90px"
-            >
-              <img
-                src="./assets/imgs/search/song3.jpg"
-                alt="img"
-                class="w-100 h-100 object-fit-cover"
-              />
-            </div>
-            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-              Ouver2re
-            </p>
-            <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
-          </div>
-
-          <div class="flex-shrink-0" style="width: 130px">
-            <div
-              class="d-flex align-items-center justify-content-center rounded bg-secondary"
-              style="height: 90px"
-            >
-              <img
-                src="./assets/imgs/search/song4.jpg"
-                alt="img"
-                class="w-100 h-100 object-fit-cover"
-              />
-            </div>
-            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-              Morto mai (Piano Solo)
-            </p>
-            <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
-          </div>
-        </div>
-        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
-          <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
-          <div class="d-flex flex-column gap-3 mb-2">
-            <div
-              class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
-              style="width: 52px; height: 52px"
-            >
-              <img
-                id="ia-img"
-                src="./assets/imgs/search/img4.jpg"
-                alt="img"
-                class="w-100 h-100 object-fit-cover"
-              />
-            </div>
-            <div>
-              <p id="ia-name" class="fw-bold mb-0 text-light">
+          <div
+            class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-layout-sidebar-inset-reverse"></i>
+              </button>
+              <p id="sb-right-name-artist" class="text-light mb-0 small">
                 Takagi &amp; Ketra
               </p>
             </div>
-            <div class="d-flex justify-content-between">
-              <p class="text-light small mb-0">2.972.185 ascoltatori mensili</p>
-              <div class="ms-auto">
-                <button
-                  class="btn btn-outline-light btn-sm rounded-pill px-3 small"
+            <div class="d-flex align-items-center gap-2">
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-three-dots"></i>
+              </button>
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-arrows-fullscreen"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-2"
+            style="height: 300px; width: 300px"
+          >
+            <img
+              id="sb-right-img"
+              src="./assets/imgs/search/img.ketra.jpg"
+              alt="img"
+              class="w-100 h-100 object-fit-cover"
+            />
+          </div>
+          <div
+            class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
+          >
+            <div>
+              <p id="sb-right-title" class="fw-bold text-light mb-1 mt-2 small">
+                EVERYDAY(feat. Shiva, ANNA, Geolier)
+              </p>
+              <p id="sb-right-subTitle" class="text-secondary mb-0 fs-6">
+                Takagi &amp; Ketra, Shiva, ANNA, Geolier
+              </p>
+            </div>
+            <div class="d-flex align-items-center gap-2 mt-2 flex-shrink-0">
+              <button
+                class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
+                style="width: 28px; height: 28px"
+              >
+                x
+              </button>
+              <button
+                class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
+                style="width: 28px; height: 28px"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
+          <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-nowrap">
+            <div class="flex-shrink-0" style="width: 130px">
+              <div
+                class="d-flex align-items-center justify-content-center rounded bg-secondary"
+                style="height: 90px"
+              >
+                <img
+                  src="./assets/imgs/search/song1.jpg"
+                  alt="img"
+                  class="w-100 h-100 object-fit-cover"
+                />
+              </div>
+              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+                Headlights
+              </p>
+              <p class="text-secondary mb-0" style="font-size: 12px">
+                Alok, Alan Walker, Kiddo
+              </p>
+            </div>
+
+            <div class="flex-shrink-0" style="width: 130px">
+              <div
+                class="d-flex align-items-center justify-content-center rounded bg-secondary"
+                style="height: 90px"
+              >
+                <img
+                  src="./assets/imgs/search/song3.jpg"
+                  alt="img"
+                  class="w-100 h-100 object-fit-cover"
+                />
+              </div>
+              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+                Ouver2re
+              </p>
+              <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
+            </div>
+
+            <div class="flex-shrink-0" style="width: 130px">
+              <div
+                class="d-flex align-items-center justify-content-center rounded bg-secondary"
+                style="height: 90px"
+              >
+                <img
+                  src="./assets/imgs/search/song4.jpg"
+                  alt="img"
+                  class="w-100 h-100 object-fit-cover"
+                />
+              </div>
+              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+                Morto mai (Piano Solo)
+              </p>
+              <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
+            </div>
+          </div>
+          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+            <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
+            <div class="d-flex flex-column gap-3 mb-2">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
+                style="width: 52px; height: 52px"
+              >
+                <img
+                  id="ia-img"
+                  src="./assets/imgs/search/img4.jpg"
+                  alt="img"
+                  class="w-100 h-100 object-fit-cover"
+                />
+              </div>
+              <div>
+                <p id="ia-name" class="fw-bold mb-0 text-light">
+                  Takagi &amp; Ketra
+                </p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p class="text-light small mb-0">
+                  2.972.185 ascoltatori mensili
+                </p>
+                <div class="ms-auto">
+                  <button
+                    class="btn btn-outline-light btn-sm rounded-pill px-3 small"
+                  >
+                    Segui
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
+              Punto di riferimento nel panorama musicale contemporaneo: una
+              figura capace di collezionare numerosi riconoscimenti certificati
+              e di definire il suono del proprio tempo. Grazie a una carriera
+              costellata di successi e collaborazioni di rilievo, ha ottenuto
+              traguardi straordinari tra produzioni e brani iconici.
+            </p>
+          </div>
+          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+            <div class="d-flex align-items-center justify-content-between mb-1">
+              <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
+              <a href="#" class="text-secondary text-decoration-none small"
+                >Mostra tutto</a
+              >
+            </div>
+
+            <div
+              class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
+            >
+              <div>
+                <p id="riconoscimenti-name" class="fw-semibold mb-0 text-light">
+                  Takagi &amp; Ketra
+                </p>
+                <p class="text-light-emphasis mb-0" style="font-size: 11px">
+                  Artista Principale
+                </p>
+              </div>
+              <button
+                class="btn btn-outline-light rounded-pill px-3"
+                style="font-size: 12px"
+              >
+                Segui
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
+              <a href="#" class="text-light-emphasis small text-decoration-none"
+                >Apri coda</a
+              >
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div
+                class="rounded d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
+                style="width: 40px; height: 40px"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <polygon points="8,6 18,12 8,18" fill="white" opacity="0.7" />
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0 text-light">NUVOLA</p>
+                <p
+                  class="text-secondary mb-0 d-flex align-items-center gap-1"
+                  style="font-size: 11px"
                 >
-                  Segui
-                </button>
+                  <span
+                    class="badge bg-secondary text-dark"
+                    style="font-size: 11px"
+                    >Holden</span
+                  >
+                </p>
               </div>
             </div>
           </div>
-
-          <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-            Punto di riferimento nel panorama musicale contemporaneo: una figura
-            capace di collezionare numerosi riconoscimenti certificati e di
-            definire il suono del proprio tempo. Grazie a una carriera
-            costellata di successi e collaborazioni di rilievo, ha ottenuto
-            traguardi straordinari tra produzioni e brani iconici.
-          </p>
-        </div>
-        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
-          <div class="d-flex align-items-center justify-content-between mb-1">
-            <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
-            <a href="#" class="text-secondary text-decoration-none small"
-              >Mostra tutto</a
-            >
-          </div>
-
-          <div
-            class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
-          >
-            <div>
-              <p id="riconoscimenti-name" class="fw-semibold mb-0 text-light">
-                Takagi &amp; Ketra
-              </p>
-              <p class="text-light-emphasis mb-0" style="font-size: 11px">
-                Artista Principale
-              </p>
-            </div>
-            <button
-              class="btn btn-outline-light rounded-pill px-3"
-              style="font-size: 12px"
-            >
-              Segui
-            </button>
-          </div>
-        </div>
-
-        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
-          <div class="d-flex align-items-center justify-content-between mb-2">
-            <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
-            <a href="#" class="text-light-emphasis small text-decoration-none"
-              >Apri coda</a
-            >
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <div
-              class="rounded d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
-              style="width: 40px; height: 40px"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24">
-                <polygon points="8,6 18,12 8,18" fill="white" opacity="0.7" />
-              </svg>
-            </div>
-            <div>
-              <p class="mb-0 text-light">NUVOLA</p>
-              <p
-                class="text-secondary mb-0 d-flex align-items-center gap-1"
-                style="font-size: 11px"
-              >
-                <span
-                  class="badge bg-secondary text-dark"
-                  style="font-size: 11px"
-                  >Holden</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
       <!-- </div> -->
       <!-- </div> -->
     </main>
 
     <footer
-      class="spotify-footer d-flex align-items-center justify-content-between px-3"
+      class="spotify-footer d-flex align-items-center justify-content-between px-3 bg-black"
+      style="height: 10vh"
     >
       <div class="d-flex align-items-center gap-3">
         <img
