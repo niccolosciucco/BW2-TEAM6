@@ -220,14 +220,9 @@ const idAlbum3 = [
   837881302, 60712222, 226972272, 964049261, 681873311, 586786102, 740854321,
   52661942, 110382, 72487842, 773306041, 681873311, 231182, 908070412, 12279688,
   698935761,
-  // ----
-  1127912, 406064537, 629506181, 829966251, 139903102, 13082992, 629506181,
-  837881302, 60712222, 226972272, 964049261, 681873311, 586786102, 740854321,
-  52661942, 110382, 72487842, 773306041, 681873311, 231182, 908070412, 12279688,
-  698935761,
 ];
 
-const createAllCarousels = () => {
+const createAllCarousels = async () => {
   const qs = "album/";
   const targetIds = [
     "album-listened",
@@ -239,57 +234,61 @@ const createAllCarousels = () => {
     "album-featuring",
     "album-featuring2",
   ];
-
   const itemsPerSlide = 6;
 
-  // Cycle ID
-  idAlbum3.forEach((id, index) => {
-    const slideIndex = Math.floor(index / itemsPerSlide);
-    const containerId = targetIds[slideIndex];
-    console.log(slideIndex);
+  const totalSlotsNeeded = targetIds.length * itemsPerSlide;
 
-    if (!containerId) return;
+  const uniqueIds = [...new Set(idAlbum3)];
+  const albumCache = {};
 
-    const fullUrl = urlSearch + qs + id;
+  try {
+    await Promise.all(
+      uniqueIds.map(async (id) => {
+        const response = await fetch(`${urlSearch}${qs}${id}`);
+        if (response.ok) albumCache[id] = await response.json();
+      }),
+    );
 
-    fetch(fullUrl)
-      .then((response) => {
-        if (!response.ok) throw new Error("Errore fetch");
-        return response.json();
-      })
-      .then((data) => {
-        const row = document.getElementById(containerId);
-        const idBtn = `btn-album-${id}-${containerId}`;
+    for (let i = 0; i < totalSlotsNeeded; i++) {
+      const id = idAlbum3[i % idAlbum3.length];
 
-        const col = document.createElement("div");
-        col.className = "col-6 col-md-3 col-lg-2";
-        col.innerHTML = `          <div class="card h-100 album-card bg-transparent border-0 position-relative">
-            <img
-              src="${data.cover_big}"
-              class="card-img-top img-fluid"
-              alt="${data.title}"
-            />
-            <div class="card-body text-secondary p-2">
-              <p class="card-text text-truncate text-white mb-0">
-                ${data.title}
-              </p>
-              <p class="card-text text-truncate small">${data.artist.name}</p>
-            </div>
-            <a
-              href="javascript:void(0)"
-              id="${idBtn}"
-              class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill"
-              style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
-              onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')"
-            ></a>
-          </div>`;
+      const slideIndex = Math.floor(i / itemsPerSlide);
+      const containerId = targetIds[slideIndex];
+      const data = albumCache[id];
 
-        row.appendChild(col);
-      })
-      .catch((error) => console.error("Errore:", error));
-  });
+      if (containerId && data) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          container.appendChild(createAlbumCard(data, id, containerId, i));
+        }
+      }
+    }
+  } catch (error) {
+    console.error("Errore:", error);
+  }
+};
+
+const createAlbumCard = (data, id, containerId, globalIndex) => {
+  const idBtn = `btn-album-${id}-${containerId}-${globalIndex}`;
+  const col = document.createElement("div");
+  col.className = "col-6 col-md-3 col-lg-2 mb-3";
+
+  col.innerHTML = `
+    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}">
+      <div class="card-body text-secondary p-2">
+        <p class="card-text text-truncate text-white mb-0">${data.title}</p>
+        <p class="card-text text-truncate small">${data.artist.name}</p>
+      </div>
+      <a href="javascript:void(0)" 
+         id="${idBtn}" 
+         class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill"
+         style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
+         onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+      </a>
+    </div>`;
+  return col;
 };
 
 createAllCarousels();
-
 // #endregion
