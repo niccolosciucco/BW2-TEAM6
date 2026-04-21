@@ -74,7 +74,7 @@ body {
 }
 
 .sidebar-expanded {
-  width: 300px;
+  width: 300px !important;
 }
 
 .sidebar-collapsed {
@@ -97,4 +97,8 @@ body {
   position: absolute !important;
   left: 100% !important;
   top: 0;
+}
+
+#sidebarLeft {
+  flex-shrink: 0;
 }
