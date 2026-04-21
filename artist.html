@@ -89,9 +89,8 @@
       </nav>
     </header>
     <main class="d-flex bg-black">
-
-  <!-- LEFT SIDEBAR -->
- <div
+      <!-- LEFT SIDEBAR -->
+      <div
         id="sidebarLeft"
         class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
       >
@@ -573,77 +572,219 @@
         <!-- </div> -->
       </div>
 
-  <!-- CENTER CONTENT -->
-  <div class="flex-grow-1 bg-dark rounded-2 mx-2">
-
-    <!-- HERO -->
-    <div class="artist-hero d-flex flex-column justify-content-end p-4">
-      <h1 class="text-white fw-bold display-4">Takagi & Ketra</h1>
-      <p class="text-light">2,972,185 monthly listeners</p>
-    </div>
-
-    <!-- ACTION BAR -->
-    <div class="d-flex align-items-center gap-3 px-4 py-3">
-      <button class="btn btn-success rounded-circle play-btn d-flex align-items-center justify-content-center">
-        <i class="bi bi-play-fill fs-4"></i>
-      </button>
-
-      <button class="btn btn-outline-light rounded-pill px-3">Follow</button>
-
-      <i class="bi bi-three-dots text-light fs-4"></i>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="container-fluid px-4 pb-5">
-      <div class="row">
-
-        <!-- POPULAR -->
-        <div class="col-lg-6">
-          <h5 class="text-white mb-3">Popular</h5>
-
-          <div class="song-row d-flex justify-content-between align-items-center py-2 px-2">
-            <div class="d-flex align-items-center gap-3">
-              <span class="text-secondary">1</span>
-              <img src="./assets/imgs/search/image-17.jpg" width="40">
-              <span class="text-white">Calm Down</span>
-            </div>
-            <span class="text-secondary">3:02</span>
-          </div>
-
-          <div class="song-row d-flex justify-content-between align-items-center py-2 px-2">
-            <div class="d-flex align-items-center gap-3">
-              <span class="text-secondary">2</span>
-              <img src="./assets/imgs/search/image-10.jpg" width="40">
-              <span class="text-white">Mi Chico</span>
-            </div>
-            <span class="text-secondary">1:57</span>
-          </div>
-
+      <!-- CENTER CONTENT -->
+      <div class="flex-grow-1 bg-dark rounded-2 mx-2">
+        <!-- HERO -->
+        <div class="artist-hero d-flex flex-column justify-content-end p-4">
+          <h1 class="text-white fw-bold display-4">Takagi & Ketra</h1>
+          <p class="text-light">2,972,185 monthly listeners</p>
         </div>
 
-        <!-- ARTIST PICK -->
-        <div class="col-lg-6">
-          <h5 class="text-white mb-3">Artist pick</h5>
+        <!-- ACTION BAR -->
+        <div class="d-flex align-items-center gap-3 px-4 py-3">
+          <button
+            class="btn btn-success rounded-circle play-btn d-flex align-items-center justify-content-center"
+          >
+            <i class="bi bi-play-fill fs-4"></i>
+          </button>
 
-          <div class="d-flex align-items-center gap-3 bg-secondary p-2 rounded">
-            <img src="./assets/imgs/search/image-10.jpg" width="60">
-            <div>
-              <div class="text-white fw-bold">Mi Chico</div>
-              <small class="text-light">Single</small>
-            </div>
+          <button class="btn btn-outline-light rounded-pill px-3">
+            Follow
+          </button>
+          <div class="dropdown dropend me-1">
+            <button
+              class="text-light bg-transparent border-0"
+              style="--bs-bg-opacity: 0.3"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              data-bs-boundary="viewport"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots text-light fs-4"></i>
+            </button>
+
+            <ul class="dropdown-menu bg-dark">
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-add text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light pe-2"
+                  href="#"
+                  style="display: inline"
+                >
+                  Follow
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-slash-circle text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Don't play this artist
+                </small>
+              </li>
+
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-broadcast text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Folder
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row justify-content-between">
+                <div class="d-flex">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-exclamation-octagon text-light ms-1"></i>
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Folder
+                    </small>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-box-arrow-up-right text-light"></i>
+                </div>
+              </li>
+              <li class="dropdown dropend">
+                <button
+                  class="dropdown-item text-light d-flex justify-content-between align-items-center"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="bi bi-box-arrow-up text-light me-2"></i>
+                    Share
+                  </span>
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- INSIDE DROPDOWN MENU -->
+                <ul class="dropdown-menu bg-dark">
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-copy text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Copy link to artist
+                    </small>
+                  </li>
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-code-square text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Embed artist
+                    </small>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
-
         </div>
 
+        <!-- CONTENT -->
+        <div class="container-fluid px-4 pb-5">
+          <div class="row">
+            <!-- POPULAR -->
+            <div class="col-lg-6">
+              <h5 class="text-white mb-3">Popular</h5>
+
+              <div
+                class="song-row d-flex justify-content-between align-items-center py-2 px-2"
+              >
+                <div class="d-flex align-items-center gap-3">
+                  <span class="text-secondary">1</span>
+                  <img src="./assets/imgs/search/image-17.jpg" width="40" />
+                  <span class="text-white">Calm Down</span>
+                </div>
+                <span class="text-secondary">3:02</span>
+              </div>
+
+              <div
+                class="song-row d-flex justify-content-between align-items-center py-2 px-2"
+              >
+                <div class="d-flex align-items-center gap-3">
+                  <span class="text-secondary">2</span>
+                  <img src="./assets/imgs/search/image-10.jpg" width="40" />
+                  <span class="text-white">Mi Chico</span>
+                </div>
+                <span class="text-secondary">1:57</span>
+              </div>
+            </div>
+
+            <!-- ARTIST PICK -->
+            <div class="col-lg-6">
+              <h5 class="text-white mb-3">Artist pick</h5>
+
+              <div
+                class="d-flex align-items-center gap-3 bg-secondary p-2 rounded"
+              >
+                <img src="./assets/imgs/search/image-10.jpg" width="60" />
+                <div>
+                  <div class="text-white fw-bold">Mi Chico</div>
+                  <small class="text-light">Single</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-  </div>
-
-  <!-- RIGHT SIDEBAR -->
-   <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
+      <!-- RIGHT SIDEBAR -->
+      <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
         <div
-          class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-4"
+          class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
+        >
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-layout-sidebar-inset-reverse"></i>
+            </button>
+            <p class="text-light mb-0 small">Takagi &amp; Ketra</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-three-dots"></i>
+            </button>
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-2"
           style="height: 300px; width: 300px"
         >
           <img
@@ -796,7 +937,7 @@
             class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
           >
             <div>
-              <p class="fw-semibold mb-0 text-light">Shiva</p>
+              <p class="mb-0 text-light">Shiva</p>
               <p class="text-light-emphasis mb-0" style="font-size: 12px">
                 Artista Principale
               </p>
@@ -811,7 +952,7 @@
 
           <div class="d-flex align-items-center justify-content-between pt-2">
             <div>
-              <p class="fw-semibold mb-0 text-light">ANNA</p>
+              <p class="mb-0 text-light">ANNA</p>
               <p class="text-light-emphasis" style="font-size: 12px">
                 Artista Principale
               </p>
@@ -828,7 +969,9 @@
         <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
           <div class="d-flex align-items-center justify-content-between mb-2">
             <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
-            <a href="#" class="text-light-emphasis small">Apri coda</a>
+            <a href="#" class="text-light-emphasis small text-decoration-none"
+              >Apri coda</a
+            >
           </div>
           <div class="d-flex align-items-center gap-2">
             <div
@@ -840,7 +983,7 @@
               </svg>
             </div>
             <div>
-              <p class="fw-semibold mb-0 text-light">NUVOLA</p>
+              <p class="mb-0 text-light">NUVOLA</p>
               <p
                 class="text-secondary mb-0 d-flex align-items-center gap-1"
                 style="font-size: 11px"
@@ -855,8 +998,7 @@
           </div>
         </div>
       </div>
-
-</main>
+    </main>
 
     <footer></footer>
     <script

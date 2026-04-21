@@ -32,7 +32,8 @@ body {
 
 .dropdown-item:hover i,
 .dropdown-item:hover a,
-.dropdown-item:hover small {
+.dropdown-item:hover small,
+.dropdown-item:hover span {
   color: black !important;
 }
 
@@ -190,4 +191,16 @@ body {
 
 .glow-up:hover {
   filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.6));
+}
+
+.dropdown-menu .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+}
+
+.dropdown-menu .dropdown:hover > .dropdown-menu {
+  display: block;
 }
