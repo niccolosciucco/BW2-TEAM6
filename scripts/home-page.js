@@ -221,7 +221,6 @@ const getAd = () => {
       }
     })
     .then((data) => {
-      console.log("adjsaohdo");
       const row = document.getElementById("playlist-card");
       row.innerHTML = `
             <div class="card bg-dark bg-gradient text-white overflow-hidden">
