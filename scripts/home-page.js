@@ -58,6 +58,40 @@ class GeneralMusic {
   }
 }
 
+// #region VOLUME MUSICA
+const initVolumeControl = () => {
+  const volumeRange = document.getElementById("volume-range");
+  const volumeIcon = document.getElementById("volume-icon");
+
+  if (!volumeRange) return;
+
+  volumeRange.style.setProperty(
+    "--vol-progress",
+    `${volumeRange.value * 100}%`,
+  );
+
+  volumeRange.addEventListener("input", (e) => {
+    const val = e.target.value;
+
+    volumeRange.style.setProperty("--vol-progress", `${val * 100}%`);
+
+    if (audio) {
+      audio.volume = val;
+    }
+    if (val == 0) {
+      volumeIcon.classList.replace("bi-volume-up", "bi-volume-mute");
+      volumeIcon.classList.replace("bi-volume-down", "bi-volume-mute");
+    } else if (val < 0.5) {
+      volumeIcon.classList.replace("bi-volume-up", "bi-volume-down");
+      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-down");
+    } else {
+      volumeIcon.classList.replace("bi-volume-down", "bi-volume-up");
+      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-up");
+    }
+  });
+};
+// #endregion
+
 // #region PLAY AND PAUSE MUSIC
 let audio = null;
 let currentCardBtnId = null; // Memorizza l'ultimo bottone card cliccato
@@ -71,23 +105,33 @@ const handleMusic = (
   isMouseHover = false,
   idBtn = "",
 ) => {
+  const volumeSlider = document.getElementById("volume-range");
+  const currentSavedVolume = volumeSlider ? Number(volumeSlider.value) : 1;
+
   if (audio && audio.src !== preview) {
-    // Se cambiamo canzone, resettiamo l'icona della card precedente prima di cambiare
     if (currentCardBtnId) {
       updateBtnIcon(document.getElementById(currentCardBtnId), false);
     }
 
     audio.pause();
     audio = new Audio(preview);
+
+    // volume musica attuale
+    audio.volume = currentSavedVolume;
+
     syncProgressBar(audio);
   }
 
   if (!audio) {
     audio = new Audio(preview);
+
+    // Volume musica
+    audio.volume = currentSavedVolume;
+
     syncProgressBar(audio);
   }
 
-  // Memorizziamo l'ID del bottone della card attuale per poterlo controllare dal footer
+  // Memorizzo id bottone
   currentCardBtnId = idBtn;
 
   let btn;
@@ -100,7 +144,7 @@ const handleMusic = (
     btn = document.getElementById("play");
   }
 
-  // Recuperiamo anche il bottone principale del footer per sincronizzarlo
+  // recupero bottone play footer
   const mainBtn = document.getElementById("play-main");
 
   // Logica Play/Pause
@@ -117,7 +161,7 @@ const handleMusic = (
   handleFooter(title, name, cover, preview);
 };
 
-// Listener per il bottone play-main (footer)
+// Bottone play footer
 document.getElementById("play-main").addEventListener("click", () => {
   if (!audio) return;
 
@@ -172,7 +216,7 @@ const updateBtnIcon = (btn, isPlaying) => {
 
   const icon = btn.querySelector("i") || btn;
 
-  // Gestione Colore (comune a tutti)
+  // Gestione Colore
   if (isPlaying) {
     btn.classList.replace("btn-success", "btn-warning");
   } else {
@@ -194,6 +238,8 @@ const updateBtnIcon = (btn, isPlaying) => {
     icon.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
   }
 };
+
+initVolumeControl();
 // #endregion
 
 let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
@@ -424,8 +470,20 @@ const syncProgressBar = (audioInstance) => {
 
   audioInstance.onended = () => {
     cancelAnimationFrame(animationId);
+
     range.value = 0;
+
+    // Reset colore barra
+    range.style.setProperty("--progress", `0%`);
+
+    // Reset del testo tempo
     currentTimeLabel.innerText = "0:00";
+
+    // resetto la barra
+    const mainBtn = document.getElementById("play-main");
+    if (mainBtn) updateBtnIcon(mainBtn, false);
+    if (currentCardBtnId)
+      updateBtnIcon(document.getElementById(currentCardBtnId), false);
   };
 
   range.oninput = () => {
@@ -435,32 +493,4 @@ const syncProgressBar = (audioInstance) => {
     if (!audioInstance.paused) update();
   };
 };
-// #endregion
-
-// #region VOLUME MUSICA
-const initVolumeControl = () => {
-  const volumeRange = document.getElementById("volume-range");
-  const volumeIcon = document.getElementById("volume-icon");
-
-  volumeRange.addEventListener("input", (e) => {
-    const val = e.target.value;
-
-    if (audio) {
-      audio.volume = val;
-    }
-
-    if (val == 0) {
-      volumeIcon.classList.replace("bi-volume-up", "bi-volume-mute");
-      volumeIcon.classList.replace("bi-volume-down", "bi-volume-mute");
-    } else if (val < 0.5) {
-      volumeIcon.classList.replace("bi-volume-up", "bi-volume-down");
-      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-down");
-    } else {
-      volumeIcon.classList.replace("bi-volume-down", "bi-volume-up");
-      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-up");
-    }
-  });
-};
-
-initVolumeControl();
 // #endregion
