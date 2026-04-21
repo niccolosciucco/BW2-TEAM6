@@ -197,7 +197,7 @@
         </div>
 
         <!--BTN SHORTCUTS-->
-        <div class="d-flex flex-wrap gap-1 my-2">
+        <div class="d-flex flex-wrap gap-1 my-2 mb-3">
           <div class="my-1">
             <a
               class="bg-secondary text-light rounded-5 text-decoration-none p-2"
@@ -251,7 +251,7 @@
 
         <!--ELEMENT LIST-->
         <section
-          class="overflow-scroll hide-scrollbar bg-dark"
+          class="overflow-scroll hide-scrollbar bg-dark ms-1"
           style="height: 66vh"
         >
           <div class="d-flex align-items-center my-3">
@@ -1039,59 +1039,68 @@
             </div>
           </div>
           <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
-          <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-nowrap">
-            <div class="flex-shrink-0" style="width: 130px">
-              <div
-                class="d-flex align-items-center justify-content-center rounded bg-secondary"
-                style="height: 90px"
-              >
+          <div
+            id="carouselExample6"
+            class="carousel slide position-relative mb-2"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
                 <img
-                  src="./assets/imgs/search/song1.jpg"
-                  alt="img"
-                  class="w-100 h-100 object-fit-cover"
+                  src="./assets/imgs/search/image-10.jpg"
+                  class="d-block w-100"
+                  alt="..."
                 />
               </div>
-              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-                Headlights
-              </p>
-              <p class="text-secondary mb-0" style="font-size: 12px">
-                Alok, Alan Walker, Kiddo
-              </p>
-            </div>
-
-            <div class="flex-shrink-0" style="width: 130px">
-              <div
-                class="d-flex align-items-center justify-content-center rounded bg-secondary"
-                style="height: 90px"
-              >
+              <div class="carousel-item">
                 <img
-                  src="./assets/imgs/search/song3.jpg"
-                  alt="img"
-                  class="w-100 h-100 object-fit-cover"
+                  src="./assets/imgs/search/image-11.jpg"
+                  class="d-block w-100"
+                  alt="..."
                 />
               </div>
-              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-                Ouver2re
-              </p>
-              <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
-            </div>
-
-            <div class="flex-shrink-0" style="width: 130px">
-              <div
-                class="d-flex align-items-center justify-content-center rounded bg-secondary"
-                style="height: 90px"
-              >
+              <div class="carousel-item">
                 <img
-                  src="./assets/imgs/search/song4.jpg"
-                  alt="img"
-                  class="w-100 h-100 object-fit-cover"
+                  src="./assets/imgs/search/image-19.jpg"
+                  class="d-block w-100"
+                  alt="..."
                 />
               </div>
-              <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
-                Morto mai (Piano Solo)
-              </p>
-              <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
+              <div class="container position-absolute bottom-0 start-0">
+                <p
+                  class="fw-bold mb-0 mt-1 text-light text-shadow"
+                  style="font-size: 15px"
+                >
+                  Headlights
+                </p>
+                <p class="text-light mb-0 text-shadow" style="font-size: 12px">
+                  Alok, Alan Walker, Kiddo
+                </p>
+              </div>
             </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample6"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample6"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
           <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
             <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>

@@ -299,3 +299,8 @@ body {
 .link:hover {
   text-decoration: underline;
 }
+
+/* per il testo sulle immagini */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
