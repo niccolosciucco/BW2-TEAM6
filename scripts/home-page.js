@@ -1,45 +1,3 @@
-// #region COMPORTAMENTO CAROSELLO
-
-// const carousel = document.querySelector("#carouselExample");
-// if (window.matchMedia("(min-width: 768px)").matches) {
-//   const carouselInstance = new bootstrap.Carousel(carousel, {
-//     interval: false, // Disattiva lo scorrimento automatico
-//   });
-
-//   let scrollPosition = 0;
-
-//   document
-//     .querySelector(".carousel-control-next")
-//     .addEventListener("click", function () {
-//       const containerWidth =
-//         document.querySelector(".carousel-inner").scrollWidth;
-//       const cardWidth = document.querySelector(".carousel-item").offsetWidth;
-
-//       if (scrollPosition < containerWidth - cardWidth * 4) {
-//         scrollPosition += cardWidth;
-//         document.querySelector(".carousel-inner").scrollTo({
-//           left: scrollPosition,
-//           behavior: "smooth",
-//         });
-//       }
-//     });
-
-//   document
-//     .querySelector(".carousel-control-prev")
-//     .addEventListener("click", function () {
-//       const cardWidth = document.querySelector(".carousel-item").offsetWidth;
-//       if (scrollPosition > 0) {
-//         scrollPosition -= cardWidth;
-//         document.querySelector(".carousel-inner").scrollTo({
-//           left: scrollPosition,
-//           behavior: "smooth",
-//         });
-//       }
-//     });
-// }
-
-// #endregion
-
 class GeneralMusic {
   constructor() {
     this.data = null;
@@ -349,7 +307,7 @@ const getAlbum = () => {
   });
 };
 
-//getAlbum();
+getAlbum();
 
 // #endregion
 
@@ -493,4 +451,14 @@ const syncProgressBar = (audioInstance) => {
     if (!audioInstance.paused) update();
   };
 };
+// #endregion
+
+// #region COLLASSO SIDEBAR
+const sidebar = document.getElementById("sidebarLeft");
+const toggleBtn = document.getElementById("toggleSidebar");
+
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("sidebar-collapsed");
+  sidebar.classList.toggle("sidebar-expanded");
+});
 // #endregion
