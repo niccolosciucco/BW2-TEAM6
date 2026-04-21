@@ -93,14 +93,17 @@
       <div class="container-fluid">
         <div class="row g-3">
           <!-- Container sidebar left -->
-          <div class="col-12 col-md-3 d-none d-md-block rounded-2 bg-dark">
+          <div
+            id="sidebarLeft"
+            class="col-12 d-none d-md-block col-md-3 sidebar-expanded bg-dark rounded-2"
+          >
             <!-- <div class="bg-dark rounded-top-2"> -->
             <!-- Hero sidebar -->
             <div class="d-flex w-100 rounded-top-2">
               <div class="mt-2">
-                <i
-                  class="bi bi-layout-sidebar-inset-reverse text-secondary"
-                ></i>
+                <button id="toggleSidebar" class="btn text-secondary">
+                  <i class="bi bi-layout-sidebar-inset-reverse"></i>
+                </button>
               </div>
               <div class="d-flex justify-content-between text-light w-100 mt-2">
                 <div>
@@ -114,7 +117,8 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <i class="bi bi-plus-lg"></i>Create
+                    <i class="bi bi-plus-lg"></i
+                    ><span class="collapse-hidden">Create</span>
                   </button>
 
                   <ul class="dropdown-menu bg-dark">
@@ -211,13 +215,13 @@
             </div>
 
             <!--SEARCH-->
-            <div class="d-flex justify-content-between mb-1">
+            <div class="d-flex justify-content-between mb-1 collapse-hidden">
               <div class="d-flex">
                 <i class="bi bi-search text-secondary"></i>
                 <input
                   type="text"
                   name=""
-                  class="bg-transparent border-0 w-75"
+                  class="bg-transparent border-0 w-75 collapse-hidden"
                   placeholder="Search"
                 />
               </div>
@@ -239,7 +243,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Liked Songs</div>
                   <small class="text-secondary">Playlist • 1340 songs</small>
                 </div>
@@ -251,7 +255,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">LoFi Beats</div>
                   <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
@@ -263,7 +267,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Dissect</div>
                   <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
@@ -275,7 +279,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Pollen</div>
                   <small class="text-secondary">Playlist • 10 songs</small>
                 </div>
@@ -287,7 +291,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Mint</div>
                   <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
@@ -299,7 +303,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Viva Latino</div>
                   <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
@@ -311,7 +315,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">are & Be</div>
                   <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
@@ -323,7 +327,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Rock this</div>
                   <small class="text-secondary">Playlist • 70 songs</small>
                 </div>
@@ -335,7 +339,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Beast Mode</div>
                   <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
@@ -347,7 +351,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Nija</div>
                   <small class="text-secondary">Playlist • 25 songs</small>
                 </div>
@@ -360,7 +364,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Song To Sing In The Car</div>
                   <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
@@ -372,7 +376,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">All Out 10s</div>
                   <small class="text-secondary">Playlist • 20 songs</small>
                 </div>
@@ -384,7 +388,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Your Summer Rewind</div>
                   <small class="text-secondary">Playlist • 200 songs</small>
                 </div>
@@ -396,7 +400,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Top Song Global</div>
                   <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
@@ -409,7 +413,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Soul Lounge</div>
                   <small class="text-secondary">Playlist • 20 songs</small>
                 </div>
@@ -421,7 +425,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Stress Relief</div>
                   <small class="text-secondary">Playlist • 500 songs</small>
                 </div>
@@ -433,7 +437,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Sleep</div>
                   <small class="text-secondary">Playlist • 80 songs</small>
                 </div>
@@ -445,7 +449,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Island Pop</div>
                   <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
@@ -457,7 +461,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Jazz Appreciation</div>
                   <small class="text-secondary">Playlist • 60 songs</small>
                 </div>
@@ -470,7 +474,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Indigo</div>
                   <small class="text-secondary">Playlist • 40 songs</small>
                 </div>
@@ -482,7 +486,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Deep Focus</div>
                   <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
@@ -494,7 +498,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Peaceful Guitar</div>
                   <small class="text-secondary">Playlist • 15 songs</small>
                 </div>
@@ -506,7 +510,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Out Now</div>
                   <small class="text-secondary">Playlist • 50 songs</small>
                 </div>
@@ -518,7 +522,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">New Music</div>
                   <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
@@ -530,7 +534,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Party Hits</div>
                   <small class="text-secondary">Playlist • 100 songs</small>
                 </div>
@@ -542,7 +546,7 @@
                   width="50"
                   height="50"
                 />
-                <div class="px-2">
+                <div class="px-2 collapse-hidden">
                   <div class="fw-bold text-light">Afro Hits</div>
                   <small class="text-secondary">Playlist • 30 songs</small>
                 </div>
@@ -552,7 +556,7 @@
           </div>
 
           <!-- Container main content -->
-          <div class="col-12 col-md-6 rounded-2">
+          <div class="col-auto rounded-2">
             <div class="bg-dark rounded-top-2">
               <!-- Content area -->
               <div id="playlist-card"></div>
@@ -602,7 +606,6 @@
                         <div
                           id="albumCarousel"
                           class="carousel slide container-fluid"
-                          data-bs-ride="carousel"
                         >
                           <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -666,7 +669,6 @@
                         <div
                           id="albumCarousel2"
                           class="carousel slide container-fluid"
-                          data-bs-ride="carousel"
                         >
                           <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -730,7 +732,6 @@
                         <div
                           id="albumCarousel3"
                           class="carousel slide container-fluid"
-                          data-bs-ride="carousel"
                         >
                           <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -794,7 +795,6 @@
                         <div
                           id="albumCarousel4"
                           class="carousel slide container-fluid"
-                          data-bs-ride="carousel"
                         >
                           <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -846,6 +846,7 @@
           </div>
 
           <!-- Container sidebar right-->
+
           <div class="col-12 col-md-3 d-none d-md-block rounded-2 bg-dark">
             <div
               class="d-flex align-items-center justify-content-center bg-secondary"
@@ -1051,5 +1052,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./scripts/home-page.js"></script>
+    <script src="./scripts/leftsidebar.js"></script>
   </body>
 </html>

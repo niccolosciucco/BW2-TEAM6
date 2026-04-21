@@ -44,3 +44,27 @@ body {
 .album-card:hover .play-button {
   opacity: 1;
 }
+
+#sidebarLeft {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-collapsed {
+  width: 80px;
+}
+
+.sidebar-collapsed .text,
+.sidebar-collapsed p,
+.sidebar-collapsed small,
+.sidebar-collapsed input,
+.sidebar-collapsed span,
+.sidebar-collapsed a,
+.sidebar-collapsed .collapse-hidden {
+  display: none !important;
+}
+
+.sidebar-collapsed img {
+  margin: auto;
+  display: block;
+}
