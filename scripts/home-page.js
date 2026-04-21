@@ -144,6 +144,27 @@ const handleFooter = function (title, name, cover, preview) {
 
   const coverSong = document.getElementById("cover-canzone");
   coverSong.setAttribute("src", cover);
+
+  const sbRightArtist = document.getElementById("sb-right-name-artist");
+  sbRightArtist.innerText = name;
+
+  const sbRightTitle = document.getElementById("sb-right-title");
+  sbRightTitle.innerText = title;
+
+  const sbRightSubTitle = document.getElementById("sb-right-subTitle");
+  sbRightSubTitle.innerText = name;
+
+  const sbRightImg = document.getElementById("sb-right-img");
+  sbRightImg.setAttribute("src", cover);
+
+  const iaImg = document.getElementById("ia-img");
+  iaImg.setAttribute("src", cover);
+
+  const iaName = document.getElementById("ia-name");
+  iaName.innerText = name;
+
+  const riconoscimenti = document.getElementById("riconoscimenti-name");
+  riconoscimenti.innerText = name;
 };
 
 const updateBtnIcon = (btn, isPlaying) => {
@@ -196,8 +217,6 @@ const getAd = () => {
       }
     })
     .then((data) => {
-      console.log(data);
-
       const row = document.getElementById("playlist-card");
       row.innerHTML = `
             <div class="card bg-dark bg-gradient text-white overflow-hidden">
@@ -213,7 +232,7 @@ const getAd = () => {
                             <p class="d-none d-md-block">${data.data[0].artist.name}</p>
                             <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${data.data[0].artist.name}!</p>
                             <div class="d-flex gap-2 mt-3 d-none d-md-block">
-                                <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold" onclick="handleMusic('${data.data[0].preview}', false)">Play</a>
+                                <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold" onclick="handleMusic('${data.data[0].album.title}', '${data.data[0].artist.name}', '${data.data[0].album.cover_big}', '${data.data[0].preview}', false)">Play</a>
                                 <a href="#" class="btn btn-outline-light rounded-5 px-4 py-2 fw-bold">Save</a>
                             </div>
                             <div class="d-flex gap-2 mt-3 d-md-none">
@@ -255,8 +274,6 @@ const getAlbum = () => {
       .then((data) => {
         const idBtn = `btn-album${i}`;
 
-        console.log("data", data);
-
         row.innerHTML += `
         <div class="col">
           <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100 glow-up">
@@ -286,7 +303,7 @@ const getAlbum = () => {
   });
 };
 
-getAlbum();
+//getAlbum();
 
 // #endregion
 
