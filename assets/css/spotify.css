@@ -290,3 +290,12 @@ body {
 #volume-range:active::-webkit-slider-thumb {
   transform: scale(1.2);
 }
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

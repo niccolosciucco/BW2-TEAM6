@@ -232,8 +232,8 @@ const getAd = () => {
                     <div class="col-10">
                         <div class="card-body justify-content-start">
                             <a class="m-0 text-decoration-none text-white d-none d-md-block"><p class="fw-bold m-0">Album</p></a>
-                            <h2 class="card-title fw-bold">${data.data[0].album.title}</h2>
-                            <p class="d-none d-md-block">${data.data[0].artist.name}</p>
+                            <a href="./album.html?id=${data.data[0].album.id}" class="link"><h2 class="card-title fw-bold">${data.data[0].album.title}</h2></a>
+                            <a href="./artist.html?id=${data.data[0].artist.id}" class="link"><p class="d-none d-md-block">${data.data[0].artist.name}</p></a>
                             <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${data.data[0].artist.name}!</p>
                             <div class="d-flex gap-2 mt-3 d-none d-md-block">
                                 <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold" onclick="handleMusic('${data.data[0].album.title}', '${data.data[0].artist.name}', '${data.data[0].album.cover_big}', '${data.data[0].preview}', false)">Play</a>
@@ -288,7 +288,7 @@ const getAlbum = () => {
 
               <div class="col-8 position-relative">
                 <div class="card-body d-flex align-items-center h-100">
-                  <h2 class="card-title h6 mb-0 text-truncate">${data.title}</h2>
+                  <a href="./album.html?id=${data.id}" class="link"><h2 class="card-title h6 mb-0 text-truncate">${data.title}</h2></a>
                 </div>
               </div>
 
@@ -371,12 +371,14 @@ const createAlbumCard = (data, id, containerId, globalIndex) => {
   const col = document.createElement("div");
   col.className = "col-6 col-md-3 col-lg-2 mb-3";
 
+  console.log(data);
+
   col.innerHTML = `
     <div class="card h-100 album-card bg-transparent border-0 position-relative glow-up">
       <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}">
       <div class="card-body text-secondary p-2">
-        <p class="card-text text-truncate text-white mb-0">${data.title}</p>
-        <p class="card-text text-truncate small">${data.artist.name}</p>
+        <a href="./album.html?id=${data.id}" class="link"><p class="card-text text-truncate text-white mb-0">${data.title}</p></a>
+        <a href="./artist.html?id=${data.artist.id}" class="link"><p class="card-text text-truncate small">${data.artist.name}</p></a>
       </div>
       <a href="javascript:void(0)" 
          id="${idBtn}" 
