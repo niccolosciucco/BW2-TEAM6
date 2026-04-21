@@ -72,6 +72,7 @@ const handleMusic = (preview, isMobile, isMouseHover = false, idBtn = "") => {
   }
 
   let btn;
+
   if (isMobile) {
     btn = document.getElementById("play-mobile");
   } else if (isMouseHover) {
@@ -91,12 +92,28 @@ const handleMusic = (preview, isMobile, isMouseHover = false, idBtn = "") => {
 };
 
 const updateBtnIcon = (btn, isPlaying) => {
+  if (!btn) return;
+
+  // Gestione Colore (comune a tutti)
   if (isPlaying) {
-    btn.classList.replace("bi-play-fill", "bi-pause-fill");
     btn.classList.replace("btn-success", "btn-warning");
   } else {
-    btn.classList.replace("bi-pause-fill", "bi-play-fill");
     btn.classList.replace("btn-warning", "btn-success");
+  }
+
+  // 1. Gestione PC
+  if (btn.id === "play") {
+    btn.innerText = isPlaying ? "Pause" : "Play";
+    return;
+  }
+
+  // 2. Gestione icone per Mobile e Carousel
+  if (isPlaying) {
+    btn.classList.replace("bi-play-fill", "bi-pause-fill");
+    btn.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+  } else {
+    btn.classList.replace("bi-pause-fill", "bi-play-fill");
+    btn.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
   }
 };
 // #endregion
@@ -182,7 +199,7 @@ const getAlbum = () => {
 
         row.innerHTML += `
         <div class="col">
-          <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100">
+          <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100 glow-up">
             <div class="row g-0 h-100"> 
               <div class="col-4">
                 <img src="${data.cover_big}" class="img-fluid rounded-start h-100 object-fit-cover" alt="cover ${data.title}">
@@ -274,7 +291,7 @@ const createAlbumCard = (data, id, containerId, globalIndex) => {
   col.className = "col-6 col-md-3 col-lg-2 mb-3";
 
   col.innerHTML = `
-    <div class="card h-100 album-card bg-transparent border-0 position-relative">
+    <div class="card h-100 album-card bg-transparent border-0 position-relative glow-up">
       <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}">
       <div class="card-body text-secondary p-2">
         <p class="card-text text-truncate text-white mb-0">${data.title}</p>
