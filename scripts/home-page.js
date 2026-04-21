@@ -60,6 +60,7 @@ class GeneralMusic {
 
 // #region PLAY AND PAUSE MUSIC
 let audio = null;
+let currentCardBtnId = null; // Memorizza l'ultimo bottone card cliccato
 
 const handleMusic = (
   title = "",
@@ -71,13 +72,23 @@ const handleMusic = (
   idBtn = "",
 ) => {
   if (audio && audio.src !== preview) {
+    // Se cambiamo canzone, resettiamo l'icona della card precedente prima di cambiare
+    if (currentCardBtnId) {
+      updateBtnIcon(document.getElementById(currentCardBtnId), false);
+    }
+
     audio.pause();
     audio = new Audio(preview);
+    syncProgressBar(audio);
   }
 
   if (!audio) {
     audio = new Audio(preview);
+    syncProgressBar(audio);
   }
+
+  // Memorizziamo l'ID del bottone della card attuale per poterlo controllare dal footer
+  currentCardBtnId = idBtn;
 
   let btn;
 
@@ -89,17 +100,40 @@ const handleMusic = (
     btn = document.getElementById("play");
   }
 
+  // Recuperiamo anche il bottone principale del footer per sincronizzarlo
+  const mainBtn = document.getElementById("play-main");
+
   // Logica Play/Pause
   if (audio.paused) {
     audio.play();
     updateBtnIcon(btn, true);
+    updateBtnIcon(mainBtn, true); // Sincronizza footer
   } else {
     audio.pause();
     updateBtnIcon(btn, false);
+    updateBtnIcon(mainBtn, false); // Sincronizza footer
   }
 
   handleFooter(title, name, cover, preview);
 };
+
+// Listener per il bottone play-main (footer)
+document.getElementById("play-main").addEventListener("click", () => {
+  if (!audio) return;
+
+  const mainBtn = document.getElementById("play-main");
+  const cardBtn = document.getElementById(currentCardBtnId);
+
+  if (audio.paused) {
+    audio.play();
+    updateBtnIcon(mainBtn, true);
+    if (cardBtn) updateBtnIcon(cardBtn, true); // Sincronizza anche la card
+  } else {
+    audio.pause();
+    updateBtnIcon(mainBtn, false);
+    if (cardBtn) updateBtnIcon(cardBtn, false); // Sincronizza anche la card
+  }
+});
 
 const handleFooter = function (title, name, cover, preview) {
   const songTitle = document.getElementById("titolo-canzone");
@@ -114,6 +148,8 @@ const handleFooter = function (title, name, cover, preview) {
 
 const updateBtnIcon = (btn, isPlaying) => {
   if (!btn) return;
+
+  const icon = btn.querySelector("i") || btn;
 
   // Gestione Colore (comune a tutti)
   if (isPlaying) {
@@ -130,11 +166,11 @@ const updateBtnIcon = (btn, isPlaying) => {
 
   // 2. Gestione icone per Mobile e Carousel
   if (isPlaying) {
-    btn.classList.replace("bi-play-fill", "bi-pause-fill");
-    btn.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+    icon.classList.replace("bi-play-fill", "bi-pause-fill");
+    icon.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
   } else {
-    btn.classList.replace("bi-pause-fill", "bi-play-fill");
-    btn.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+    icon.classList.replace("bi-pause-fill", "bi-play-fill");
+    icon.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
   }
 };
 // #endregion
@@ -332,4 +368,82 @@ const createAlbumCard = (data, id, containerId, globalIndex) => {
 };
 
 createAllCarousels();
+// #endregion
+
+// #region RIPRODUZIONE MUSICA
+let animationId;
+
+const syncProgressBar = (audioInstance) => {
+  const range = document.getElementById("track-range");
+  const currentTimeLabel = document.getElementById("current-time");
+  const durationLabel = document.getElementById("track-duration");
+
+  const update = () => {
+    if (!audioInstance.paused) {
+      const current = audioInstance.currentTime;
+      const duration = audioInstance.duration || 29;
+
+      const percent = (current / duration) * 100;
+      range.style.setProperty("--progress", `${percent}%`);
+
+      range.value = current;
+
+      const mins = Math.floor(current / 60);
+      const secs = Math.floor(current % 60);
+      currentTimeLabel.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+
+      animationId = requestAnimationFrame(update);
+    }
+  };
+
+  audioInstance.onplay = () => {
+    range.max = audioInstance.duration || 29;
+    update();
+  };
+
+  audioInstance.onpause = () => {
+    cancelAnimationFrame(animationId);
+  };
+
+  audioInstance.onended = () => {
+    cancelAnimationFrame(animationId);
+    range.value = 0;
+    currentTimeLabel.innerText = "0:00";
+  };
+
+  range.oninput = () => {
+    cancelAnimationFrame(animationId);
+    audioInstance.currentTime = range.value;
+
+    if (!audioInstance.paused) update();
+  };
+};
+// #endregion
+
+// #region VOLUME MUSICA
+const initVolumeControl = () => {
+  const volumeRange = document.getElementById("volume-range");
+  const volumeIcon = document.getElementById("volume-icon");
+
+  volumeRange.addEventListener("input", (e) => {
+    const val = e.target.value;
+
+    if (audio) {
+      audio.volume = val;
+    }
+
+    if (val == 0) {
+      volumeIcon.classList.replace("bi-volume-up", "bi-volume-mute");
+      volumeIcon.classList.replace("bi-volume-down", "bi-volume-mute");
+    } else if (val < 0.5) {
+      volumeIcon.classList.replace("bi-volume-up", "bi-volume-down");
+      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-down");
+    } else {
+      volumeIcon.classList.replace("bi-volume-down", "bi-volume-up");
+      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-up");
+    }
+  });
+};
+
+initVolumeControl();
 // #endregion
