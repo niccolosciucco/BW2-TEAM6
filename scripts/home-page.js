@@ -16,6 +16,85 @@ class GeneralMusic {
   }
 }
 
+// #region SIDEBAR CONTENUTO SINISTRO
+const loadSidebarData = () => {
+  const url =
+    "https://striveschool-api.herokuapp.com/api/deezer/search?q=playlist";
+  const container = document.getElementById("playlist-album");
+
+  if (!container) return;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((obj) => {
+      container.innerHTML = "";
+
+      const limitedData = obj.data.slice(0, 12);
+
+      limitedData.forEach((item) => {
+        container.innerHTML += `
+          <div class="d-flex align-items-center my-3">
+            <img src="${item.album.cover_big}" width="50" height="50" class="rounded-1 shadow-sm">
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light text-truncate" style="max-width: 150px;">
+                ${item.album.title}
+              </div>
+              <small class="text-secondary">${item.artist.name}</small>
+            </div>
+          </div>`;
+      });
+    })
+    .catch((err) => console.error("Errore sidebar:", err));
+};
+
+loadSidebarData();
+// #endregion
+
+// #region SIDEBAR CONTENUTO DESTRO
+const loadAlbumCarousel = () => {
+  const url =
+    "https://striveschool-api.herokuapp.com/api/deezer/search?q=album";
+  const container = document.getElementById("album-sidebar");
+
+  if (!container) return;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((obj) => {
+      container.innerHTML = "";
+
+      const limitedData = obj.data.slice(0, 12);
+
+      limitedData.forEach((item, index) => {
+        const isActive = index === 0 ? "active" : "";
+
+        container.innerHTML += `
+          <div class="carousel-item ${isActive}">
+            <img
+              src="${item.album.cover_big}"
+              class="d-block w-100 rounded-2"
+              alt="${item.album.title}"
+            />
+            <div class="container position-absolute bottom-0 start-0 pb-2">
+              <p
+                class="fw-bold mb-0 mt-1 text-light text-shadow text-truncate"
+                style="font-size: 15px; max-width: 90%;"
+              >
+                ${item.album.title}
+              </p>
+              <p class="text-light mb-0 text-shadow text-truncate" style="font-size: 12px; max-width: 90%;">
+                ${item.artist.name}
+              </p>
+            </div>
+          </div>`;
+      });
+    })
+    .catch((err) => console.error("Errore album carousel:", err));
+};
+
+loadAlbumCarousel();
+// #endregion
+
 // #region VOLUME MUSICA
 const initVolumeControl = () => {
   const volumeRange = document.getElementById("volume-range");
