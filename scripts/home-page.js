@@ -207,11 +207,11 @@ let codAlbum = "";
 let fullUrl = "";
 
 // #region GET ANNUNCI
-
 const getAd = () => {
   qs = "search?q=";
   artist = "mengoni";
   fullUrl = urlSearch + qs + artist;
+
   fetch(fullUrl)
     .then((response) => {
       if (response.ok) {
@@ -222,30 +222,55 @@ const getAd = () => {
     })
     .then((data) => {
       const row = document.getElementById("playlist-card");
+      const songData = data.data[0]; // Prendiamo il primo risultato
+
+      // Ho aggiunto l'ID "ad-card" per poter cambiare lo sfondo via JS
       row.innerHTML = `
-            <div class="card bg-dark bg-gradient text-white overflow-hidden">
+            <div id="ad-card" class="card text-white overflow-hidden border-0" style="transition: background 0.8s ease;">
                 <div class="row g-0 align-items-center">
                     <div class="col-2">
-                        <img src="${data.data[0].album.cover_big}" class="img-fluid object-fit-cover rounded-start h-100 ms-2" alt="album cover"  >
+                        <img id="ad-img" src="${songData.album.cover_big}" 
+                             class="img-fluid object-fit-cover rounded-start h-100 ms-2" 
+                             alt="album cover" crossorigin="anonymous">
                     </div>
                     
                     <div class="col-10">
                         <div class="card-body justify-content-start">
                             <a class="m-0 text-decoration-none text-white d-none d-md-block"><p class="fw-bold m-0">Album</p></a>
-                            <a href="./album.html?id=${data.data[0].album.id}" class="link"><h2 class="card-title fw-bold">${data.data[0].album.title}</h2></a>
-                            <a href="./artist.html?id=${data.data[0].artist.id}" class="link"><p class="d-none d-md-block">${data.data[0].artist.name}</p></a>
-                            <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${data.data[0].artist.name}!</p>
-                            <div class="d-flex gap-2 mt-3 d-none d-md-block">
-                                <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold" onclick="handleMusic('${data.data[0].album.title}', '${data.data[0].artist.name}', '${data.data[0].album.cover_big}', '${data.data[0].preview}', false)">Play</a>
+                            <a href="./album.html?id=${songData.album.id}" class="link"><h2 class="card-title fw-bold">${songData.album.title}</h2></a>
+                            <a href="./artist.html?id=${songData.artist.id}" class="link"><p class="d-none d-md-block">${songData.artist.name}</p></a>
+                            <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${songData.artist.name}!</p>
+                            <div class="d-flex gap-2 mt-3 d-none d-md-block ms-2">
+                                <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold me-2" onclick="handleMusic('${songData.album.title}', '${songData.artist.name}', '${songData.album.cover_big}', '${songData.preview}', false)">Play</a>
                                 <a href="#" class="btn btn-outline-light rounded-5 px-4 py-2 fw-bold">Save</a>
                             </div>
                             <div class="d-flex gap-2 mt-3 d-md-none">
-                                <a href="#" id="play-mobile" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold bi bi-play-circle-fill" onclick="handleMusic('${data.data[0].album.title}', '${data.data[0].artist.name}', '${data.data[0].album.cover_big}', '${data.data[0].preview}', true)"></a>
+                                <a href="#" id="play-mobile" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold bi bi-play-circle-fill" onclick="handleMusic('${songData.album.title}', '${songData.artist.name}', '${songData.album.cover_big}', '${songData.preview}', true)"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>`;
+
+      // Background dinamico
+      const img = document.getElementById("ad-img");
+      const card = document.getElementById("ad-card");
+      const colorThief = new ColorThief();
+
+      const applyGradient = () => {
+        const rgb = colorThief.getColor(img);
+        const mainColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+
+        card.style.background = `linear-gradient(180deg, ${mainColor} 0%, #121212 100%)`;
+      };
+
+      if (img.complete) {
+        applyGradient();
+      } else {
+        img.addEventListener("load", () => {
+          applyGradient();
+        });
+      }
     })
     .catch((error) => {
       console.log(error);
