@@ -32,7 +32,8 @@ body {
 
 .dropdown-item:hover i,
 .dropdown-item:hover a,
-.dropdown-item:hover small {
+.dropdown-item:hover small,
+.dropdown-item:hover span {
   color: black !important;
 }
 
