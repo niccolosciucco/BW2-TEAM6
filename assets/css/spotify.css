@@ -45,14 +45,13 @@ body {
   opacity: 1;
 }
 
-#sidebarLeft {
+/* #sidebarLeft {
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
 .sidebar-collapsed {
   width: 80px;
-}
+}*/
 
 .sidebar-collapsed .text,
 .sidebar-collapsed p,
@@ -67,4 +66,29 @@ body {
 .sidebar-collapsed img {
   margin: auto;
   display: block;
+}
+
+#sidebarLeft {
+  transition: width 0.3s ease;
+  height: 100vh;
+}
+
+.sidebar-expanded {
+  width: 260px;
+}
+
+.sidebar-collapsed {
+  width: 80px;
+}
+
+.right-sidebar {
+  width: 300px;
+}
+
+.flex-grow-1 {
+  min-width: 0;
+}
+
+.sidebar-collapsed .collapse-hidden {
+  display: none !important;
 }
