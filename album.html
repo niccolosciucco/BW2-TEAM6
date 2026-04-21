@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/spotify.css" />
   </head>
-  <body class="bg-dark">
+  <body class="bg-black">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-black py-2">
         <div class="container-fluid d-block">
@@ -88,7 +88,1101 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main class="d-flex bg-black">
+      <!-- LEFT SIDEBAR -->
+      <div
+        id="sidebarLeft"
+        class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
+      >
+        <!-- <div class="bg-dark rounded-top-2"> -->
+        <!-- Hero sidebar -->
+        <div class="d-flex w-100 px-lg-2">
+          <div class="mt-2">
+            <button id="toggleSidebar" class="btn text-secondary">
+              <i class="bi bi-layout-sidebar-inset-reverse"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-between text-light w-100 mt-2">
+            <div>
+              <p>Your Library</p>
+            </div>
+            <div class="dropdown dropend me-1">
+              <button
+                class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
+                style="--bs-bg-opacity: 0.3"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-display="static"
+                data-bs-boundary="viewport"
+                aria-expanded="false"
+              >
+                <i class="bi bi-plus-lg"></i
+                ><span class="collapse-hidden">Create</span>
+              </button>
+
+              <ul class="dropdown-menu bg-dark">
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light pe-2"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Playlist <br />
+                    <small class="text-secondary" style="display: inline"
+                      >Create a playlist with songs or episodes</small
+                    >
+                  </a>
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-intersect me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Blend <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Combine your friends' tastes into a playlist</small
+                    >
+                  </a>
+                </li>
+                <li class="d-flex justify-content-center">
+                  <hr class="text-light w-75" />
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder-plus me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Folder <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Orginise your playlists</small
+                    >
+                  </a>
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-people-fill me-2 me-2 text-light ms-1"></i>
+                  </div>
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Jam <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Listen together from anywhere</small
+                    ></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--BTN SHORTCUTS-->
+        <div class="d-flex flex-wrap gap-1 my-2">
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Playlist</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Podcast</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Album</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Artisti</a
+            >
+          </div>
+        </div>
+
+        <!--SEARCH-->
+        <div class="d-flex justify-content-between mb-1 collapse-hidden">
+          <div class="d-flex">
+            <i class="bi bi-search text-secondary"></i>
+            <input
+              type="text"
+              name=""
+              class="bg-transparent border-0 w-75 collapse-hidden"
+              placeholder="Search"
+            />
+          </div>
+          <div class="text-light d-flex align-items-center gap-1">
+            <span>Recents</span>
+            <i class="bi bi-list text-secondary"></i>
+          </div>
+        </div>
+
+        <!--ELEMENT LIST-->
+        <section
+          class="overflow-scroll hide-scrollbar bg-dark"
+          style="height: 75vh"
+        >
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-17.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Liked Songs</div>
+              <small class="text-secondary">Playlist • 1340 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-10.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">LoFi Beats</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-2.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Dissect</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-3.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Pollen</div>
+              <small class="text-secondary">Playlist • 10 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-4.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Mint</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-5.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Viva Latino</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-6.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">are & Be</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-7.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Rock this</div>
+              <small class="text-secondary">Playlist • 70 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-8.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Beast Mode</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-9.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Nija</div>
+              <small class="text-secondary">Playlist • 25 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-11.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Song To Sing In The Car</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-12.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">All Out 10s</div>
+              <small class="text-secondary">Playlist • 20 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-13.jpeg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Your Summer Rewind</div>
+              <small class="text-secondary">Playlist • 200 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-14.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Top Song Global</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-16.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Soul Lounge</div>
+              <small class="text-secondary">Playlist • 20 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-17.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Stress Relief</div>
+              <small class="text-secondary">Playlist • 500 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-18.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Sleep</div>
+              <small class="text-secondary">Playlist • 80 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-19.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Island Pop</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-20.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Jazz Appreciation</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-22.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Indigo</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-23.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Deep Focus</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-24.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Peaceful Guitar</div>
+              <small class="text-secondary">Playlist • 15 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-25.jpeg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Out Now</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-26.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">New Music</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-27.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Party Hits</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-28.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Afro Hits</div>
+              <small class="text-secondary">Playlist • 30 songs</small>
+            </div>
+          </div>
+        </section>
+        <!-- </div> -->
+      </div>
+
+      <!-- CENTER CONTENT -->
+      <div class="flex-grow-1 bg-dark rounded-2 mx-2">
+        <!-- HERO -->
+        <div
+          class="d-flex align-items-end gap-4 p-4"
+          style="background: linear-gradient(to bottom, #4a4a4a, #121212)"
+        >
+          <img
+            src="./assets/imgs/search/song4.jpg"
+            alt="cover"
+            class="rounded flex-shrink-0"
+            style="width: 220px; height: 220px; object-fit: cover"
+          />
+          <div>
+            <p class="text-light small mb-2">Album</p>
+            <h1 class="fw-bold text-light mb-3" style="font-size: 3rem">
+              Re Mida(Piano Solo)
+            </h1>
+            <div class="d-flex align-items-center gap-2">
+              <img
+                src="./assets/imgs/search/song4.jpg"
+                alt="artist"
+                class="rounded-circle flex-shrink-0"
+                style="width: 24px; height: 24px; object-fit: cover"
+              />
+              <span class="text-light-emphasis">Lazza</span>
+              <span class="text-secondary small"
+                >• 2019 • 8 brani, 22 min 25 sec.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION BAR -->
+
+        <div class="d-flex align-items-center gap-3 px-4 py-3">
+          <button
+            class="btn btn-success rounded-circle play-btn d-flex align-items-center justify-content-center"
+          >
+            <i class="bi bi-play-fill fs-4"></i>
+          </button>
+
+          <div class="dropdown dropend me-1">
+            <button
+              class="text-light bg-transparent border-0"
+              style="--bs-bg-opacity: 0.3"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              data-bs-boundary="viewport"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots text-light fs-4"></i>
+            </button>
+
+            <ul class="dropdown-menu bg-dark">
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-add text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light pe-2"
+                  href="#"
+                  style="display: inline"
+                >
+                  Follow
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-slash-circle text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Don't play this artist
+                </small>
+              </li>
+
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-broadcast text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Folder
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row justify-content-between">
+                <div class="d-flex">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-exclamation-octagon text-light ms-1"></i>
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Folder
+                    </small>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-box-arrow-up-right text-light"></i>
+                </div>
+              </li>
+              <li class="dropdown dropend">
+                <button
+                  class="dropdown-item text-light d-flex justify-content-between align-items-center"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="bi bi-box-arrow-up text-light mx-1"></i>
+                    Share
+                  </span>
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- INSIDE DROPDOWN MENU -->
+                <ul class="dropdown-menu bg-dark">
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-copy text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Copy link to artist
+                    </small>
+                  </li>
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-code-square text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Embed artist
+                    </small>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <!--TITOLO-->
+        <div
+          class="d-flex align-items-center px-4 py-2 border-bottom border-secondary text-secondary small mx-2"
+        >
+          <span style="width: 30px">#</span>
+          <span class="flex-grow-1">Titolo</span>
+          <span style="width: 400px">Riproduzioni</span>
+          <span style="width: 60px" class="text-end">
+            <i class="bi bi-clock"></i>
+          </span>
+        </div>
+
+        <!-- TRACCE -->
+        <div class="px-2 mt-2">
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">1</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Ouver2re (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >4.435.605</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >1:53</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">2</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Re Mida (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >7.853.931</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >2:41</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">3</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Morto Mai (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >76.195.219</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >2:40</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">4</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Netflix (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >9.851.157</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >2:37</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">5</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Superman (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >7.807.108</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >2:56</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">6</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">24H (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >6.986.959</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >3:19</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">7</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Catrame (Piano Solo)[feat.Elodie & Tedua]</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >16.949.300</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >3:38</span
+            >
+          </div>
+          <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+            <span class="text-secondary small" style="width: 30px">8</span>
+            <div class="flex-grow-1">
+              <p class="mb-0">Desperado (Piano Solo)</p>
+              <p
+                class="mb-0 d-flex align-items-center gap-1"
+                style="font-size: 12px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 10px"
+                  >E</span
+                >
+                <span class="text-secondary">Lazza</span>
+              </p>
+            </div>
+            <span class="text-secondary small" style="width: 400px"
+              >5.611.616</span
+            >
+            <span class="text-secondary small text-end" style="width: 60px"
+              >2:48</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
+        <div
+          class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
+        >
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-layout-sidebar-inset-reverse"></i>
+            </button>
+            <p class="text-light mb-0 small">Takagi &amp; Ketra</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-three-dots"></i>
+            </button>
+            <button
+              class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+            >
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="bg-secondary d-flex align-items-center mx-auto justify-content-center mt-2"
+          style="height: 300px; width: 300px"
+        >
+          <img
+            src="./assets/imgs/search/img.ketra.jpg"
+            alt="img"
+            class="w-100 h-100 object-fit-cover"
+          />
+        </div>
+        <div
+          class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
+        >
+          <div>
+            <p class="fw-bold text-light mb-1 mt-2 small">
+              EVERYDAY(feat. Shiva, ANNA, Geolier)
+            </p>
+            <p class="text-secondary mb-0 fs-6">
+              Takagi &amp; Ketra, Shiva, ANNA, Geolier
+            </p>
+          </div>
+          <div class="d-flex align-items-center gap-2 mt-2 flex-shrink-0">
+            <button
+              class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
+              style="width: 28px; height: 28px"
+            >
+              x
+            </button>
+            <button
+              class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-1 fs-5"
+              style="width: 28px; height: 28px"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
+        <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-nowrap">
+          <div class="flex-shrink-0" style="width: 130px">
+            <div
+              class="d-flex align-items-center justify-content-center rounded bg-secondary"
+              style="height: 90px"
+            >
+              <img
+                src="./assets/imgs/search/song1.jpg"
+                alt="img"
+                class="w-100 h-100 object-fit-cover"
+              />
+            </div>
+            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+              Headlights
+            </p>
+            <p class="text-secondary mb-0" style="font-size: 12px">
+              Alok, Alan Walker, Kiddo
+            </p>
+          </div>
+
+          <div class="flex-shrink-0" style="width: 130px">
+            <div
+              class="d-flex align-items-center justify-content-center rounded bg-secondary"
+              style="height: 90px"
+            >
+              <img
+                src="./assets/imgs/search/song3.jpg"
+                alt="img"
+                class="w-100 h-100 object-fit-cover"
+              />
+            </div>
+            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+              Ouver2re
+            </p>
+            <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
+          </div>
+
+          <div class="flex-shrink-0" style="width: 130px">
+            <div
+              class="d-flex align-items-center justify-content-center rounded bg-secondary"
+              style="height: 90px"
+            >
+              <img
+                src="./assets/imgs/search/song4.jpg"
+                alt="img"
+                class="w-100 h-100 object-fit-cover"
+              />
+            </div>
+            <p class="fw-bold mb-0 mt-1 text-light" style="font-size: 15px">
+              Morto mai (Piano Solo)
+            </p>
+            <p class="text-secondary mb-0" style="font-size: 12px">Lazza</p>
+          </div>
+        </div>
+        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+          <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
+          <div class="d-flex flex-column gap-3 mb-2">
+            <div
+              class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
+              style="width: 52px; height: 52px"
+            >
+              <img
+                src="./assets/imgs/search/img4.jpg"
+                alt="img"
+                class="w-100 h-100 object-fit-cover"
+              />
+            </div>
+            <div>
+              <p class="fw-bold mb-0 text-light">Takagi &amp; Ketra</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="text-light small mb-0">2.972.185 ascoltatori mensili</p>
+              <div class="ms-auto">
+                <button
+                  class="btn btn-outline-light btn-sm rounded-pill px-3 small"
+                >
+                  Segui
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
+            Takagi &amp; Ketra sono due produttori multiplatino, hitmakers
+            italiani per eccellenza: dal 2013 oltre 230 dischi di platino fra
+            produzioni e singoli. "Quiéreme...
+          </p>
+        </div>
+        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+          <div class="d-flex align-items-center justify-content-between mb-1">
+            <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
+            <a href="#" class="text-secondary text-decoration-none small"
+              >Mostra tutto</a
+            >
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
+          >
+            <div>
+              <p class="fw-semibold mb-0 text-light">Takagi &amp; Ketra</p>
+              <p class="text-light-emphasis mb-0" style="font-size: 11px">
+                Artista Principale
+              </p>
+            </div>
+            <button
+              class="btn btn-outline-light rounded-pill px-3"
+              style="font-size: 12px"
+            >
+              Segui
+            </button>
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
+          >
+            <div>
+              <p class="mb-0 text-light">Shiva</p>
+              <p class="text-light-emphasis mb-0" style="font-size: 12px">
+                Artista Principale
+              </p>
+            </div>
+            <button
+              class="btn btn-outline-light rounded-pill px-2"
+              style="font-size: 12px"
+            >
+              Non seguire più
+            </button>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between pt-2">
+            <div>
+              <p class="mb-0 text-light">ANNA</p>
+              <p class="text-light-emphasis" style="font-size: 12px">
+                Artista Principale
+              </p>
+            </div>
+            <button
+              class="btn btn-outline-light rounded-pill px-3"
+              style="font-size: 12px"
+            >
+              Segui
+            </button>
+          </div>
+        </div>
+
+        <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
+            <a href="#" class="text-light-emphasis small text-decoration-none"
+              >Apri coda</a
+            >
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <div
+              class="rounded d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
+              style="width: 40px; height: 40px"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24">
+                <polygon points="8,6 18,12 8,18" fill="white" opacity="0.7" />
+              </svg>
+            </div>
+            <div>
+              <p class="mb-0 text-light">NUVOLA</p>
+              <p
+                class="text-secondary mb-0 d-flex align-items-center gap-1"
+                style="font-size: 11px"
+              >
+                <span
+                  class="badge bg-secondary text-dark"
+                  style="font-size: 11px"
+                  >Holden</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <footer></footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -96,5 +1190,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./scripts/spotify.js"></script>
+    <script src="./scripts/leftsidebar.js"></script>
   </body>
 </html>
