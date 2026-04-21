@@ -61,7 +61,15 @@ class GeneralMusic {
 // #region PLAY AND PAUSE MUSIC
 let audio = null;
 
-const handleMusic = (preview, isMobile, isMouseHover = false, idBtn = "") => {
+const handleMusic = (
+  title = "",
+  name = "",
+  cover = "",
+  preview,
+  isMobile,
+  isMouseHover = false,
+  idBtn = "",
+) => {
   if (audio && audio.src !== preview) {
     audio.pause();
     audio = new Audio(preview);
@@ -89,6 +97,19 @@ const handleMusic = (preview, isMobile, isMouseHover = false, idBtn = "") => {
     audio.pause();
     updateBtnIcon(btn, false);
   }
+
+  handleFooter(title, name, cover, preview);
+};
+
+const handleFooter = function (title, name, cover, preview) {
+  const songTitle = document.getElementById("titolo-canzone");
+  songTitle.innerHTML = title;
+
+  const artist = document.getElementById("nome-artista");
+  artist.innerHTML = name;
+
+  const coverSong = document.getElementById("cover-canzone");
+  coverSong.setAttribute("src", cover);
 };
 
 const updateBtnIcon = (btn, isPlaying) => {
@@ -140,6 +161,7 @@ const getAd = () => {
     })
     .then((data) => {
       console.log(data);
+
       const row = document.getElementById("playlist-card");
       row.innerHTML = `
             <div class="card bg-dark bg-gradient text-white overflow-hidden">
@@ -159,7 +181,7 @@ const getAd = () => {
                                 <a href="#" class="btn btn-outline-light rounded-5 px-4 py-2 fw-bold">Save</a>
                             </div>
                             <div class="d-flex gap-2 mt-3 d-md-none">
-                                <a href="#" id="play-mobile" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold bi bi-play-circle-fill" onclick="handleMusic('${data.data[0].preview}', true)"></a>
+                                <a href="#" id="play-mobile" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold bi bi-play-circle-fill" onclick="handleMusic('${data.data[0].album.title}', '${data.data[0].artist.name}', '${data.data[0].album.cover_big}', '${data.data[0].preview}', true)"></a>
                             </div>
                         </div>
                     </div>
@@ -197,6 +219,8 @@ const getAlbum = () => {
       .then((data) => {
         const idBtn = `btn-album${i}`;
 
+        console.log("data", data);
+
         row.innerHTML += `
         <div class="col">
           <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100 glow-up">
@@ -215,7 +239,7 @@ const getAlbum = () => {
                 id="${idBtn}"
                 class="play-button position-absolute top-50 end-0 translate-middle-y btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill me-1" 
                 style="width: 40px; height: 40px; font-size: 1.5rem;"
-                onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+                onclick="handleMusic('${data.title}', '${data.artist.name}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
               </a>
             </div>
           </div>
@@ -301,7 +325,7 @@ const createAlbumCard = (data, id, containerId, globalIndex) => {
          id="${idBtn}" 
          class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill"
          style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
-         onclick="handleMusic('${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+         onclick="handleMusic('${data.title}', '${data.artist.name}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
       </a>
     </div>`;
   return col;
