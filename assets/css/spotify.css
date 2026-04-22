@@ -75,7 +75,7 @@ body {
 }
 
 .sidebar-expanded {
-  width: 300px !important;
+  width: 350px !important;
 }
 
 .sidebar-collapsed {
@@ -83,7 +83,7 @@ body {
 }
 
 .right-sidebar {
-  width: 310px;
+  width: 350px;
 }
 
 .flex-grow-1 {
