@@ -25,8 +25,8 @@
     />
   </head>
   <body class="bg-black" style="height: 100vh">
-    <header style="height: 10vh">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3 z-3">
+    <header style="height: 8vh">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
             <div class="col-auto col-lg-3">
@@ -95,15 +95,15 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex" style="height: 80vh">
+    <main class="d-flex" style="height: 82vh">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
       <div
         id="sidebarLeft"
-        class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
-        style="height: 80vh"
+        class="d-flex flex-column d-none d-lg-block sidebar-expanded bg-dark rounded-2"
+        style="max-height: 82vh"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -262,14 +262,14 @@
         <!--ELEMENT LIST-->
         <section
           id="playlist-album"
-          class="overflow-scroll hide-scrollbar bg-dark ms-1"
-          style="height: 66vh"
+          class="d-flex flex-grow-1 flex-column overflow-auto hide-scrollbar bg-dark ms-1"
+          style="max-height: 62vh"
         ></section>
         <!-- </div> -->
       </div>
 
       <!-- Container main content -->
-      <div class="flex-grow-1 bg-dark rounded-2 mx-2" style="height: 80vh">
+      <div class="flex-grow-1 bg-dark rounded-2 mx-2" style="height: 82vh">
         <div class="bg-dark rounded-top-2">
           <!-- Content area -->
           <div id="playlist-card"></div>
@@ -296,8 +296,8 @@
 
               <!-- Album section -->
               <section
-                class="overflow-scroll hide-scrollbar bg-dark"
-                style="height: 50vh"
+                class="overflow-auto hide-scrollbar bg-dark"
+                style="height: 45vh"
               >
                 <div class="container">
                   <div
@@ -567,8 +567,8 @@
 
       <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
         <section
-          class="overflow-scroll hide-scrollbar bg-dark"
-          style="height: 80vh"
+          class="overflow-auto hide-scrollbar bg-dark rounded-2"
+          style="height: 82vh"
         >
           <div
             class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
