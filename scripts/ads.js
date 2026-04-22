@@ -10,26 +10,48 @@ const searchTerms = [
   "avril lavigne",
 ];
 let currentTermIndex = 0;
+let adInterval;
 
 const getAd = () => {
-  const term = searchTerms[currentTermIndex];
+  const row = document.getElementById("playlist-card");
+  if (!row) return;
 
-  fetch(urlSearch + term)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Fetch Errata", response.status);
-      }
-    })
-    .then((data) => {
-      const row = document.getElementById("playlist-card");
-      if (!row) return;
+  if (currentTermIndex >= searchTerms.length) {
+    const lastCard = document.getElementById("ad-card");
+    if (lastCard) {
+      lastCard.classList.add("fade-out");
 
-      const songData = data.data[0];
+      setTimeout(() => {
+        row.classList.add("d-none");
+      }, 600);
+    }
 
-      row.innerHTML = `
-            <div id="ad-card" class="card text-white overflow-hidden border-0 position-relative" style="transition: background 0.8s ease;">
+    clearInterval(adInterval);
+    return;
+  }
+
+  // --- LOGICA DI CAMBIO NORMALE ---
+  const oldCard = document.getElementById("ad-card");
+  if (oldCard) {
+    oldCard.classList.add("fade-out");
+  }
+
+  setTimeout(() => {
+    const term = searchTerms[currentTermIndex];
+
+    fetch(urlSearch + term)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Fetch Errata", response.status);
+        }
+      })
+      .then((data) => {
+        const songData = data.data[0];
+
+        row.innerHTML = `
+            <div id="ad-card" class="card text-white overflow-hidden border-0 position-relative fade-in" style="transition: background 0.8s ease;">
                 
                 <div class="position-absolute top-0 end-0 mt-2 me-3">
                     <small class="fw-bold opacity-75" style="letter-spacing: 1px; font-size: 0.7rem;">ANNUNCI</small>
@@ -60,33 +82,32 @@ const getAd = () => {
                 </div>
             </div>`;
 
-      // Background dinamico
-      const img = document.getElementById("ad-img");
-      const card = document.getElementById("ad-card");
-      const colorThief = new ColorThief();
+        // Background dinamico
+        const img = document.getElementById("ad-img");
+        const card = document.getElementById("ad-card");
+        const colorThief = new ColorThief();
 
-      const applyGradient = () => {
-        const rgb = colorThief.getColor(img);
-        const mainColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-        card.style.background = `linear-gradient(180deg, ${mainColor} 0%, #121212 100%)`;
-      };
+        const applyGradient = () => {
+          const rgb = colorThief.getColor(img);
+          const mainColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+          card.style.background = `linear-gradient(180deg, ${mainColor} 0%, #121212 100%)`;
+        };
 
-      if (img.complete) {
-        applyGradient();
-      } else {
-        img.addEventListener("load", applyGradient);
-      }
+        if (img.complete) {
+          applyGradient();
+        } else {
+          img.addEventListener("load", applyGradient);
+        }
 
-      currentTermIndex = (currentTermIndex + 1) % searchTerms.length;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+        currentTermIndex++;
+      })
+      .catch((error) => {
+        console.log("Errore annunci:", error);
+      });
+  }, 600);
 };
 
-// Primo avvio
 getAd();
 
-// Rotazione automatica ogni 10 secondi
-setInterval(getAd, 8000);
+adInterval = setInterval(getAd, 8000);
 // #endregion
