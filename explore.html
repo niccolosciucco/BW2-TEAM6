@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/spotify.css" />
   </head>
-  <body class="bg-black d-flex flex-column min-vh-100 h-100">
+  <body class="bg-black d-flex flex-column vh-100">
     <header class="flex-shrink-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
@@ -88,7 +88,7 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1 h-100 min-h-0">
+    <main class="d-flex flex-grow-1">
       <!-- LEFT SIDEBAR -->
       <div
         id="sidebarLeft"
@@ -249,7 +249,7 @@
         </div>
 
         <!--ELEMENT LIST-->
-         <section
+        <section
           class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
           id="playlist-album"
         ></section>
@@ -257,60 +257,74 @@
       </div>
 
       <!-- CENTER CONTENT -->
-      <!-- CENTER CONTENT -->
-<div class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column min-h-0">
+      <div
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column overflow-hidden"
+      >
+        <!-- TOP HEADER -->
+        <div class="px-4 py-3 flex-shrink-0">
+          <h4 class="text-white fw-bold mb-0">Browse all</h4>
+        </div>
 
-  <!-- TOP HEADER (optional like "Browse all") -->
-  <div class="px-4 py-3 flex-shrink-0">
-    <h4 class="text-white fw-bold mb-0">Browse all</h4>
-  </div>
+        <!-- SCROLLABLE AREA -->
+        <div class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5">
+          <div class="row g-3">
+            <!-- CARD -->
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-danger rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Music</h5>
+                <img
+                  src="./assets/imgs/search/image-1.jpeg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
 
-  <!-- SCROLLABLE AREA -->
-  <div class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5">
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-success rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Podcasts</h5>
+                <img
+                  src="./assets/imgs/search/image-2.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
 
-    <div class="row g-3">
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-primary rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Live Events</h5>
+                <img
+                  src="./assets/imgs/search/image-3.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
 
-      <!-- CARD -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="browse-card bg-danger rounded-3 p-3 position-relative overflow-hidden">
-          <h5 class="text-white fw-bold">Music</h5>
-          <img src="./assets/imgs/search/image-1.jpeg"
-               class="position-absolute bottom-0 end-0"
-               style="width: 90px; transform: rotate(25deg);" />
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-warning rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Made For You</h5>
+                <img
+                  src="./assets/imgs/search/image-4.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
+
+            <!-- add more cards like this -->
+          </div>
         </div>
       </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="browse-card bg-success rounded-3 p-3 position-relative overflow-hidden">
-          <h5 class="text-white fw-bold">Podcasts</h5>
-          <img src="./assets/imgs/search/image-2.jpg"
-               class="position-absolute bottom-0 end-0"
-               style="width: 90px; transform: rotate(25deg);" />
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="browse-card bg-primary rounded-3 p-3 position-relative overflow-hidden">
-          <h5 class="text-white fw-bold">Live Events</h5>
-          <img src="./assets/imgs/search/image-3.jpg"
-               class="position-absolute bottom-0 end-0"
-               style="width: 90px; transform: rotate(25deg);" />
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="browse-card bg-warning rounded-3 p-3 position-relative overflow-hidden">
-          <h5 class="text-white fw-bold">Made For You</h5>
-          <img src="./assets/imgs/search/image-4.jpg"
-               class="position-absolute bottom-0 end-0"
-               style="width: 90px; transform: rotate(25deg);" />
-        </div>
-      </div>
-
-      <!-- add more cards like this -->
-    </div>
-  </div>
-</div>
 
       <!-- RIGHT SIDEBAR -->
 
