@@ -29,27 +29,6 @@ function getAverageColor(imgElement) {
 }
 //#endregion
 
-// #region GET TRACKLIST
-
-const getTracklist = function (url) {
-  fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Errore Fetch: " + response.status);
-      }
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
-
-//#endregion
-
 const getAlbum = () => {
   const url = "https://striveschool-api.herokuapp.com/api/deezer/album/";
   const qs = id;
@@ -64,6 +43,7 @@ const getAlbum = () => {
     })
     .then((data) => {
       //Modificare la pagina, i testi e le immagini con i risultati della fetch
+      console.log(data);
       const albumTitle = document.getElementById("album-title");
       albumTitle.innerText = data.title;
 
