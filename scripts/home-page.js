@@ -258,12 +258,6 @@ const loadArtistInfo = () => {
 loadArtistInfo();
 // #endregion
 
-// let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
-// let qs = "";
-// let artist = "";
-// let codAlbum = "";
-// let fullUrl = "";
-
 // #region ALBUM
 
 const idAlbum = [

@@ -68,6 +68,32 @@ const popularSongs = function (data) {
     </div>
     `;
   }
+
+  tracceArtista.innerHTML += `    
+    <div id="carousel-artist-page" class="d-flex gap-4 overflow-hidden mt-4">
+      ${data
+        .slice(0, 5)
+        .map(
+          (album) => `
+        <div class="card p-3 border-0 spotify-card" style="background-color: #181818; width: 200px; cursor: pointer; transition: background 0.3s ease; border-radius: 8px;">
+          <div class="position-relative mb-3">
+            <img src="${album.album.cover_big}" class="card-img-top shadow-lg rounded-3" alt="${album.title}">
+            <div class="play-btn-spotify position-absolute" style="bottom: 8px; right: 8px; opacity: 0; transition: all 0.3s ease; transform: translateY(10px);">
+               <div class="bg-success rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 48px; height: 48px;">
+                 <i class="bi bi-play-fill text-black fs-2"></i>
+               </div>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <h6 class="text-white text-truncate mb-1 fw-bold">${album.album.title}</h6>
+          </div>
+        </div>
+      `,
+        )
+        .join("")}
+    </div>
+  </div>
+`;
 };
 
 // #endregion
