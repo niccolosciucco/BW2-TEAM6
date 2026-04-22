@@ -35,19 +35,19 @@ const createAlbumCard = (data, containerId, index) => {
   const idBtn = `btn-play-${albumId}-${index}`;
 
   const col = document.createElement("div");
-  col.className = "col-6 col-md-3 col-lg-2 mb-4"; // 6 card su desktop, 2 su mobile
+  col.className = "col-6 col-md-3 col-lg-2 mb-4 glow-up"; // 6 card su desktop, 2 su mobile
 
   col.innerHTML = `
         <div class="card h-100 album-card bg-transparent border-0 position-relative">
           <div class="position-relative overflow-hidden rounded-3 shadow-sm shadow-lg-hover">
             <img src="${albumCover}" class="card-img-top img-fluid" alt="${albumTitle}">
             <button 
-               id="${idBtn}" 
-               class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle shadow"
-               style="width: 48px; height: 48px; bottom: 8px; right: 8px; opacity: 0; transition: all 0.3s;"
-               onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
-               <i class="bi bi-play-fill fs-3"></i>
-            </button>
+            id="${idBtn}" 
+            class="play-button  position-absolute btn btn-success text-black p-0 pt-1 d-flex align-items-center justify-content-center rounded-circle shadow-lg" 
+            style="width: 40px; height: 40px; bottom: 8px; right: 8px;" 
+            onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
+            <i class="bi bi-play-fill fs-2"></i>
+</button>
           </div>
           <div class="card-body p-2">
             <a href="./album.html?id=${albumId}" class="text-decoration-none">
