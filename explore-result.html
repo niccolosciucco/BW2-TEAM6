@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/spotify.css" />
   </head>
-  <body class="bg-black d-flex flex-column min-vh-100 h-100">
+  <body class="bg-black d-flex flex-column vh-100">
     <header class="flex-shrink-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
@@ -44,9 +44,7 @@
                   class="vr mx-2 text-secondary"
                   style="height: 23px; opacity: 0.5"
                 ></div>
-                <a href="./explore.html">
-                  <i class="bi bi-collection-play text-secondary me-2"></i>
-                </a>
+                <i class="bi bi-collection-play text-secondary me-2"></i>
               </div>
               <div
                 id="suggestions-container"
@@ -102,7 +100,7 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1 h-100 min-h-0">
+    <main class="d-flex flex-grow-1">
       <!-- LEFT SIDEBAR -->
       <div
         id="sidebarLeft"
@@ -274,155 +272,34 @@
 
       <!-- CENTER CONTENT -->
       <div
-        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column overflow-hidden"
       >
-        <!-- HERO -->
+        <!-- TOP HEADER -->
+        <div class="px-4 py-3 flex-shrink-0">
+          <h4 class="text-white fw-bold mb-0">Browse all</h4>
+        </div>
+
+        <!-- AREA RESULT EXPLORE -->
         <div
-          class="artist-hero d-flex flex-column justify-content-end p-4 h-100 rounded-top-2"
+          class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5 hero-result"
         >
-          <h1 id="artist-name" class="text-white fw-bold display-4"></h1>
-          <p id="monthly-listener" class="text-light"></p>
-        </div>
+          <div class="container mt-5">
+            <h1 id="genre-title" class="display-2 fw-bold mb-5 text-white">
+              Caricamento...
+            </h1>
 
-        <!-- ACTION BAR -->
-        <div class="d-flex align-items-center gap-3 px-4 py-3">
-          <button
-            class="btn btn-success rounded-circle play-btn d-flex align-items-center justify-content-center"
-          >
-            <i class="bi bi-play-fill fs-4"></i>
-          </button>
+            <h3 class="text-white mb-4">Playlist popolari</h3>
+            <div
+              id="playlist-row"
+              class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mb-5"
+            ></div>
 
-          <button class="btn btn-outline-light rounded-pill px-3">
-            Follow
-          </button>
-          <div class="dropdown dropend me-1">
-            <button
-              class="text-light bg-transparent border-0"
-              style="--bs-bg-opacity: 0.3"
-              type="button"
-              data-bs-toggle="dropdown"
-              data-bs-display="static"
-              data-bs-boundary="viewport"
-              aria-expanded="false"
-            >
-              <i class="bi bi-three-dots text-light fs-4"></i>
-            </button>
-
-            <ul class="dropdown-menu bg-dark">
-              <li class="dropdown-item d-flex flex-row">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-person-add text-light ms-1"></i>
-                </div>
-
-                <small
-                  class="dropdown-item text-light pe-2"
-                  href="#"
-                  style="display: inline"
-                >
-                  Follow
-                </small>
-              </li>
-              <li class="dropdown-item d-flex flex-row">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-slash-circle text-light ms-1"></i>
-                </div>
-
-                <small
-                  class="dropdown-item text-light"
-                  href="#"
-                  style="display: inline"
-                >
-                  Don't play this artist
-                </small>
-              </li>
-
-              <li class="dropdown-item d-flex flex-row">
-                <div class="d-flex align-items-center">
-                  <i class="bi bi-broadcast text-light ms-1"></i>
-                </div>
-
-                <small
-                  class="dropdown-item text-light"
-                  href="#"
-                  style="display: inline"
-                >
-                  Folder
-                </small>
-              </li>
-              <li class="dropdown-item d-flex flex-row justify-content-between">
-                <div class="d-flex">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-exclamation-octagon text-light ms-1"></i>
-                    <small
-                      class="dropdown-item text-light"
-                      href="#"
-                      style="display: inline"
-                    >
-                      Folder
-                    </small>
-                  </div>
-                </div>
-                <div>
-                  <i class="bi bi-box-arrow-up-right text-light"></i>
-                </div>
-              </li>
-              <li class="dropdown dropend">
-                <button
-                  class="dropdown-item text-light d-flex justify-content-between align-items-center"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <span>
-                    <i class="bi bi-box-arrow-up text-light mx-1"></i>
-                    Share
-                  </span>
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-
-                <!-- INSIDE DROPDOWN MENU -->
-                <ul class="dropdown-menu bg-dark">
-                  <li class="dropdown-item d-flex flex-row">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-copy text-light ms-1"></i>
-                    </div>
-
-                    <small
-                      class="dropdown-item text-light"
-                      href="#"
-                      style="display: inline"
-                    >
-                      Copy link to artist
-                    </small>
-                  </li>
-                  <li class="dropdown-item d-flex flex-row">
-                    <div class="d-flex align-items-center">
-                      <i class="bi bi-code-square text-light ms-1"></i>
-                    </div>
-
-                    <small
-                      class="dropdown-item text-light"
-                      href="#"
-                      style="display: inline"
-                    >
-                      Embed artist
-                    </small>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <h3 class="text-white mb-4">Artisti in primo piano</h3>
+            <div
+              id="artist-row"
+              class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4"
+            ></div>
           </div>
-        </div>
-
-        <!-- CONTENT -->
-
-        <!-- POPULAR -->
-        <div class="d-flex flex-column min-h-0 h-100">
-          <h5 class="text-white mb-3">Popular</h5>
-
-          <section
-            id="tracce-artista"
-            class="flex-grow-1 overflow-auto hide-scrollbar"
-          ></section>
         </div>
       </div>
 
@@ -694,6 +571,7 @@
     <script src="./scripts/ads.js"></script>
     <script src="./scripts/player.js"></script>
     <script src="./scripts/searchbar.js"></script>
-    <script src="./scripts/artist.js"></script>
+    <script src="./scripts/explore-result.js"></script>
+    <script src="./scripts/home-page.js"></script>
   </body>
 </html>

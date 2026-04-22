@@ -424,7 +424,6 @@ main {
 }
 
 .grey-scroll {
-  
 }
 
 .grey-scroll:hover {
@@ -436,7 +435,7 @@ main {
 }
 
 .btn_play_album {
-  background-color: #1DB954;
+  background-color: #1db954;
   transition: transform 0.3s;
 }
 
@@ -447,7 +446,7 @@ main {
 }
 
 .btn_play_album i {
-  padding-left: 3px; 
+  padding-left: 3px;
   padding-top: 3px;
 }
 
@@ -469,4 +468,53 @@ main {
 .icon-white .text-secondary,
 .icon-white i {
   transition: color 0.2s ease;
+}
+
+/* card ricerca generale */
+.genre-card {
+  height: 120px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.genre-card:hover {
+  transform: scale(1.03);
+}
+
+.genre-card .card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  padding: 5px;
+  position: relative;
+  z-index: 2;
+}
+
+.genre-card img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  bottom: -5px;
+  right: -15px;
+  transform: rotate(25deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* HERO RESULT */
+.hero-result {
+  transition: background 0.8s ease-in-out;
+  background-image: linear-gradient(
+    to bottom,
+    var(--bg-color, transparent) 0%,
+    transparent 100%
+  );
+}
+
+.card-hover:hover button {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

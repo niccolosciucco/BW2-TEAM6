@@ -35,6 +35,7 @@
               >
                 <i class="bi bi-search text-secondary me-2"></i>
                 <input
+                  id="search-input"
                   type="text"
                   class="form-control bg-transparent border-0 text-white shadow-none p-0"
                   placeholder="Cosa vuoi ascoltare?"
@@ -45,6 +46,17 @@
                 ></div>
                 <i class="bi bi-collection-play text-secondary me-2"></i>
               </div>
+              <div
+                id="suggestions-container"
+                class="list-group position-absolute shadow-lg"
+                style="
+                  z-index: 1000;
+                  width: 100%;
+                  max-width: 500px;
+                  top: 100%;
+                  margin-top: 5px;
+                "
+              ></div>
             </div>
 
             <div class="col-auto d-lg-none">
@@ -269,59 +281,12 @@
 
         <!-- SCROLLABLE AREA -->
         <div class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5">
-          <div class="row g-3">
+          <div class="container mt-5">
             <!-- CARD -->
-            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
-              <div
-                class="browse-card bg-danger rounded-3 p-3 position-relative overflow-hidden"
-              >
-                <h5 class="text-white fw-bold">Music</h5>
-                <img
-                  src="./assets/imgs/search/image-1.jpeg"
-                  class="position-absolute bottom-0 end-0"
-                  style="width: 90px; transform: rotate(25deg)"
-                />
-              </div>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
-              <div
-                class="browse-card bg-success rounded-3 p-3 position-relative overflow-hidden"
-              >
-                <h5 class="text-white fw-bold">Podcasts</h5>
-                <img
-                  src="./assets/imgs/search/image-2.jpg"
-                  class="position-absolute bottom-0 end-0"
-                  style="width: 90px; transform: rotate(25deg)"
-                />
-              </div>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
-              <div
-                class="browse-card bg-primary rounded-3 p-3 position-relative overflow-hidden"
-              >
-                <h5 class="text-white fw-bold">Live Events</h5>
-                <img
-                  src="./assets/imgs/search/image-3.jpg"
-                  class="position-absolute bottom-0 end-0"
-                  style="width: 90px; transform: rotate(25deg)"
-                />
-              </div>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
-              <div
-                class="browse-card bg-warning rounded-3 p-3 position-relative overflow-hidden"
-              >
-                <h5 class="text-white fw-bold">Made For You</h5>
-                <img
-                  src="./assets/imgs/search/image-4.jpg"
-                  class="position-absolute bottom-0 end-0"
-                  style="width: 90px; transform: rotate(25deg)"
-                />
-              </div>
-            </div>
+            <div
+              id="genre-grid"
+              class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4"
+            ></div>
 
             <!-- add more cards like this -->
           </div>
@@ -596,7 +561,7 @@
     <script src="./scripts/ads.js"></script>
     <script src="./scripts/player.js"></script>
     <script src="./scripts/searchbar.js"></script>
-    <script src="./scripts/expore.js"></script>
+    <script src="./scripts/explore.js"></script>
     <script src="./scripts/home-page.js"></script>
   </body>
 </html>
