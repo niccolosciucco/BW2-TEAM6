@@ -24,6 +24,7 @@ const getArtist = () => {
       throw new Error("Errore nel recupero dati artista");
     })
     .then((data) => {
+      console.log(data);
       // Popola Nome e Ascoltatori
       const artistName = document.getElementById("artist-name");
       if (artistName) artistName.innerText = data.name;
@@ -46,6 +47,30 @@ const getArtist = () => {
     })
     .catch((error) => console.log(error));
 };
+
+// #region POPULAR SONGS
+
+const popularSongs = function (data) {
+  console.log(data);
+  // caricamento tracce dell'artista
+  const tracceArtista = document.getElementById("tracce-artista");
+
+  for (let i = 0; i < 6; i++) {
+    tracceArtista.innerHTML += `
+    <div
+      class="song-row d-flex justify-content-between align-items-center py-2 px-2">
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-secondary">${i + 1}</span>
+        <img src="${data[i].album.cover_big}" width="40" />
+        <span class="text-white">${data[i].title}</span>
+      </div>
+      <span class="text-secondary"> ${(data[i].duration / 60).toPrecision(3)}</span>
+    </div>
+    `;
+  }
+};
+
+// #endregion
 
 const loadAlbumCarousel = () => {
   // Recuperiamo prima il nome dell'artista per fare una ricerca più precisa,
@@ -96,6 +121,8 @@ const loadAlbumCarousel = () => {
             </div>
           </div>`;
       });
+
+      popularSongs(tracks);
     })
     .catch((err) => console.error("Errore album carousel:", err));
 };
