@@ -29,27 +29,6 @@ function getAverageColor(imgElement) {
 }
 //#endregion
 
-// #region GET TRACKLIST
-
-const getTracklist = function (url) {
-  fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Errore Fetch: " + response.status);
-      }
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
-
-//#endregion
-
 const getAlbum = () => {
   const url = "https://striveschool-api.herokuapp.com/api/deezer/album/";
   const qs = id;
@@ -63,7 +42,7 @@ const getAlbum = () => {
       }
     })
     .then((data) => {
-      //Modificare la pagina, i testi e le immagini con i risultati della fetch
+      console.log(data);
       const albumTitle = document.getElementById("album-title");
       albumTitle.innerText = data.title;
 
@@ -100,8 +79,43 @@ const getAlbum = () => {
       details.innerText = `• ${data.release_date.split("-")[0]} • ${data.nb_tracks} brani, ${minutes} min ${formattedSeconds} sec.`;
 
       const divAlbumSongs = document.getElementById("elenco-brani");
-      //   chiamata per acquisire la tracklist dell'album
-      const tracklist = getTracklist(data.tracklist);
+      //   acquisisco tutti i titoli delle canzoni dell'album e li metto in un array che poi userò per riempire il main
+      let arrayTitle = [];
+      data.tracks.data.forEach((title) => {
+        arrayTitle.push(title);
+      });
+
+      const div = document.getElementById("elenco-brani");
+      arrayTitle.forEach((title, index) => {
+        div.innerHTML += `
+        <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+          <span class="text-secondary small" style="width: 30px; flex-shrink: 0;">${index + 1}</span>
+          
+          <div class="flex-grow-1 overflow-hidden">
+            <p class="mb-0 text-truncate">${title.title}</p>
+            <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
+              <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
+              <span class="text-secondary text-truncate">${title.artist.name}</span>
+            </p>
+          </div>
+
+          <span class="text-secondary small" style="width: 400px; flex-shrink: 0;">4.435.605</span>
+          
+          <span class="text-secondary small text-end" style="width: 60px; flex-shrink: 0;">
+            ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
+          </span>
+        </div>`;
+      });
+
+      const releaseDate = document.getElementById("release-date");
+      releaseDate.innerText = data.release_date;
+
+      const label = document.getElementById("label");
+      label.innerText = data.label;
+
+      const labelYear = document.getElementById("label-year");
+      labelYear.innerText +=
+        " " + data.release_date.slice(0, 4) + " " + data.label;
     })
     .catch((error) => {
       console.log(error);
