@@ -87,6 +87,13 @@ const getAlbum = () => {
 
       const div = document.getElementById("elenco-brani");
       arrayTitle.forEach((title, index) => {
+        // generazione numero casuale per gli stream della canzone
+        const min = 1000000;
+        const max = 50000000;
+        const randomNum = (
+          Math.floor(Math.random() * (max - min + 1)) + min
+        ).toLocaleString("it-IT");
+
         div.innerHTML += `
         <div class="d-flex align-items-center px-3 py-2 rounded text-light">
           <span class="text-secondary small" style="width: 30px; flex-shrink: 0;">${index + 1}</span>
@@ -99,7 +106,7 @@ const getAlbum = () => {
             </p>
           </div>
 
-          <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">4.435.605</span>
+          <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">${randomNum}</span>
           
           <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
             ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}

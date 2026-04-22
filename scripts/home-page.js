@@ -35,26 +35,26 @@ const createAlbumCard = (data, containerId, index) => {
   const idBtn = `btn-play-${albumId}-${index}`;
 
   const col = document.createElement("div");
-  col.className = "col-6 col-md-3 col-lg-2 mb-4"; // 6 card su desktop, 2 su mobile
+  col.className = "col-6 col-md-3 col-lg-2 mb-4 glow-up"; // 6 card su desktop, 2 su mobile
 
   col.innerHTML = `
         <div class="card h-100 album-card bg-transparent border-0 position-relative">
           <div class="position-relative overflow-hidden rounded-3 shadow-sm shadow-lg-hover">
             <img src="${albumCover}" class="card-img-top img-fluid" alt="${albumTitle}">
             <button 
-               id="${idBtn}" 
-               class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle shadow"
-               style="width: 48px; height: 48px; bottom: 8px; right: 8px; opacity: 0; transition: all 0.3s;"
-               onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
-               <i class="bi bi-play-fill fs-3"></i>
-            </button>
+            id="${idBtn}" 
+            class="play-button  position-absolute btn btn-success text-black p-0 pt-1 d-flex align-items-center justify-content-center rounded-circle shadow-lg" 
+            style="width: 40px; height: 40px; bottom: 8px; right: 8px;" 
+            onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
+            <i class="bi bi-play-fill fs-2"></i>
+</button>
           </div>
           <div class="card-body p-2">
             <a href="./album.html?id=${albumId}" class="text-decoration-none">
-                <p class="card-text text-truncate text-white fw-bold mb-0">${albumTitle}</p>
+                <p class="card-text text-truncate text-white fw-bold mb-0 link">${albumTitle}</p>
             </a>
             <a href="./artist.html?id=${artistId}" class="text-decoration-none">
-                <p class="card-text text-truncate text-secondary small">${artistName}</p>
+                <p class="card-text text-truncate text-secondary small link">${artistName}</p>
             </a>
           </div>
         </div>`;
@@ -258,269 +258,11 @@ const loadArtistInfo = () => {
 loadArtistInfo();
 // #endregion
 
-// #region VOLUME MUSICA
-const initVolumeControl = () => {
-  const volumeRange = document.getElementById("volume-range");
-  const volumeIcon = document.getElementById("volume-icon");
-
-  if (!volumeRange) return;
-
-  volumeRange.style.setProperty(
-    "--vol-progress",
-    `${volumeRange.value * 100}%`,
-  );
-
-  volumeRange.addEventListener("input", (e) => {
-    const val = e.target.value;
-
-    volumeRange.style.setProperty("--vol-progress", `${val * 100}%`);
-
-    if (audio) {
-      audio.volume = val;
-    }
-    if (val == 0) {
-      volumeIcon.classList.replace("bi-volume-up", "bi-volume-mute");
-      volumeIcon.classList.replace("bi-volume-down", "bi-volume-mute");
-    } else if (val < 0.5) {
-      volumeIcon.classList.replace("bi-volume-up", "bi-volume-down");
-      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-down");
-    } else {
-      volumeIcon.classList.replace("bi-volume-down", "bi-volume-up");
-      volumeIcon.classList.replace("bi-volume-mute", "bi-volume-up");
-    }
-  });
-};
-// #endregion
-
-// #region PLAY AND PAUSE MUSIC
-let audio = null;
-let currentCardBtnId = null; // Memorizza l'ultimo bottone card cliccato
-
-const handleMusic = (
-  title = "",
-  name = "",
-  cover = "",
-  preview,
-  isMobile,
-  isMouseHover = false,
-  idBtn = "",
-) => {
-  const volumeSlider = document.getElementById("volume-range");
-  const currentSavedVolume = volumeSlider ? Number(volumeSlider.value) : 1;
-
-  if (audio && audio.src !== preview) {
-    if (currentCardBtnId) {
-      updateBtnIcon(document.getElementById(currentCardBtnId), false);
-    }
-
-    audio.pause();
-    audio = new Audio(preview);
-
-    // volume musica attuale
-    audio.volume = currentSavedVolume;
-
-    syncProgressBar(audio);
-  }
-
-  if (!audio) {
-    audio = new Audio(preview);
-
-    // Volume musica
-    audio.volume = currentSavedVolume;
-
-    syncProgressBar(audio);
-  }
-
-  // Memorizzo id bottone
-  currentCardBtnId = idBtn;
-
-  let btn;
-
-  if (isMobile) {
-    btn = document.getElementById("play-mobile");
-  } else if (isMouseHover) {
-    btn = document.getElementById(idBtn);
-  } else {
-    btn = document.getElementById("play");
-  }
-
-  // recupero bottone play footer
-  const mainBtn = document.getElementById("play-main");
-
-  // Logica Play/Pause
-  if (audio.paused) {
-    audio.play();
-    updateBtnIcon(btn, true);
-    updateBtnIcon(mainBtn, true); // Sincronizza footer
-  } else {
-    audio.pause();
-    updateBtnIcon(btn, false);
-    updateBtnIcon(mainBtn, false); // Sincronizza footer
-  }
-
-  handleFooter(title, name, cover, preview);
-};
-
-// Bottone play footer
-document.getElementById("play-main").addEventListener("click", () => {
-  if (!audio) return;
-
-  const mainBtn = document.getElementById("play-main");
-  const cardBtn = document.getElementById(currentCardBtnId);
-
-  if (audio.paused) {
-    audio.play();
-    updateBtnIcon(mainBtn, true);
-    if (cardBtn) updateBtnIcon(cardBtn, true); // Sincronizza anche la card
-  } else {
-    audio.pause();
-    updateBtnIcon(mainBtn, false);
-    if (cardBtn) updateBtnIcon(cardBtn, false); // Sincronizza anche la card
-  }
-});
-
-const handleFooter = function (title, name, cover, preview) {
-  const songTitle = document.getElementById("titolo-canzone");
-  songTitle.innerHTML = title;
-
-  const artist = document.getElementById("nome-artista");
-  artist.innerHTML = name;
-
-  const coverSong = document.getElementById("cover-canzone");
-  coverSong.setAttribute("src", cover);
-
-  const sbRightArtist = document.getElementById("sb-right-name-artist");
-  sbRightArtist.innerText = name;
-
-  const sbRightTitle = document.getElementById("sb-right-title");
-  sbRightTitle.innerText = title;
-
-  const sbRightSubTitle = document.getElementById("sb-right-subTitle");
-  sbRightSubTitle.innerText = name;
-
-  const sbRightImg = document.getElementById("sb-right-img");
-  sbRightImg.setAttribute("src", cover);
-
-  const iaImg = document.getElementById("ia-img");
-  iaImg.setAttribute("src", cover);
-
-  const iaName = document.getElementById("ia-name");
-  iaName.innerText = name;
-
-  const riconoscimenti = document.getElementById("riconoscimenti-name");
-  riconoscimenti.innerText = name;
-};
-
-const updateBtnIcon = (btn, isPlaying) => {
-  if (!btn) return;
-
-  const icon = btn.querySelector("i") || btn;
-
-  // Gestione Colore
-  if (isPlaying) {
-    btn.classList.replace("btn-success", "btn-warning");
-  } else {
-    btn.classList.replace("btn-warning", "btn-success");
-  }
-
-  // 1. Gestione PC
-  if (btn.id === "play") {
-    btn.innerText = isPlaying ? "Pause" : "Play";
-    return;
-  }
-
-  // 2. Gestione icone per Mobile e Carousel
-  if (isPlaying) {
-    icon.classList.replace("bi-play-fill", "bi-pause-fill");
-    icon.classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
-  } else {
-    icon.classList.replace("bi-pause-fill", "bi-play-fill");
-    icon.classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
-  }
-};
-
-initVolumeControl();
-// #endregion
-
-let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
-let qs = "";
-let artist = "";
-let codAlbum = "";
-let fullUrl = "";
-
-// #region GET ANNUNCI
-const getAd = () => {
-  qs = "search?q=";
-  artist = "mengoni";
-  fullUrl = urlSearch + qs + artist;
-
-  fetch(fullUrl)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Fetch Errata", response.status);
-      }
-    })
-    .then((data) => {
-      const row = document.getElementById("playlist-card");
-      const songData = data.data[0]; // Prendiamo il primo risultato
-
-      // Ho aggiunto l'ID "ad-card" per poter cambiare lo sfondo via JS
-      row.innerHTML = `
-            <div id="ad-card" class="card text-white overflow-hidden border-0" style="transition: background 0.8s ease;">
-                <div class="row g-0 align-items-center">
-                    <div class="col-2">
-                        <img id="ad-img" src="${songData.album.cover_big}" 
-                             class="img-fluid object-fit-cover rounded-start h-100 ms-2" 
-                             alt="album cover" crossorigin="anonymous">
-                    </div>
-                    
-                    <div class="col-10">
-                        <div class="card-body justify-content-start">
-                            <a class="m-0 text-decoration-none text-white d-none d-md-block"><p class="fw-bold m-0">Album</p></a>
-                            <a href="./album.html?id=${songData.album.id}" class="link"><h2 class="card-title fw-bold">${songData.album.title}</h2></a>
-                            <a href="./artist.html?id=${songData.artist.id}" class="link"><p class="d-none d-md-block">${songData.artist.name}</p></a>
-                            <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${songData.artist.name}!</p>
-                            <div class="d-flex gap-2 mt-3 d-none d-md-block ms-2">
-                                <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold me-2" onclick="handleMusic('${songData.album.title}', '${songData.artist.name}', '${songData.album.cover_big}', '${songData.preview}', false)">Play</a>
-                                <a href="#" class="btn btn-outline-light rounded-5 px-4 py-2 fw-bold">Save</a>
-                            </div>
-                            <div class="d-flex gap-2 mt-3 d-md-none">
-                                <a href="#" id="play-mobile" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold bi bi-play-circle-fill" onclick="handleMusic('${songData.album.title}', '${songData.artist.name}', '${songData.album.cover_big}', '${songData.preview}', true)"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-
-      // Background dinamico
-      const img = document.getElementById("ad-img");
-      const card = document.getElementById("ad-card");
-      const colorThief = new ColorThief();
-
-      const applyGradient = () => {
-        const rgb = colorThief.getColor(img);
-        const mainColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-
-        card.style.background = `linear-gradient(180deg, ${mainColor} 0%, #121212 100%)`;
-      };
-
-      if (img.complete) {
-        applyGradient();
-      } else {
-        img.addEventListener("load", () => {
-          applyGradient();
-        });
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-getAd();
-// #endregion
+// let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
+// let qs = "";
+// let artist = "";
+// let codAlbum = "";
+// let fullUrl = "";
 
 // #region ALBUM
 
@@ -578,68 +320,6 @@ getAlbum();
 
 // #endregion
 
-// #region RIPRODUZIONE MUSICA
-let animationId;
-
-const syncProgressBar = (audioInstance) => {
-  const range = document.getElementById("track-range");
-  const currentTimeLabel = document.getElementById("current-time");
-  const durationLabel = document.getElementById("track-duration");
-
-  const update = () => {
-    if (!audioInstance.paused) {
-      const current = audioInstance.currentTime;
-      const duration = audioInstance.duration || 29;
-
-      const percent = (current / duration) * 100;
-      range.style.setProperty("--progress", `${percent}%`);
-
-      range.value = current;
-
-      const mins = Math.floor(current / 60);
-      const secs = Math.floor(current % 60);
-      currentTimeLabel.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-
-      animationId = requestAnimationFrame(update);
-    }
-  };
-
-  audioInstance.onplay = () => {
-    range.max = audioInstance.duration || 29;
-    update();
-  };
-
-  audioInstance.onpause = () => {
-    cancelAnimationFrame(animationId);
-  };
-
-  audioInstance.onended = () => {
-    cancelAnimationFrame(animationId);
-
-    range.value = 0;
-
-    // Reset colore barra
-    range.style.setProperty("--progress", `0%`);
-
-    // Reset del testo tempo
-    currentTimeLabel.innerText = "0:00";
-
-    // resetto la barra
-    const mainBtn = document.getElementById("play-main");
-    if (mainBtn) updateBtnIcon(mainBtn, false);
-    if (currentCardBtnId)
-      updateBtnIcon(document.getElementById(currentCardBtnId), false);
-  };
-
-  range.oninput = () => {
-    cancelAnimationFrame(animationId);
-    audioInstance.currentTime = range.value;
-
-    if (!audioInstance.paused) update();
-  };
-};
-// #endregion
-
 // #region COLLASSO SIDEBAR
 const sidebar = document.getElementById("sidebarLeft");
 const toggleBtn = document.getElementById("toggleSidebar");
@@ -647,97 +327,5 @@ const toggleBtn = document.getElementById("toggleSidebar");
 toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("sidebar-collapsed");
   sidebar.classList.toggle("sidebar-expanded");
-});
-// #endregion
-
-// #region SEARCH BAR
-const searchInput = document.getElementById("search-input");
-const suggestionsContainer = document.getElementById("suggestions-container");
-// Selezioniamo l'icona
-const searchIcon = document.querySelector(".bi-collection-play");
-
-// --- FUNZIONE RIUTILIZZABILE PER LA RICERCA ---
-const handleSearch = () => {
-  const query = searchInput.value.trim();
-  if (query) {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`)
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.data.length > 0) {
-          // Reindirizza al primo risultato trovato
-          window.location.href = `artist.html?id=${result.data[0].artist.id}`;
-        } else {
-          alert("Nessun artista trovato.");
-        }
-      })
-      .catch((err) => console.error("Errore ricerca:", err));
-  }
-};
-
-// --- SUGGERIMENTI (Mentre scrivi) ---
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim();
-  if (query.length > 1) {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`)
-      .then((res) => res.json())
-      .then((obj) => {
-        suggestionsContainer.innerHTML = "";
-        const seenArtists = new Set();
-        const limitedArtists = obj.data
-          .filter((item) => {
-            if (!seenArtists.has(item.artist.id)) {
-              seenArtists.add(item.artist.id);
-              return true;
-            }
-            return false;
-          })
-          .slice(0, 5);
-
-        limitedArtists.forEach((item) => {
-          const suggestionItem = document.createElement("button");
-          suggestionItem.className =
-            "list-group-item list-group-item-action bg-dark text-white border-secondary d-flex align-items-center gap-3 py-2";
-          suggestionItem.style.border = "1px solid #333";
-          suggestionItem.innerHTML = `
-            <img src="${item.artist.picture_small}" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
-            <div class="text-truncate">
-                <p class="mb-0 fw-bold">${item.artist.name}</p>
-                <small class="text-secondary">Artista</small>
-            </div>`;
-
-          suggestionItem.onclick = () => {
-            window.location.href = `artist.html?id=${item.artist.id}`;
-          };
-          suggestionsContainer.appendChild(suggestionItem);
-        });
-      });
-  } else {
-    suggestionsContainer.innerHTML = "";
-  }
-});
-
-// --- ASCOLTATORI EVENTI ---
-
-// 1. Click sull'icona bi-collection-play
-if (searchIcon) {
-  searchIcon.style.cursor = "pointer"; // Rende l'icona cliccabile visivamente
-  searchIcon.addEventListener("click", handleSearch);
-}
-
-// 2. Tasto Enter nell'input
-searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    handleSearch();
-  }
-});
-
-// 3. Click fuori per chiudere suggerimenti
-document.addEventListener("click", (e) => {
-  if (
-    !searchInput.contains(e.target) &&
-    !suggestionsContainer.contains(e.target)
-  ) {
-    suggestionsContainer.innerHTML = "";
-  }
 });
 // #endregion

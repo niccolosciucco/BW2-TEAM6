@@ -178,12 +178,13 @@ body {
 }
 
 .glow-up {
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.9));
   transition: filter 0.3s ease;
+  padding: 5px;
 }
 
 .glow-up:hover {
-  filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.6));
+  background-color: #3e3e3e;
+  border-radius: 8px;
 }
 /* DROPDOWN MENU */
 .dropdown-menu .dropdown-menu {
@@ -347,4 +348,31 @@ main {
 
 #suggestions-container .list-group-item:hover {
   background-color: #333 !important;
+}
+
+.browse-card {
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.browse-card:hover {
+  transform: scale(1.03);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 1.1em;
+  background-color: #121212;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  margin: 1em;
 }
