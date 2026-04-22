@@ -99,9 +99,9 @@ const getAlbum = () => {
             </p>
           </div>
 
-          <span class="text-secondary small" style="width: 400px; flex-shrink: 0;">4.435.605</span>
+          <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">4.435.605</span>
           
-          <span class="text-secondary small text-end" style="width: 60px; flex-shrink: 0;">
+          <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
             ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
           </span>
         </div>`;
@@ -237,4 +237,14 @@ const loadArtistInfo = () => {
 };
 
 loadArtistInfo();
+// #endregion
+
+// #region COLLASSO SIDEBAR
+const sidebar = document.getElementById("sidebarLeft");
+const toggleBtn = document.getElementById("toggleSidebar");
+
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("sidebar-collapsed");
+  sidebar.classList.toggle("sidebar-expanded");
+});
 // #endregion
