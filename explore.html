@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotify</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/spotify.css" />
+  </head>
+  <body class="bg-black d-flex flex-column vh-100">
+    <header class="flex-shrink-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid d-block">
+          <div class="row align-items-center g-0">
+            <div class="col-auto col-lg-3">
+              <a class="navbar-brand m-0" href="./home-page.html">
+                <i class="bi bi-spotify fs-1"></i>
+              </a>
+            </div>
+
+            <div class="col flex-grow-1 d-flex justify-content-center px-3">
+              <div
+                class="bg-dark rounded-pill d-flex align-items-center px-3 py-2 w-100"
+                style="max-width: 500px"
+              >
+                <i class="bi bi-search text-secondary me-2"></i>
+                <input
+                  type="text"
+                  class="form-control bg-transparent border-0 text-white shadow-none p-0"
+                  placeholder="Cosa vuoi ascoltare?"
+                />
+                <div
+                  class="vr mx-2 text-secondary"
+                  style="height: 23px; opacity: 0.5"
+                ></div>
+                <i class="bi bi-collection-play text-secondary me-2"></i>
+              </div>
+            </div>
+
+            <div class="col-auto d-lg-none">
+              <button
+                class="navbar-toggler border-0 shadow-none"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navSpotify"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+
+            <div
+              class="col-lg-3 d-none d-lg-flex justify-content-end align-items-center"
+            >
+              <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
+              <a class="nav-link text-white fw-bold mx-2" href="#"
+                >Assistenza</a
+              >
+              <button class="btn btn-light rounded-pill px-4 py-2 fw-bold ms-2">
+                Accedi
+              </button>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navSpotify">
+            <div
+              class="navbar-nav flex-column d-lg-none mt-3 pb-3 border-top border-secondary"
+            >
+              <a class="nav-link text-white fw-bold py-3" href="#">Premium</a>
+              <a class="nav-link text-white fw-bold py-3" href="#"
+                >Assistenza</a
+              >
+              <a class="nav-link text-white fw-bold py-3" href="#">Scarica</a>
+              <button class="btn btn-light rounded-pill fw-bold mt-2">
+                Accedi
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex flex-grow-1">
+      <!-- LEFT SIDEBAR -->
+      <div
+        id="sidebarLeft"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
+      >
+        <!-- <div class="bg-dark rounded-top-2"> -->
+        <!-- Hero sidebar -->
+        <div class="d-flex w-100 px-lg-2">
+          <div class="mt-2">
+            <button id="toggleSidebar" class="btn text-secondary">
+              <i class="bi bi-layout-sidebar-inset-reverse"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-between text-light w-100 mt-2">
+            <div>
+              <p>Your Library</p>
+            </div>
+            <div class="dropdown dropend me-1 overflow-visible">
+              <button
+                class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
+                style="--bs-bg-opacity: 0.3"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-display="static"
+                data-bs-boundary="viewport"
+                aria-expanded="false"
+              >
+                <i class="bi bi-plus-lg"></i
+                ><span class="collapse-hidden">Create</span>
+              </button>
+
+              <ul class="dropdown-menu bg-dark overflow-visible">
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light pe-2"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Playlist <br />
+                    <small class="text-secondary" style="display: inline"
+                      >Create a playlist with songs or episodes</small
+                    >
+                  </a>
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-intersect me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Blend <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Combine your friends' tastes into a playlist</small
+                    >
+                  </a>
+                </li>
+                <li class="d-flex justify-content-center">
+                  <hr class="text-light w-75" />
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder-plus me-2 text-light ms-1"></i>
+                  </div>
+
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Folder <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Orginise your playlists</small
+                    >
+                  </a>
+                </li>
+                <li class="dropdown-item d-flex flex-row">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-people-fill me-2 me-2 text-light ms-1"></i>
+                  </div>
+                  <a
+                    class="dropdown-item text-light"
+                    href="#"
+                    style="display: inline"
+                  >
+                    Jam <br /><small
+                      class="text-secondary"
+                      style="display: inline"
+                      >Listen together from anywhere</small
+                    ></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--BTN SHORTCUTS-->
+        <div class="d-flex flex-wrap gap-1 my-2 mb-3">
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Playlist</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Podcast</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Album</a
+            >
+          </div>
+          <div class="my-1">
+            <a
+              class="bg-secondary text-light rounded-5 text-decoration-none p-2"
+              style="--bs-bg-opacity: 0.3"
+              href="#"
+              >Artisti</a
+            >
+          </div>
+        </div>
+
+        <!--SEARCH-->
+        <div class="d-flex justify-content-between mb-1 collapse-hidden">
+          <div class="d-flex">
+            <i class="bi bi-search text-secondary"></i>
+            <input
+              type="text"
+              name=""
+              class="bg-transparent border-0 w-75 collapse-hidden"
+              placeholder="Search"
+            />
+          </div>
+          <div class="text-light d-flex align-items-center gap-1">
+            <span>Recents</span>
+            <i class="bi bi-list text-secondary"></i>
+          </div>
+        </div>
+
+        <!--ELEMENT LIST-->
+        <section
+          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+          id="playlist-album"
+        ></section>
+        <!-- </div> -->
+      </div>
+
+      <!-- CENTER CONTENT -->
+      <div
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column overflow-hidden"
+      >
+        <!-- TOP HEADER -->
+        <div class="px-4 py-3 flex-shrink-0">
+          <h4 class="text-white fw-bold mb-0">Browse all</h4>
+        </div>
+
+        <!-- SCROLLABLE AREA -->
+        <div class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5">
+          <div class="row g-3">
+            <!-- CARD -->
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-danger rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Music</h5>
+                <img
+                  src="./assets/imgs/search/image-1.jpeg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-success rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Podcasts</h5>
+                <img
+                  src="./assets/imgs/search/image-2.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-primary rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Live Events</h5>
+                <img
+                  src="./assets/imgs/search/image-3.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-7 col-xl-4 col-xxl-3">
+              <div
+                class="browse-card bg-warning rounded-3 p-3 position-relative overflow-hidden"
+              >
+                <h5 class="text-white fw-bold">Made For You</h5>
+                <img
+                  src="./assets/imgs/search/image-4.jpg"
+                  class="position-absolute bottom-0 end-0"
+                  style="width: 90px; transform: rotate(25deg)"
+                />
+              </div>
+            </div>
+
+            <!-- add more cards like this -->
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+
+      <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
+        <section class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100">
+          <div
+            class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-layout-sidebar-inset-reverse"></i>
+              </button>
+              <p id="sb-right-name-artist" class="text-light mt-3">
+                Takagi &amp; Ketra
+              </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-three-dots"></i>
+              </button>
+              <button
+                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+              >
+                <i class="bi bi-arrows-fullscreen"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center mx-auto justify-content-center mt-2"
+            style="height: 300px; width: 300px"
+          >
+            <img
+              id="sb-right-img"
+              src="./assets/imgs/search/img.ketra.jpg"
+              alt="img"
+              class="w-100 rounded-2 mb-3"
+            />
+          </div>
+          <div
+            class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
+          >
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="overflow-hidden me-2">
+                <p
+                  id="sb-right-title"
+                  class="text-white fw-bold mb-0 text-truncate"
+                  style="font-size: 16px"
+                >
+                  EVERYDAY
+                </p>
+                <p
+                  id="sb-right-subTitle"
+                  class="text-secondary mb-0 text-truncate small"
+                >
+                  Takagi &amp; Ketra, Shiva, ANNA, Geolier
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-3 flex-shrink-0"></div>
+            </div>
+            <div class="d-flex align-items-center gap-2 mt-2 flex-shrink-0">
+              <button
+                class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-2 fs-5"
+                style="width: 25px; height: 25px"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <!--VIDEO CORRELATI-->
+
+          <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
+          <div
+            id="carouselExample6"
+            class="carousel slide position-relative mb-2"
+          >
+            <div class="carousel-inner" id="album-sidebar"></div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample6"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample6"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div
+            id="informazioni"
+            class="rounded mx-3 mb-3 p-3"
+            style="background-color: #1f1f1f"
+          ></div>
+          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+            <div class="d-flex align-items-center justify-content-between mb-1">
+              <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
+              <a href="#" class="text-secondary text-decoration-none small"
+                >Mostra tutto</a
+              >
+            </div>
+
+            <div
+              class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
+            >
+              <div>
+                <p id="riconoscimenti-name" class="fw-semibold mb-0 text-light">
+                  Takagi &amp; Ketra
+                </p>
+                <p class="text-light-emphasis mb-0" style="font-size: 11px">
+                  Artista Principale
+                </p>
+              </div>
+              <button
+                class="btn btn-outline-light rounded-pill px-3"
+                style="font-size: 12px"
+              >
+                Segui
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
+              <a href="#" class="text-light-emphasis small text-decoration-none"
+                >Apri coda</a
+              >
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <div
+                class="rounded d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary"
+                style="width: 40px; height: 40px"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                  <polygon points="8,6 18,12 8,18" fill="white" opacity="0.7" />
+                </svg>
+              </div>
+              <div>
+                <p class="mb-0 text-light">NUVOLA</p>
+                <p
+                  class="text-secondary mb-0 d-flex align-items-center gap-1"
+                  style="font-size: 11px"
+                >
+                  <span class="text-light" style="font-size: 11px">Holden</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer
+      class="spotify-footer d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between px-3 bg-black py-2"
+    >
+      <div class="d-flex align-items-center gap-3">
+        <img
+          id="cover-canzone"
+          src="./assets/imgs/search/cover-mengoni.jpg"
+          alt="song"
+          width="56"
+          height="56"
+          class="rounded"
+        />
+        <div>
+          <div id="titolo-canzone" class="text-light small fw-bold">
+            L'essenziale
+          </div>
+          <div id="nome-artista" class="text-secondary small">
+            Marco Mengoni
+          </div>
+        </div>
+        <i class="bi bi-heart text-secondary"></i>
+      </div>
+
+      <div
+        class="d-flex flex-column align-items-center justify-content-center w-50"
+      >
+        <div class="d-flex align-items-center gap-3 mb-1">
+          <i class="bi bi-shuffle text-secondary"></i>
+          <i class="bi bi-skip-backward-fill text-light"></i>
+          <button
+            id="play-main"
+            class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 32px; height: 32px"
+          >
+            <i class="bi bi-play-fill text-dark"></i>
+          </button>
+          <i class="bi bi-skip-forward-fill text-light"></i>
+          <i class="bi bi-repeat text-secondary"></i>
+        </div>
+
+        <div class="d-flex align-items-center w-100 gap-2">
+          <small id="current-time" class="text-secondary">0:00</small>
+
+          <input
+            id="track-range"
+            type="range"
+            class="form-range flex-grow-1"
+            min="0"
+            max="29"
+            step="0.1"
+            value="0"
+          />
+
+          <small id="track-duration" class="text-secondary">0:29</small>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-mic-fill text-secondary d-none d-md-block"></i>
+        <i class="bi bi-list text-secondary d-none d-md-block"></i>
+        <i class="fas fa-laptop text-secondary"></i>
+        <i
+          id="volume-icon"
+          class="bi bi-volume-up text-secondary d-none d-md-block"
+        ></i>
+        <input
+          id="volume-range"
+          type="range"
+          class="form-range d-none d-md-block"
+          style="width: 100px"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+        />
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="./scripts/album.js"></script>
+  </body>
+</html>
