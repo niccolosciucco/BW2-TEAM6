@@ -244,19 +244,11 @@ const loadArtistInfo = () => {
         </div>
 
         <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-        <strong>${artist.name}</strong> è uno dei talenti più cristallini e premiati del panorama musicale italiano contemporaneo. 
-        La sua carriera, iniziata con la vittoria a X Factor nel 2009, è costellata di successi che lo hanno reso un punto di riferimento anche a livello internazionale.
-        Ecco i pilastri del suo successo tra canzoni, album e l'attuale fase della sua carriera:
-        L'essenziale (2013): Il brano della consacrazione definitiva e della prima vittoria a Sanremo.
-        Guerriero (2014): Un vero inno di protezione e forza, certificato 6 volte Platino.
-        Ti ho voluto bene veramente (2015): Uno dei suoi video più visti, girato tra i paesaggi spettacolari dell'Islanda.
-        Due vite (2023): Il successo della maturità, che ha dominato le classifiche europee dopo il Festival di Sanremo.
-        Tra il 2021 e il 2023, Mengoni ha realizzato un progetto monumentale diviso in tre capitoli, ognuno con un'anima diversa:
-        Terra: Un ritorno alle origini, tra soul, blues e suoni acustici (Cambia un uomo).
-        Pelle: Dedicato alle contaminazioni, ai viaggi e all'incontro con altre culture (No Stress).
-        Prisma: Il capitolo finale che riflette le mille sfaccettature dell'uomo e dell'artista (Due vite).
-        Il dato record: Marco ha superato la soglia degli 80 dischi di platino complessivi, un numero che continua a crescere grazie allo streaming 
-        e alla sua capacità di restare rilevante per generazioni diverse.
+          Punto di riferimento nel panorama musicale contemporaneo:   
+          una figura capace di collezionare numerosi riconoscimenti 
+          certificati e di definire il suono del proprio tempo. Grazie 
+          a una carriera costellata di successi e collaborazioni di rilievo, 
+          ha ottenuto traguardi straordinari tra produzioni e brani iconici.
         </p>
       `;
     })
