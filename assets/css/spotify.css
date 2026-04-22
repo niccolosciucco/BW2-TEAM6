@@ -358,3 +358,20 @@ main {
 .browse-card:hover {
   transform: scale(1.03);
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 1.1em;
+  background-color: #121212;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  margin: 1em;
+}
