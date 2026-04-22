@@ -125,7 +125,7 @@ const loadArtistInfo = (artist) => {
   `;
 };
 
-loadArtistInfo();
+initPage();
 // #endregion
 
 // #region COLLASSO SIDEBAR
