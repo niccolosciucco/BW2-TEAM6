@@ -35,19 +35,19 @@ const createAlbumCard = (data, containerId, index) => {
   const idBtn = `btn-play-${albumId}-${index}`;
 
   const col = document.createElement("div");
-  col.className = "col-6 col-md-3 col-lg-2 mb-4 glow-up"; // 6 card su desktop, 2 su mobile
+  col.className = "col-6 col-md-3 col-lg-2 mb-4"; // 6 card su desktop, 2 su mobile
 
   col.innerHTML = `
         <div class="card h-100 album-card bg-transparent border-0 position-relative">
           <div class="position-relative overflow-hidden rounded-3 shadow-sm shadow-lg-hover">
             <img src="${albumCover}" class="card-img-top img-fluid" alt="${albumTitle}">
             <button 
-            id="${idBtn}" 
-            class="play-button position-absolute btn btn-success text-black p-0 pt-1 d-flex align-items-center justify-content-center rounded-circle shadow-lg" 
-            style="width: 40px; height: 40px; bottom: 8px; right: 8px;" 
-            onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
-            <i class="bi bi-play-fill fs-2"></i>
-</button>
+               id="${idBtn}" 
+               class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle shadow"
+               style="width: 48px; height: 48px; bottom: 8px; right: 8px; opacity: 0; transition: all 0.3s;"
+               onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
+               <i class="bi bi-play-fill fs-3"></i>
+            </button>
           </div>
           <div class="card-body p-2">
             <a href="./album.html?id=${albumId}" class="text-decoration-none">
@@ -641,87 +641,12 @@ const syncProgressBar = (audioInstance) => {
 // #endregion
 
 // #region COLLASSO SIDEBAR
-const searchInput = document.getElementById("search-input");
-const suggestionsContainer = document.getElementById("suggestions-container");
+const sidebar = document.getElementById("sidebarLeft");
+const toggleBtn = document.getElementById("toggleSidebar");
 
-const searchIcon = document.querySelector(".bi-collection-play");
-
-const handleSearch = () => {
-  const query = searchInput.value.trim();
-  if (query) {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`)
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.data.length > 0) {
-          window.location.href = `artist.html?id=${result.data[0].artist.id}`;
-        } else {
-          alert("Nessun artista trovato.");
-        }
-      })
-      .catch((err) => console.error("Errore ricerca:", err));
-  }
-};
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim();
-  if (query.length > 1) {
-    fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`)
-      .then((res) => res.json())
-      .then((obj) => {
-        suggestionsContainer.innerHTML = "";
-        const seenArtists = new Set();
-        const limitedArtists = obj.data
-          .filter((item) => {
-            if (!seenArtists.has(item.artist.id)) {
-              seenArtists.add(item.artist.id);
-              return true;
-            }
-            return false;
-          })
-          .slice(0, 5);
-
-        limitedArtists.forEach((item) => {
-          const suggestionItem = document.createElement("button");
-          suggestionItem.className =
-            "list-group-item list-group-item-action bg-dark text-white border-secondary d-flex align-items-center gap-3 py-2";
-          suggestionItem.style.border = "1px solid #333";
-          suggestionItem.innerHTML = `
-            <img src="${item.artist.picture_small}" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
-            <div class="text-truncate">
-                <p class="mb-0 fw-bold">${item.artist.name}</p>
-                <small class="text-secondary">Artista</small>
-            </div>`;
-
-          suggestionItem.onclick = () => {
-            window.location.href = `artist.html?id=${item.artist.id}`;
-          };
-          suggestionsContainer.appendChild(suggestionItem);
-        });
-      });
-  } else {
-    suggestionsContainer.innerHTML = "";
-  }
-});
-
-if (searchIcon) {
-  searchIcon.style.cursor = "pointer";
-  searchIcon.addEventListener("click", handleSearch);
-}
-
-// 2. Tasto Enter nell'input
-searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    handleSearch();
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    !searchInput.contains(e.target) &&
-    !suggestionsContainer.contains(e.target)
-  ) {
-    suggestionsContainer.innerHTML = "";
-  }
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("sidebar-collapsed");
+  sidebar.classList.toggle("sidebar-expanded");
 });
 // #endregion
 

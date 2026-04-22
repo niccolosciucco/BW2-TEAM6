@@ -75,6 +75,7 @@ const loadAlbumCarousel = () => {
 
       tracks.forEach((item, index) => {
         const isActive = index === 0 ? "active" : "";
+
         container.innerHTML += `
           <div class="carousel-item ${isActive}">
             <img
