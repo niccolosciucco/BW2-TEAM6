@@ -67,8 +67,8 @@ const getAd = () => {
                     <div class="col-10">
                         <div class="card-body justify-content-start">
                             <a class="m-0 text-decoration-none text-white d-none d-md-block"><p class="fw-bold m-0">Album</p></a>
-                            <a href="./album.html?id=${songData.album.id}" class="link text-white text-decoration-none"><h2 class="card-title fw-bold">${songData.album.title}</h2></a>
-                            <a href="./artist.html?id=${songData.artist.id}" class="link text-white text-decoration-none"><p class="d-none d-md-block">${songData.artist.name}</p></a>
+                            <a href="./album.html?id=${songData.album.id}" class="link text-white text-decoration-none"><h2 class="card-title fw-bold link">${songData.album.title}</h2></a>
+                            <a href="./artist.html?id=${songData.artist.id}" class="link text-white text-decoration-none"><p class="d-none d-md-block link">${songData.artist.name}</p></a>
                             <p class="card-text d-none d-md-block">Ascolta il nuovo album di ${songData.artist.name}!</p>
                             <div class="d-flex gap-2 mt-3 d-none d-md-block ms-2">
                                 <a href="#" id="play" class="btn btn-success text-black rounded-5 px-4 py-2 fw-bold me-2" onclick="handleMusic('${songData.album.title.replace(/'/g, "\\'")}', '${songData.artist.name.replace(/'/g, "\\'")}', '${songData.album.cover_big}', '${songData.preview}', false)">Play</a>
