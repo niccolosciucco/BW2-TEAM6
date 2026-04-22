@@ -383,6 +383,8 @@ main {
 .carousel-control-next {
   width: 5%;
   margin: 1em;
+  height: 10%;
+  top: 20%;
 }
 
 /* ANIMAZIONE ANNUNCIO  */
@@ -437,9 +439,9 @@ main {
 }
 
 .btn_play_album:hover {
-  background-color: #26c85f;
+  background-color: #2bd366;
   transform: scale(1.03);
-  box-shadow: 0px 0px 2px #1DB954;
+  box-shadow: 0px 0px 2px #2bd366;
 }
 
 .btn_play_album i {
@@ -455,4 +457,14 @@ main {
 .icon-white:hover {
   transform: scale(1.05);
   color: white;
+}
+
+.icon-white:hover .text-secondary,
+.icon-white:hover i {
+  color: white !important;
+}
+
+.icon-white .text-secondary,
+.icon-white i {
+  transition: color 0.2s ease;
 }
