@@ -339,3 +339,12 @@ main {
 main {
   height: calc(100vh - 80px);
 }
+
+#suggestions-container .list-group-item {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+#suggestions-container .list-group-item:hover {
+  background-color: #333 !important;
+}
