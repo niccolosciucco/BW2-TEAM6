@@ -5,6 +5,12 @@ const initVolumeControl = () => {
 
   if (!volumeRange) return;
 
+  // Recupero il volume salvato al caricamento
+  const savedVolume = localStorage.getItem("lastVolume");
+  if (savedVolume !== null) {
+    volumeRange.value = savedVolume;
+  }
+
   volumeRange.style.setProperty(
     "--vol-progress",
     `${volumeRange.value * 100}%`,
@@ -18,6 +24,10 @@ const initVolumeControl = () => {
     if (audio) {
       audio.volume = val;
     }
+
+    // Salvo il volume nel localStorage
+    localStorage.setItem("lastVolume", val);
+
     if (val == 0) {
       volumeIcon.classList.replace("bi-volume-up", "bi-volume-mute");
       volumeIcon.classList.replace("bi-volume-down", "bi-volume-mute");
@@ -250,8 +260,7 @@ const syncProgressBar = (audioInstance) => {
 };
 // #endregion
 
-// #region PERSISTENZA CAMBIO PAGINA
-// Ogni secondo salviamo dove siamo arrivati con la canzone
+// #region CAMBIO PAGINA
 setInterval(() => {
   if (audio && !audio.paused) {
     localStorage.setItem("lastTime", audio.currentTime);
@@ -259,19 +268,25 @@ setInterval(() => {
 }, 1000);
 
 window.addEventListener("DOMContentLoaded", () => {
+  initVolumeControl();
+
   const saved = localStorage.getItem("lastTrack");
   const savedTime = localStorage.getItem("lastTime");
+  const savedVolume = localStorage.getItem("lastVolume");
 
   if (saved) {
     const t = JSON.parse(saved);
-    // Popoliamo il footer così non appare vuoto
     handleFooter(t.title, t.name, t.cover, t.preview);
 
     audio = new Audio(t.preview);
-    const volumeSlider = document.getElementById("volume-range");
-    audio.volume = volumeSlider ? Number(volumeSlider.value) : 1;
 
-    // Se avevamo un tempo salvato, lo impostiamo al caricamento
+    if (savedVolume !== null) {
+      audio.volume = parseFloat(savedVolume);
+    } else {
+      const volumeSlider = document.getElementById("volume-range");
+      audio.volume = volumeSlider ? Number(volumeSlider.value) : 1;
+    }
+
     if (savedTime) {
       audio.addEventListener(
         "loadedmetadata",
@@ -282,7 +297,6 @@ window.addEventListener("DOMContentLoaded", () => {
       );
     }
 
-    // Colleghiamo la barra del tempo all'audio appena creato
     syncProgressBar(audio);
   }
 });
