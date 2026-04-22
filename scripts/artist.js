@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // #region PRENDO LE INFO DELL ALTRA PAGINA
+=======
+// #region INIZIALIZZAZIONE E RECUPERO ID
+>>>>>>> Test2backup
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get("id");
@@ -10,8 +14,14 @@ const initPage = () => {
   }
   getArtist();
   loadAlbumCarousel();
+<<<<<<< HEAD
+=======
+  loadSidebarData();
+>>>>>>> Test2backup
 };
+// #endregion
 
+<<<<<<< HEAD
 const getArtist = () => {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`;
 
@@ -47,25 +57,91 @@ const loadAlbumCarousel = () => {
   const container = document.getElementById("album-sidebar");
 
   if (!container) return;
+=======
+// #region FUNZIONI PRINCIPALI (API)
+const getArtist = () => {
+  const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`;
+>>>>>>> Test2backup
 
   fetch(url)
-    .then((res) => res.json())
+    .then((response) => {
+      if (response.ok) return response.json();
+      throw new Error("Errore nel recupero dati artista");
+    })
+    .then((data) => {
+      // Popola Nome e Ascoltatori
+      const artistName = document.getElementById("artist-name");
+      if (artistName) artistName.innerText = data.name;
+
+      const monthlyListener = document.getElementById("monthly-listener");
+      if (monthlyListener) {
+        monthlyListener.innerText =
+          data.nb_fan.toLocaleString("it-IT") + " Monthly Listener";
+      }
+
+      // Sfondo Hero
+      const artistHero = document.querySelector(".artist-hero");
+      if (artistHero) {
+        artistHero.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #121212), url(${data.picture_xl})`;
+        artistHero.style.backgroundPosition = "top";
+      }
+
+      // Carica la biografia neutra con i dati dell'artista
+      loadArtistInfo(data);
+    })
+    .catch((error) => console.log(error));
+};
+
+const loadAlbumCarousel = () => {
+  // Recuperiamo prima il nome dell'artista per fare una ricerca più precisa,
+  // oppure usiamo l'ID direttamente nell'endpoint corretto.
+  // Usiamo l'ID dell'artista per cercare le sue tracce/album
+  const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=12`;
+  const container = document.getElementById("album-sidebar");
+
+  if (!container || !id) return;
+
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) throw new Error("Errore fetch carosello");
+      return res.json();
+    })
     .then((obj) => {
-      container.innerHTML = "";
+      container.innerHTML = ""; // Puliamo il contenitore
 
-      const limitedData = obj.data.slice(0, 12);
+      // L'endpoint /top restituisce la lista in obj.data
+      const tracks = obj.data;
 
-      limitedData.forEach((item, index) => {
+      if (tracks.length === 0) {
+        container.innerHTML =
+          "<p class='text-white'>Nessun contenuto disponibile</p>";
+        return;
+      }
+
+      tracks.forEach((item, index) => {
         const isActive = index === 0 ? "active" : "";
         container.innerHTML += `
           <div class="carousel-item ${isActive}">
+<<<<<<< HEAD
             <img src="${item.album.cover_big}" class="d-block w-100 rounded-2" alt="${item.album.title}" />
             <div class="container position-absolute bottom-0 start-0 pb-2">
               <p class="fw-bold mb-0 mt-1 text-light text-shadow text-truncate" style="font-size: 15px; max-width: 90%;">
+=======
+            <img
+              src="${item.album.cover_big}"
+              class="d-block w-100 rounded-2"
+              alt="${item.album.title}"
+            />
+            <div class="container position-absolute bottom-0 start-0 pb-2 bg-dark bg-opacity-50 w-100">
+              <p
+                class="fw-bold mb-0 mt-1 text-light text-truncate"
+                style="font-size: 15px; max-width: 90%;"
+              >
+>>>>>>> Test2backup
                 ${item.album.title}
               </p>
-              <p class="text-light mb-0 text-shadow text-truncate" style="font-size: 12px; max-width: 90%;">
-                ${item.artist.name}
+              <p class="text-light mb-0 text-truncate" style="font-size: 12px; max-width: 90%;">
+                ${item.title}
               </p>
             </div>
           </div>`;
@@ -81,6 +157,7 @@ const loadArtistInfo = (artist) => {
   container.innerHTML = `
     <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
     <div class="d-flex flex-column gap-3 mb-2">
+<<<<<<< HEAD
       <div
         class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
         style="width: 52px; height: 52px"
@@ -108,10 +185,22 @@ const loadArtistInfo = (artist) => {
             Segui
           </button>
         </div>
+=======
+      <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden" style="width: 52px; height: 52px">
+        <img src="${artist.picture_big}" alt="${artist.name}" class="w-100 h-100 object-fit-cover" />
+      </div>
+      <div>
+        <p class="fw-bold mb-0 text-light">${artist.name}</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="text-light small mb-0">Artista internazionale</p>
+        <button class="btn btn-outline-light btn-sm rounded-pill px-3 small">Segui</button>
+>>>>>>> Test2backup
       </div>
     </div>
 
     <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
+<<<<<<< HEAD
   <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
   Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
   Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
@@ -126,19 +215,23 @@ const loadArtistInfo = (artist) => {
 };
 
 initPage();
+=======
+      <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
+      Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
+      Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
+      <br><br>
+      Con oltre <strong>${artist.nb_fan.toLocaleString()} fan</strong> su Deezer e <strong>${artist.nb_album} album</strong> pubblicati, 
+      il progetto musicale di <strong>${artist.name}</strong> continua a dominare le classifiche. I brani testimoniano la maturità raggiunta in questi anni.
+      <br><br>
+      Il dato record: <strong>${artist.name}</strong> continua a crescere grazie allo streaming 
+      e alla capacità di restare una realtà rilevante per generazioni diverse, confermandosi un'icona della musica moderna.
+    </p>
+  `;
+};
+>>>>>>> Test2backup
 // #endregion
 
-// #region COLLASSO SIDEBAR
-const sidebar = document.getElementById("sidebarLeft");
-const toggleBtn = document.getElementById("toggleSidebar");
-
-toggleBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("sidebar-collapsed");
-  sidebar.classList.toggle("sidebar-expanded");
-});
-// #endregion
-
-// #region SIDEBAR CONTENUTO SINISTRO
+// #region SIDEBAR E UI
 const loadSidebarData = () => {
   const url =
     "https://striveschool-api.herokuapp.com/api/deezer/search?q=playlist";
@@ -150,11 +243,8 @@ const loadSidebarData = () => {
     .then((res) => res.json())
     .then((obj) => {
       container.innerHTML = "";
-
       const limitedData = obj.data.slice(0, 12);
-
       limitedData.forEach((item) => {
-        // CORREZIONE: Ho aggiunto i backtick (`) all'inizio e alla fine dell'HTML
         container.innerHTML += `
           <div class="d-flex align-items-center my-3">
             <img src="${item.album.cover_big}" width="50" height="50" class="rounded-1 shadow-sm">
@@ -170,5 +260,22 @@ const loadSidebarData = () => {
     .catch((err) => console.error("Errore sidebar:", err));
 };
 
+<<<<<<< HEAD
 loadSidebarData();
 // #endregion
+=======
+// Toggle Sidebar (Assicurati che gli ID esistano nell'HTML)
+const sidebar = document.getElementById("sidebarLeft");
+const toggleBtn = document.getElementById("toggleSidebar");
+
+if (toggleBtn && sidebar) {
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("sidebar-collapsed");
+    sidebar.classList.toggle("sidebar-expanded");
+  });
+}
+// #endregion
+
+// AVVIO
+initPage();
+>>>>>>> Test2backup
