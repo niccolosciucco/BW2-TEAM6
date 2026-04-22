@@ -275,30 +275,94 @@
         class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column overflow-hidden"
       >
         <!-- TOP HEADER -->
-        <div class="px-4 py-3 flex-shrink-0">
-          <h4 class="text-white fw-bold mb-0">Browse all</h4>
-        </div>
+        <div class="px-4 py-3 flex-shrink-0"></div>
 
         <!-- AREA RESULT EXPLORE -->
         <div
-          class="flex-grow-1 overflow-auto hide-scrollbar px-4 pb-5 hero-result"
+          id="container-dedica-completo"
+          class="d-flex flex-column align-items-center mt-5 mb-5"
         >
-          <div class="container mt-5">
-            <h1 id="genre-title" class="display-2 fw-bold mb-5 text-white">
-              Caricamento...
-            </h1>
+          <h4
+            class="text-white text-uppercase fw-bold mb-4"
+            style="
+              letter-spacing: 2px;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            "
+          >
+            PER LA REGINA DEL CORSO (TANTI BACI) ED IL MIO GRUPPO
+          </h4>
 
-            <h3 class="text-white mb-4">Playlist popolari</h3>
-            <div
-              id="playlist-row"
-              class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mb-5"
-            ></div>
+          <div
+            class="card border-0 shadow-lg text-white p-4"
+            style="
+              background-color: #121212;
+              border-radius: 15px;
+              max-width: 500px;
+              width: 100%;
+            "
+          >
+            <div class="card-body p-0">
+              <div class="d-flex align-items-center mb-4 text-start">
+                <img
+                  id="img-card-dedica"
+                  src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/71/61/61/71616171-6161-7161-6161-716161716161/00602537151126.rgb.jpg/400x400bb.jpg"
+                  class="shadow-sm rounded"
+                  style="width: 90px; height: 90px; object-fit: cover"
+                />
+                <div class="ms-3">
+                  <h5 class="mb-1 fw-bold text-white">Luna (2011 Remaster)</h5>
+                  <p class="mb-0 small text-secondary">The Smashing Pumpkins</p>
+                </div>
+              </div>
 
-            <h3 class="text-white mb-4">Artisti in primo piano</h3>
-            <div
-              id="artist-row"
-              class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4"
-            ></div>
+              <div class="text-center mb-4">
+                <button
+                  id="play-dedica"
+                  class="btn p-0 border-0 bg-transparent"
+                >
+                  <i
+                    class="bi bi-play-circle-fill"
+                    style="font-size: 4.5rem; color: #1db954"
+                  ></i>
+                </button>
+              </div>
+
+              <div
+                class="p-3 rounded text-start"
+                style="
+                  background-color: rgba(255, 255, 255, 0.07);
+                  border-left: 4px solid #1db954;
+                "
+              >
+                <p
+                  class="mb-2 fw-bold text-success"
+                  style="
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                  "
+                >
+                  Al Team e agli Amici
+                </p>
+                <p
+                  class="mb-0 small"
+                  style="
+                    font-family: &quot;Segoe UI&quot;, sans-serif;
+                    line-height: 1.5;
+                    color: #e0e0e0;
+                  "
+                >
+                  "Un grazie immenso a tutto il <b>gruppo di lavoro</b> per la
+                  pazienza e i traguardi raggiunti insieme. Un ringraziamento
+                  speciale al gruppo e a <b>Roberto, Kevin e Alessia</b>: amici
+                  veri e supporto costante. Siete stati la marcia in più!"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="heart-container">
+            <i class="bi bi-heart-fill heart-beat"></i>
           </div>
         </div>
       </div>
@@ -572,5 +636,6 @@
     <script src="./scripts/player.js"></script>
     <script src="./scripts/searchbar.js"></script>
     <script src="./scripts/home-page.js"></script>
+    <script src="./scripts/extrapageroby.js"></script>
   </body>
 </html>
