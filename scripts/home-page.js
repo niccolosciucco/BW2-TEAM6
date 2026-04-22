@@ -43,8 +43,8 @@ const createAlbumCard = (data, containerId, index) => {
             <img src="${albumCover}" class="card-img-top img-fluid" alt="${albumTitle}">
             <button 
             id="${idBtn}" 
-            class="play-button  position-absolute btn btn-success text-black p-0 pt-1 d-flex align-items-center justify-content-center rounded-circle shadow-lg" 
-            style="width: 40px; height: 40px; bottom: 8px; right: 8px;" 
+            class="play-button position-absolute btn text-black p-0 pt-1 d-flex align-items-center justify-content-center rounded-circle shadow-lg" 
+            style="width: 40px; height: 40px; bottom: 8px; right: 8px; background-color: #1DB954" 
             onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
             <i class="bi bi-play-fill fs-2"></i>
 </button>
