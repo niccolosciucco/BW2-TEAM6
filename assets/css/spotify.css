@@ -72,22 +72,28 @@ body {
   display: block;
 }
 
-#sidebarLeft {
+#sidebarLeft,
+#sidebarRight {
   transition: width 0.3s ease;
   height: 100%;
   min-height: 0;
+  flex-shrink: 0;
 }
 
-.sidebar-expanded {
-  width: 350px !important;
-}
-
-.sidebar-collapsed {
-  width: 80px;
-}
-
-.right-sidebar {
+#sidebarLeft {
   width: 350px;
+}
+
+#sidebarLeft.sidebar-collapsed {
+  width: 85px;
+}
+
+#sidebarRight {
+  width: 320px;
+}
+
+#sidebarRight.sidebar-collapsed {
+  width: 45px;
 }
 
 .flex-grow-1 {

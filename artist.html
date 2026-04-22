@@ -43,7 +43,9 @@
                   class="vr mx-2 text-secondary"
                   style="height: 23px; opacity: 0.5"
                 ></div>
-                <i class="bi bi-collection-play text-secondary me-2"></i>
+                <a href="./explore.html">
+                  <i class="bi bi-collection-play text-secondary me-2"></i>
+                </a>
               </div>
             </div>
 
@@ -90,20 +92,20 @@
     </header>
     <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- LEFT SIDEBAR -->
-      <div
+       <div
         id="sidebarLeft"
         class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
-        <div class="d-flex w-100 px-lg-2">
+        <div class="d-flex w-100 px-lg-2 align-items-center">
           <div class="mt-2">
             <button id="toggleSidebar" class="btn text-secondary">
               <i class="bi bi-layout-sidebar-inset-reverse"></i>
             </button>
           </div>
-          <div class="d-flex justify-content-between text-light w-100 mt-2">
-            <div>
+          <div class="d-flex justify-content-between align-items-center text-light w-100 mt-2">
+            <div class="d-flex align-items-center pt-3">
               <p>Your Library</p>
             </div>
             <div class="dropdown dropend me-1 overflow-visible">
@@ -740,47 +742,58 @@
 
       <!-- RIGHT SIDEBAR -->
 
-      <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
-        <section class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100">
-          <div
-            class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
-          >
-            <div class="d-flex align-items-center gap-2">
+      
+      <div
+        id="sidebarRight"
+        class="d-none d-lg-block rounded-2 right-sidebar bg-dark"
+      >
+        <section
+          class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100 w-100"
+        >
+          <div class="d-flex w-100 align-items-center ">
+            <div>
               <button
-                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+                id="toggleSidebar2"
+                class="btn text-secondary"
               >
                 <i class="bi bi-layout-sidebar-inset-reverse"></i>
               </button>
-              <p id="sb-right-name-artist" class="text-light mt-3">
-                Takagi &amp; Ketra
-              </p>
             </div>
-            <div class="d-flex align-items-center gap-2">
-              <button
-                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
-              >
-                <i class="bi bi-three-dots"></i>
-              </button>
-              <button
-                class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
-              >
-                <i class="bi bi-arrows-fullscreen"></i>
-              </button>
+            <div
+              class="d-flex justify-content-between w-100 px-3 py-1 border-secondary collapse-hidden"
+            >
+              <div class="d-flex align-items-center gap-2">
+                <p id="sb-right-name-artist" class="text-light mt-3">
+                  Takagi &amp; Ketra
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <button
+                  class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+                >
+                  <i class="bi bi-three-dots collapse-hidden"></i>
+                </button>
+                <button
+                  class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+                >
+                  <i class="bi bi-arrows-fullscreen collapse-hidden"></i>
+                </button>
+              </div>
             </div>
           </div>
           <div
-            class="d-flex align-items-center mx-auto justify-content-center mt-2"
+            class="d-flex align-items-center mx-auto justify-content-center mt-2 collapse-hidden"
             style="height: 300px; width: 300px"
           >
             <img
               id="sb-right-img"
               src="./assets/imgs/search/img.ketra.jpg"
               alt="img"
-              class="w-100 rounded-2 mb-3"
+              class="w-100 rounded-2 mb-3 collapse-hidden"
             />
           </div>
           <div
-            class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary"
+            class="d-flex align-items-start justify-content-between gap-2 px-3 py-1 order-secondary collapse-hidden"
           >
             <div class="d-flex align-items-center justify-content-between mb-3">
               <div class="overflow-hidden me-2">
@@ -802,7 +815,7 @@
             </div>
             <div class="d-flex align-items-center gap-2 mt-2 flex-shrink-0">
               <button
-                class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-2 fs-5"
+                class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center p-0 lh-2 fs-5 collapse-hidden"
                 style="width: 25px; height: 25px"
               >
                 +
@@ -845,10 +858,13 @@
           </div>
           <div
             id="informazioni"
-            class="rounded mx-3 mb-3 p-3"
+            class="rounded mx-3 mb-3 p-3 collapse-hidden"
             style="background-color: #1f1f1f"
           ></div>
-          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+          <div
+            class="rounded mx-3 mb-3 p-3 collapse-hidden"
+            style="background-color: #1f1f1f"
+          >
             <div class="d-flex align-items-center justify-content-between mb-1">
               <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
               <a href="#" class="text-secondary text-decoration-none small"
@@ -876,7 +892,10 @@
             </div>
           </div>
 
-          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
+          <div
+            class="rounded mx-3 mb-3 p-3 collapse-hidden"
+            style="background-color: #1f1f1f"
+          >
             <div class="d-flex align-items-center justify-content-between mb-2">
               <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
               <a href="#" class="text-light-emphasis small text-decoration-none"
