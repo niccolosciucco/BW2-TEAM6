@@ -80,7 +80,7 @@ const loadAlbumCarousel = () => {
           <div class="carousel-item ${isActive}">
             <img
               src="${item.album.cover_big}"
-              class="d-block w-100 rounded-2"
+              class="d-block w-100 rounded-2 collapse-hidden"
               alt="${item.album.title}"
             />
             <div class="container position-absolute bottom-0 start-0 pb-2 bg-dark bg-opacity-50 w-100">
@@ -151,8 +151,8 @@ const loadSidebarData = () => {
         container.innerHTML += `
           <div class="d-flex align-items-center my-3">
             <img src="${item.album.cover_big}" width="50" height="50" class="rounded-1 shadow-sm">
-            <div class="px-2 collapse-hidden">
-              <div class="fw-bold text-light text-truncate" style="max-width: 150px;">
+            <div class="px-2">
+              <div class="fw-bold text-light text-truncate collapse-hidden" style="max-width: 150px;">
                 ${item.album.title}
               </div>
               <small class="text-secondary">${item.artist.name}</small>
@@ -163,16 +163,23 @@ const loadSidebarData = () => {
     .catch((err) => console.error("Errore sidebar:", err));
 };
 
-// Toggle Sidebar (Assicurati che gli ID esistano nell'HTML)
+// #region COLLASSO SIDEBAR
 const sidebar = document.getElementById("sidebarLeft");
 const toggleBtn = document.getElementById("toggleSidebar");
 
-if (toggleBtn && sidebar) {
-  toggleBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("sidebar-collapsed");
-    sidebar.classList.toggle("sidebar-expanded");
-  });
-}
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("sidebar-collapsed");
+  sidebar.classList.toggle("sidebar-expanded");
+});
+
+const sidebar2 = document.getElementById("sidebarRight");
+const toggleBtn2 = document.getElementById("toggleSidebar2");
+
+toggleBtn2.addEventListener("click", () => {
+  sidebar2.classList.toggle("sidebar-collapsed");
+  sidebar2.classList.toggle("sidebar-expanded");
+});
+
 // #endregion
 
 // AVVIO
