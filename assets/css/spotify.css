@@ -140,7 +140,6 @@ body {
   color: white;
 }
 
-
 /* MAIN CONTENT AREA ARTIST PAGE */
 /* HERO BACKGROUND */
 .artist-hero {
@@ -305,11 +304,9 @@ html,
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 main {
-  height: 0;
   flex-grow: 1;
 }
 
@@ -332,4 +329,13 @@ main {
   min-height: 0;
   display: flex;
   flex-direction: column;
+}
+.bg-dark.rounded-top-2 {
+  min-height: 0;
+}
+.min-h-0 {
+  min-height: 0;
+}
+main {
+  height: calc(100vh - 80px);
 }

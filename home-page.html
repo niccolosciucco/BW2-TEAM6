@@ -24,7 +24,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-black d-flex flex-column min-vh-100">
+  <body class="bg-black d-flex flex-column min-vh-100 h-100">
     <header class="flex-shrink-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
@@ -95,14 +95,14 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1">
+    <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
       <div
         id="sidebarLeft"
-        class="d-flex flex-column d-none d-lg-block sidebar-expanded bg-dark rounded-2 h-100"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -116,7 +116,7 @@
             <div>
               <p>Your Library</p>
             </div>
-            <div class="dropdown dropend me-1">
+            <div class="dropdown dropend me-1 overflow-visible">
               <button
                 class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
                 style="--bs-bg-opacity: 0.3"
@@ -130,7 +130,7 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-dark">
+              <ul class="dropdown-menu bg-dark overflow-visible">
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -260,8 +260,9 @@
 
         <!--ELEMENT LIST-->
         <section
-          class="d-flex flex-grow-1 flex-column overflow-auto hide-scrollbar bg-dark ms-1 h-100"
-        > <div class="d-flex align-items-center my-3">
+          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+        >
+          <div class="d-flex align-items-center my-3">
             <img
               src="./assets/imgs/search/image-17.jpg"
               alt="img"
@@ -575,19 +576,20 @@
               <div class="fw-bold text-light">Afro Hits</div>
               <small class="text-secondary">Playlist • 30 songs</small>
             </div>
-          </div></section>
+          </div>
+        </section>
         <!-- </div> -->
       </div>
 
       <!-- Container main content -->
       <div
-        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column"
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
       >
-        <div class="bg-dark rounded-top-2">
+        <div class="bg-dark rounded-top-2 d-flex flex-column">
           <!-- Content area -->
           <div id="playlist-card"></div>
-          <div class="px-2 flex-grow-1 overflow-auto h-100">
-            <div class="text-light">
+          <div class="px-2 flex-grow-1 d-flex flex-column min-h-0">
+            <div class="text-light d-flex flex-column flex-grow-1 min-h-0">
               <!-- Buttons -->
               <div class="d-flex gap-3 my-3 ms-2">
                 <a
@@ -608,7 +610,9 @@
               </div>
 
               <!-- Album section -->
-              <section class="overflow-auto hide-scrollbar bg-dark">
+              <section
+                class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+              >
                 <div class="container">
                   <div
                     class="row row-cols-2 row-cols-lg-4 g-3 mb-3 justify-content-center"
