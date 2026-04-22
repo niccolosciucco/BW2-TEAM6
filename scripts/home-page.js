@@ -16,6 +16,105 @@ class GeneralMusic {
   }
 }
 
+// #region RIEMPIMENTO CAROSELLO ALBUM
+const urlEurovision =
+  "https://striveschool-api.herokuapp.com/api/deezer/search?q=album%20eurovision";
+const urlGeneric =
+  "https://striveschool-api.herokuapp.com/api/deezer/search?q=album";
+const urlSanremo =
+  "https://striveschool-api.herokuapp.com/api/deezer/search?q=album%20sanremo";
+
+const createAlbumCard = (data, containerId, index) => {
+  const albumId = data.album.id;
+  const albumTitle = data.album.title;
+  const albumCover = data.album.cover_big;
+  const artistName = data.artist.name;
+  const artistId = data.artist.id;
+  const previewUrl = data.preview;
+
+  const idBtn = `btn-play-${albumId}-${index}`;
+
+  const col = document.createElement("div");
+  col.className = "col-6 col-md-3 col-lg-2 mb-4"; // 6 card su desktop, 2 su mobile
+
+  col.innerHTML = `
+        <div class="card h-100 album-card bg-transparent border-0 position-relative">
+          <div class="position-relative overflow-hidden rounded-3 shadow-sm shadow-lg-hover">
+            <img src="${albumCover}" class="card-img-top img-fluid" alt="${albumTitle}">
+            <button 
+               id="${idBtn}" 
+               class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle shadow"
+               style="width: 48px; height: 48px; bottom: 8px; right: 8px; opacity: 0; transition: all 0.3s;"
+               onclick="handleMusic('${albumTitle.replace(/'/g, "\\'")}', '${artistName.replace(/'/g, "\\'")}', '${albumCover}', '${previewUrl}', false, true, '${idBtn}')">
+               <i class="bi bi-play-fill fs-3"></i>
+            </button>
+          </div>
+          <div class="card-body p-2">
+            <a href="./album.html?id=${albumId}" class="text-decoration-none">
+                <p class="card-text text-truncate text-white fw-bold mb-0">${albumTitle}</p>
+            </a>
+            <a href="./artist.html?id=${artistId}" class="text-decoration-none">
+                <p class="card-text text-truncate text-secondary small">${artistName}</p>
+            </a>
+          </div>
+        </div>`;
+  return col;
+};
+
+const populateCarousel = async () => {
+  const targetIds = [
+    "album-listened",
+    "album-listened2",
+    "album-search",
+    "album-search2",
+    "album-recommended",
+    "album-recommended2",
+    "album-featuring",
+    "album-featuring2",
+  ];
+
+  try {
+    // Eseguiamo entrambe le fetch contemporaneamente (più veloce)
+    const [res1, res2, res3] = await Promise.all([
+      fetch(urlGeneric),
+      fetch(urlSanremo),
+      fetch(urlEurovision),
+    ]);
+
+    const json1 = await res1.json();
+    const json2 = await res2.json();
+    const json3 = await res3.json();
+
+    // Uniamo i due array di risultati in uno solo
+    const allAlbums = [...json1.data, ...json2.data, ...json3.data];
+
+    if (!allAlbums || allAlbums.length === 0) return;
+
+    targetIds.forEach((containerId, containerIndex) => {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const itemsPerSlide = 6;
+      const start = containerIndex * itemsPerSlide;
+
+      // Prendiamo i 6 album per questa riga dal "super-array" unito
+      const selection = allAlbums.slice(start, start + itemsPerSlide);
+
+      // Puliamo il contenitore prima di riempirlo
+      container.innerHTML = "";
+
+      selection.forEach((item, i) => {
+        container.appendChild(createAlbumCard(item, containerId, i));
+      });
+    });
+  } catch (error) {
+    console.error("Errore nel caricamento dei dati uniti:", error);
+  }
+};
+
+populateCarousel();
+// #endregion
+
 // #region SIDEBAR CONTENUTO SINISTRO
 const loadSidebarData = () => {
   const url =
@@ -32,6 +131,7 @@ const loadSidebarData = () => {
       const limitedData = obj.data.slice(0, 12);
 
       limitedData.forEach((item) => {
+        // CORREZIONE: Ho aggiunto i backtick (`) all'inizio e alla fine dell'HTML
         container.innerHTML += `
           <div class="d-flex align-items-center my-3">
             <img src="${item.album.cover_big}" width="50" height="50" class="rounded-1 shadow-sm">
@@ -484,88 +584,6 @@ const getAlbum = () => {
 
 getAlbum();
 
-// #endregion
-
-// #region CAROSELLO ALBUM
-
-const idAlbum3 = [
-  1127912, 406064537, 629506181, 829966251, 139903102, 13082992, 629506181,
-  837881302, 60712222, 226972272, 964049261, 681873311, 586786102, 740854321,
-  52661942, 110382, 72487842, 773306041, 681873311, 231182, 908070412, 12279688,
-  698935761,
-];
-
-const createAllCarousels = async () => {
-  const qs = "album/";
-  const targetIds = [
-    "album-listened",
-    "album-listened2",
-    "album-search",
-    "album-search2",
-    "album-recommended",
-    "album-recommended2",
-    "album-featuring",
-    "album-featuring2",
-  ];
-  const itemsPerSlide = 6;
-
-  const totalSlotsNeeded = targetIds.length * itemsPerSlide;
-
-  const uniqueIds = [...new Set(idAlbum3)];
-  const albumCache = {};
-
-  try {
-    await Promise.all(
-      uniqueIds.map(async (id) => {
-        const response = await fetch(`${urlSearch}${qs}${id}`);
-        if (response.ok) albumCache[id] = await response.json();
-      }),
-    );
-
-    for (let i = 0; i < totalSlotsNeeded; i++) {
-      const id = idAlbum3[i % idAlbum3.length];
-
-      const slideIndex = Math.floor(i / itemsPerSlide);
-      const containerId = targetIds[slideIndex];
-      const data = albumCache[id];
-
-      if (containerId && data) {
-        const container = document.getElementById(containerId);
-        if (container) {
-          container.appendChild(createAlbumCard(data, id, containerId, i));
-        }
-      }
-    }
-  } catch (error) {
-    console.error("Errore:", error);
-  }
-};
-
-const createAlbumCard = (data, id, containerId, globalIndex) => {
-  const idBtn = `btn-album-${id}-${containerId}-${globalIndex}`;
-  const col = document.createElement("div");
-  col.className = "col-6 col-md-3 col-lg-2 mb-3";
-
-  console.log(data);
-
-  col.innerHTML = `
-    <div class="card h-100 album-card bg-transparent border-0 position-relative glow-up">
-      <img src="${data.cover_big}" class="card-img-top img-fluid" alt="${data.title}">
-      <div class="card-body text-secondary p-2">
-        <a href="./album.html?id=${data.id}" class="link"><p class="card-text text-truncate text-white mb-0">${data.title}</p></a>
-        <a href="./artist.html?id=${data.artist.id}" class="link"><p class="card-text text-truncate small">${data.artist.name}</p></a>
-      </div>
-      <a href="javascript:void(0)" 
-         id="${idBtn}" 
-         class="play-button position-absolute btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill"
-         style="width: 40px; height: 40px; font-size: 1.5rem; bottom: 10px; right: 10px;"
-         onclick="handleMusic('${data.title}', '${data.artist.name}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
-      </a>
-    </div>`;
-  return col;
-};
-
-createAllCarousels();
 // #endregion
 
 // #region RIPRODUZIONE MUSICA
