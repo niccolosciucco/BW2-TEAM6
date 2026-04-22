@@ -92,7 +92,7 @@
     </header>
     <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- LEFT SIDEBAR -->
-       <div
+      <div
         id="sidebarLeft"
         class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
@@ -104,7 +104,9 @@
               <i class="bi bi-layout-sidebar-inset-reverse"></i>
             </button>
           </div>
-          <div class="d-flex justify-content-between align-items-center text-light w-100 mt-2">
+          <div
+            class="d-flex justify-content-between align-items-center text-light w-100 mt-2"
+          >
             <div class="d-flex align-items-center pt-3">
               <p>Your Library</p>
             </div>
@@ -403,79 +405,15 @@
         <div class="d-flex flex-column min-h-0 h-100">
           <h5 class="text-white mb-3">Popular</h5>
 
-          <section class="flex-grow-1 overflow-auto hide-scrollbar">
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">1</span>
-                <img src="./assets/imgs/search/image-17.jpg" width="40" />
-                <span class="text-white">Calm Down</span>
-              </div>
-              <span class="text-secondary">3:02</span>
-            </div>
-
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">1</span>
-                <img src="./assets/imgs/search/image-17.jpg" width="40" />
-                <span class="text-white">Calm Down</span>
-              </div>
-              <span class="text-secondary">3:02</span>
-            </div>
-
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">1</span>
-                <img src="./assets/imgs/search/image-17.jpg" width="40" />
-                <span class="text-white">Calm Down</span>
-              </div>
-              <span class="text-secondary">3:02</span>
-            </div>
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">1</span>
-                <img src="./assets/imgs/search/image-17.jpg" width="40" />
-                <span class="text-white">Calm Down</span>
-              </div>
-              <span class="text-secondary">3:02</span>
-            </div>
-
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">1</span>
-                <img src="./assets/imgs/search/image-17.jpg" width="40" />
-                <span class="text-white">Calm Down</span>
-              </div>
-              <span class="text-secondary">3:02</span>
-            </div>
-
-            <div
-              class="song-row d-flex justify-content-between align-items-center py-2 px-2"
-            >
-              <div class="d-flex align-items-center gap-3">
-                <span class="text-secondary">2</span>
-                <img src="./assets/imgs/search/image-10.jpg" width="40" />
-                <span class="text-white">Mi Chico</span>
-              </div>
-              <span class="text-secondary">1:57</span>
-            </div>
-
-          </section>
+          <section
+            id="tracce-artista"
+            class="flex-grow-1 overflow-auto hide-scrollbar"
+          ></section>
         </div>
       </div>
 
       <!-- RIGHT SIDEBAR -->
 
-      
       <div
         id="sidebarRight"
         class="d-none d-lg-block rounded-2 right-sidebar bg-dark"
@@ -483,12 +421,9 @@
         <section
           class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100 w-100"
         >
-          <div class="d-flex w-100 align-items-center ">
+          <div class="d-flex w-100 align-items-center">
             <div>
-              <button
-                id="toggleSidebar2"
-                class="btn text-secondary"
-              >
+              <button id="toggleSidebar2" class="btn text-secondary">
                 <i class="bi bi-layout-sidebar-inset-reverse"></i>
               </button>
             </div>
