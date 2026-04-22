@@ -248,3 +248,38 @@ toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("sidebar-expanded");
 });
 // #endregion
+
+// #region SIDEBAR CONTENUTO SINISTRO
+const loadSidebarData = () => {
+  const url =
+    "https://striveschool-api.herokuapp.com/api/deezer/search?q=playlist";
+  const container = document.getElementById("playlist-album");
+
+  if (!container) return;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((obj) => {
+      container.innerHTML = "";
+
+      const limitedData = obj.data.slice(0, 12);
+
+      limitedData.forEach((item) => {
+        // CORREZIONE: Ho aggiunto i backtick (`) all'inizio e alla fine dell'HTML
+        container.innerHTML += `
+          <div class="d-flex align-items-center my-3">
+            <img src="${item.album.cover_big}" width="50" height="50" class="rounded-1 shadow-sm">
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light text-truncate" style="max-width: 150px;">
+                ${item.album.title}
+              </div>
+              <small class="text-secondary">${item.artist.name}</small>
+            </div>
+          </div>`;
+      });
+    })
+    .catch((err) => console.error("Errore sidebar:", err));
+};
+
+loadSidebarData();
+// #endregion
