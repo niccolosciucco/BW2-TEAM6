@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/css/spotify.css" />
   </head>
   <body class="bg-black d-flex flex-column min-vh-100 h-100">
-     <header class="flex-shrink-0">
+    <header class="flex-shrink-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
@@ -572,7 +572,9 @@
       </div>
 
       <!-- CENTER CONTENT -->
-      <div class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column flex-grow-1 min-h-0">
+      <div
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column flex-grow-1 min-h-0"
+      >
         <!-- HERO -->
         <div id="colore-medio" class="d-flex align-items-end gap-4 p-4">
           <img
@@ -751,13 +753,16 @@
           class="d-flex align-items-center px-4 py-2 border-bottom border-secondary text-secondary small mx-2"
         >
           <span style="width: 30px">#</span>
-          <span class="flex-grow-1">Titolo</span>
-          <span style="width: 400px">Riproduzioni</span>
-          <span style="width: 60px" class="text-end">
+          <span class="flex-grow-1 z-1">Titolo</span>
+
+          <span style="width: 400px" class="d-none d-xxl-inline"
+            >Riproduzioni</span
+          >
+
+          <span style="width: 60px" class="text-end d-lg-none d-xxl-inline">
             <i class="bi bi-clock"></i>
           </span>
         </div>
-
         <!-- TRACCE -->
         <section
           class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
@@ -941,7 +946,7 @@
       </div>
     </main>
 
-   <footer
+    <footer
       class="spotify-footer d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between px-3 bg-black py-2"
     >
       <div class="d-flex align-items-center gap-3">
