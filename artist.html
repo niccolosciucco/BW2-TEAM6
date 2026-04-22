@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/spotify.css" />
   </head>
-  <body class="bg-black" style="height: 100vh">
-    <header style="height: 10vh">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
+  <body class="bg-black d-flex flex-column min-vh-100 h-100">
+   <header class="flex-shrink-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
             <div class="col-auto col-lg-3">
@@ -90,10 +90,9 @@
     </header>
     <main class="d-flex bg-black" style="height: 80vh">
       <!-- LEFT SIDEBAR -->
-      <div
+     <div
         id="sidebarLeft"
-        class="d-none d-lg-block sidebar-expanded bg-dark rounded-2"
-        style="height: 80vh"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -107,7 +106,7 @@
             <div>
               <p>Your Library</p>
             </div>
-            <div class="dropdown dropend me-1">
+            <div class="dropdown dropend me-1 overflow-visible">
               <button
                 class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
                 style="--bs-bg-opacity: 0.3"
@@ -121,7 +120,7 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-dark">
+              <ul class="dropdown-menu bg-dark overflow-visible">
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -251,8 +250,7 @@
 
         <!--ELEMENT LIST-->
         <section
-          class="overflow-scroll hide-scrollbar bg-dark ms-1"
-          style="height: 66vh"
+          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
         >
           <div class="d-flex align-items-center my-3">
             <img
@@ -761,10 +759,7 @@
       <!-- RIGHT SIDEBAR -->
 
       <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
-        <section
-          class="overflow-scroll hide-scrollbar bg-dark"
-          style="height: 80vh"
-        >
+        <section class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100">
           <div
             class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
           >
@@ -828,45 +823,15 @@
               </button>
             </div>
           </div>
+
+          <!--VIDEO CORRELATI-->
+
           <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
           <div
             id="carouselExample6"
             class="carousel slide position-relative mb-2"
           >
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  src="./assets/imgs/search/image-10.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="./assets/imgs/search/image-11.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="./assets/imgs/search/image-19.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="container position-absolute bottom-0 start-0">
-                <p
-                  class="fw-bold mb-0 mt-1 text-light text-shadow"
-                  style="font-size: 15px"
-                >
-                  Headlights
-                </p>
-                <p class="text-light mb-0 text-shadow" style="font-size: 12px">
-                  Alok, Alan Walker, Kiddo
-                </p>
-              </div>
-            </div>
+            <div class="carousel-inner" id="album-sidebar"></div>
             <button
               class="carousel-control-prev"
               type="button"
@@ -892,42 +857,11 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-          <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
-            <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
-            <div class="d-flex flex-column gap-3 mb-2">
-              <div
-                class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
-                style="width: 52px; height: 52px"
-              >
-                <img
-                  src="./assets/imgs/search/img4.jpg"
-                  alt="img"
-                  class="w-100 h-100 object-fit-cover"
-                />
-              </div>
-              <div>
-                <p class="fw-bold mb-0 text-light">Takagi &amp; Ketra</p>
-              </div>
-              <div class="d-flex justify-content-between">
-                <p class="text-light small mb-0">
-                  2.972.185 ascoltatori mensili
-                </p>
-                <div class="ms-auto">
-                  <button
-                    class="btn btn-outline-light btn-sm rounded-pill px-3 small"
-                  >
-                    Segui
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-              Takagi &amp; Ketra sono due produttori multiplatino, hitmakers
-              italiani per eccellenza: dal 2013 oltre 230 dischi di platino fra
-              produzioni e singoli. "Quiéreme...
-            </p>
-          </div>
+          <div
+            id="informazioni"
+            class="rounded mx-3 mb-3 p-3"
+            style="background-color: #1f1f1f"
+          ></div>
           <div class="rounded mx-3 mb-3 p-3" style="background-color: #1f1f1f">
             <div class="d-flex align-items-center justify-content-between mb-1">
               <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
@@ -940,40 +874,10 @@
               class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
             >
               <div>
-                <p class="fw-semibold mb-0 text-light">Takagi &amp; Ketra</p>
+                <p id="riconoscimenti-name" class="fw-semibold mb-0 text-light">
+                  Takagi &amp; Ketra
+                </p>
                 <p class="text-light-emphasis mb-0" style="font-size: 11px">
-                  Artista Principale
-                </p>
-              </div>
-              <button
-                class="btn btn-outline-light rounded-pill px-3"
-                style="font-size: 12px"
-              >
-                Segui
-              </button>
-            </div>
-
-            <div
-              class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary"
-            >
-              <div>
-                <p class="mb-0 text-light">Shiva</p>
-                <p class="text-light-emphasis mb-0" style="font-size: 12px">
-                  Artista Principale
-                </p>
-              </div>
-              <button
-                class="btn btn-outline-light rounded-pill px-2"
-                style="font-size: 12px"
-              >
-                Non seguire più
-              </button>
-            </div>
-
-            <div class="d-flex align-items-center justify-content-between pt-2">
-              <div>
-                <p class="mb-0 text-light">ANNA</p>
-                <p class="text-light-emphasis" style="font-size: 12px">
                   Artista Principale
                 </p>
               </div>
@@ -1008,11 +912,7 @@
                   class="text-secondary mb-0 d-flex align-items-center gap-1"
                   style="font-size: 11px"
                 >
-                  <span
-                    class="badge bg-secondary text-dark"
-                    style="font-size: 11px"
-                    >Holden</span
-                  >
+                  <span class="text-light" style="font-size: 11px">Holden</span>
                 </p>
               </div>
             </div>
@@ -1022,8 +922,7 @@
     </main>
 
     <footer
-      class="spotify-footer d-flex align-items-center justify-content-between px-3 bg-black"
-      style="height: 10vh"
+      class="spotify-footer d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between px-3 bg-black py-2"
     >
       <div class="d-flex align-items-center gap-3">
         <img
