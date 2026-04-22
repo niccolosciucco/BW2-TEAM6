@@ -258,66 +258,73 @@ const loadArtistInfo = () => {
 loadArtistInfo();
 // #endregion
 
-// let urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/";
-// let qs = "";
-// let artist = "";
-// let codAlbum = "";
-// let fullUrl = "";
-
-// #region ALBUM
-
+// #region GET ALBUM
 const idAlbum = [
   552945182, 786324441, 234196722, 926315591, 503137, 6347177, 405134707,
   833470021,
 ];
 
 const getAlbum = () => {
-  const qs = "album/";
+  const urlApi = "https://striveschool-api.herokuapp.com/api/deezer/album/";
   const row = document.getElementById("album-music");
+
+  if (!row) {
+    console.error("Non ho trovato l'id album-music nell'HTML!");
+    return;
+  }
+
   row.innerHTML = "";
 
   idAlbum.forEach((id, i) => {
-    const fullUrl = urlSearch + qs + id;
-
-    fetch(fullUrl)
+    fetch(urlApi + id)
       .then((response) => {
         if (response.ok) return response.json();
-        throw new Error("Fetch Errata");
+        throw new Error("Errore fetch album " + id);
       })
       .then((data) => {
         const idBtn = `btn-album${i}`;
 
+        const safeTitle = data.title.replace(/'/g, "\\'");
+        const safeArtist = data.artist.name.replace(/'/g, "\\'");
+
         row.innerHTML += `
         <div class="col">
-          <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100 glow-up">
-            <div class="row g-0 h-100"> 
+          <div class="card album-card bg-dark bg-gradient text-white overflow-hidden h-100 glow-up border-0 shadow-sm">
+            <div class="row g-0 h-100 position-relative"> 
               <div class="col-4">
-                <img src="${data.cover_big}" class="img-fluid rounded-start h-100 object-fit-cover" alt="cover ${data.title}">
+                <img src="${data.cover_big}" class="img-fluid rounded-start h-100 object-fit-cover" alt="cover">
               </div>
 
-              <div class="col-8 position-relative">
+              <div class="col-8">
                 <div class="card-body d-flex align-items-center h-100">
-                  <a href="./album.html?id=${data.id}" class="link"><h2 class="card-title h6 mb-0 text-truncate">${data.title}</h2></a>
+                  <a href="./album.html?id=${data.id}" class="link text-white text-decoration-none">
+                    <h2 class="card-title h6 mb-0 text-truncate link" style="max-width: 120px;">${data.title}</h2>
+                  </a>
                 </div>
               </div>
 
               <a href="#" 
                 id="${idBtn}"
+<<<<<<< Updated upstream
                 class="play-button position-absolute top-50 end-0 translate-middle-y btn text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill me-1" 
                 style="width: 40px; height: 40px; font-size: 1.5rem;"
                 onclick="handleMusic('${data.title}', '${data.artist.name}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+=======
+                class="play-button position-absolute top-50 end-0 translate-middle-y btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill me-2" 
+                style="width: 35px; height: 35px; font-size: 1.2rem; z-index: 10;"
+                onclick="handleMusic('${safeTitle}', '${safeArtist}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
+>>>>>>> Stashed changes
               </a>
             </div>
           </div>
         </div>
         `;
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error("Errore:", error));
   });
 };
 
 getAlbum();
-
 // #endregion
 
 // #region COLLASSO SIDEBAR
