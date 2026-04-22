@@ -51,10 +51,10 @@ const createAlbumCard = (data, containerId, index) => {
           </div>
           <div class="card-body p-2">
             <a href="./album.html?id=${albumId}" class="text-decoration-none">
-                <p class="card-text text-truncate text-white fw-bold mb-0">${albumTitle}</p>
+                <p class="card-text text-truncate text-white fw-bold mb-0 link">${albumTitle}</p>
             </a>
             <a href="./artist.html?id=${artistId}" class="text-decoration-none">
-                <p class="card-text text-truncate text-secondary small">${artistName}</p>
+                <p class="card-text text-truncate text-secondary small link">${artistName}</p>
             </a>
           </div>
         </div>`;
