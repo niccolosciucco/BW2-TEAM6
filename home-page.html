@@ -24,8 +24,8 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-black" style="height: 100vh">
-    <header style="height: 8vh">
+  <body class="bg-black d-flex flex-column min-vh-100 h-100">
+    <header class="flex-shrink-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
@@ -95,15 +95,14 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex" style="height: 82vh">
+    <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
       <div
         id="sidebarLeft"
-        class="d-flex flex-column d-none d-lg-block sidebar-expanded bg-dark rounded-2"
-        style="max-height: 82vh"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -117,7 +116,7 @@
             <div>
               <p>Your Library</p>
             </div>
-            <div class="dropdown dropend me-1">
+            <div class="dropdown dropend me-1 overflow-visible">
               <button
                 class="bg-secondary text-light rounded-5 text-decoration-none p-1 px-2 border-0"
                 style="--bs-bg-opacity: 0.3"
@@ -131,7 +130,7 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-dark">
+              <ul class="dropdown-menu bg-dark overflow-visible">
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -261,20 +260,336 @@
 
         <!--ELEMENT LIST-->
         <section
-          id="playlist-album"
-          class="d-flex flex-grow-1 flex-column overflow-auto hide-scrollbar bg-dark ms-1"
-          style="max-height: 62vh"
-        ></section>
+          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+        >
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-17.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Liked Songs</div>
+              <small class="text-secondary">Playlist • 1340 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-10.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">LoFi Beats</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-2.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Dissect</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-3.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Pollen</div>
+              <small class="text-secondary">Playlist • 10 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-4.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Mint</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-5.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Viva Latino</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-6.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">are & Be</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-7.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Rock this</div>
+              <small class="text-secondary">Playlist • 70 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-8.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Beast Mode</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-9.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Nija</div>
+              <small class="text-secondary">Playlist • 25 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-11.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Song To Sing In The Car</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-12.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">All Out 10s</div>
+              <small class="text-secondary">Playlist • 20 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-13.jpeg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Your Summer Rewind</div>
+              <small class="text-secondary">Playlist • 200 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-14.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Top Song Global</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-16.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Soul Lounge</div>
+              <small class="text-secondary">Playlist • 20 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-17.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Stress Relief</div>
+              <small class="text-secondary">Playlist • 500 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-18.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Sleep</div>
+              <small class="text-secondary">Playlist • 80 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-19.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Island Pop</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-20.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Jazz Appreciation</div>
+              <small class="text-secondary">Playlist • 60 songs</small>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-22.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Indigo</div>
+              <small class="text-secondary">Playlist • 40 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-23.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Deep Focus</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-24.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Peaceful Guitar</div>
+              <small class="text-secondary">Playlist • 15 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-25.jpeg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Out Now</div>
+              <small class="text-secondary">Playlist • 50 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-26.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">New Music</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-27.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Party Hits</div>
+              <small class="text-secondary">Playlist • 100 songs</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center my-3">
+            <img
+              src="./assets/imgs/search/image-28.jpg"
+              alt="img"
+              width="50"
+              height="50"
+            />
+            <div class="px-2 collapse-hidden">
+              <div class="fw-bold text-light">Afro Hits</div>
+              <small class="text-secondary">Playlist • 30 songs</small>
+            </div>
+          </div>
+        </section>
         <!-- </div> -->
       </div>
 
       <!-- Container main content -->
-      <div class="flex-grow-1 bg-dark rounded-2 mx-2" style="height: 82vh">
-        <div class="bg-dark rounded-top-2">
+      <div
+        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+      >
+        <div class="bg-dark rounded-top-2 d-flex flex-column">
           <!-- Content area -->
           <div id="playlist-card"></div>
-          <div class="px-2">
-            <div class="text-light">
+          <div class="px-2 flex-grow-1 d-flex flex-column min-h-0">
+            <div class="text-light d-flex flex-column flex-grow-1 min-h-0">
               <!-- Buttons -->
               <div class="d-flex gap-3 my-3 ms-2">
                 <a
@@ -296,8 +611,7 @@
 
               <!-- Album section -->
               <section
-                class="overflow-auto hide-scrollbar bg-dark"
-                style="height: 45vh"
+                class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
               >
                 <div class="container">
                   <div
@@ -566,10 +880,7 @@
       <!-- Container sidebar right-->
 
       <div class="d-none d-lg-block rounded-2 right-sidebar bg-dark">
-        <section
-          class="overflow-auto hide-scrollbar bg-dark rounded-2"
-          style="height: 82vh"
-        >
+        <section class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100">
           <div
             class="d-flex align-items-center justify-content-between px-3 py-1 border-secondary"
           >
@@ -734,8 +1045,7 @@
     </main>
 
     <footer
-      class="spotify-footer d-flex align-items-center justify-content-between px-3 bg-black"
-      style="height: 10vh"
+      class="spotify-footer d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between px-3 bg-black py-2"
     >
       <div class="d-flex align-items-center gap-3">
         <img
