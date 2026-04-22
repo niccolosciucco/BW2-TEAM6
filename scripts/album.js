@@ -95,14 +95,14 @@ const getAlbum = () => {
         ).toLocaleString("it-IT");
 
         div.innerHTML += `
-        <div class="d-flex align-items-center px-3 py-2 rounded text-light">
+        <div class="d-flex align-items-center px-3 py-2 rounded text-light grey-scroll">
           <span class="text-secondary small" style="width: 30px; flex-shrink: 0;">${index + 1}</span>
           
           <div class="flex-grow-1 overflow-hidden">
-            <p class="mb-0 text-truncate">${title.title}</p>
+            <p class="mb-0 text-truncate link">${title.title}</p>
             <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
               <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
-              <span class="text-secondary text-truncate">${title.artist.name}</span>
+              <span class="text-secondary text-truncate link text-artist">${title.artist.name}</span>
             </p>
           </div>
 
