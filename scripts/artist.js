@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// #region PRENDO LE INFO DELL ALTRA PAGINA
-=======
 // #region INIZIALIZZAZIONE E RECUPERO ID
->>>>>>> Test2backup
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get("id");
@@ -14,54 +10,13 @@ const initPage = () => {
   }
   getArtist();
   loadAlbumCarousel();
-<<<<<<< HEAD
-=======
   loadSidebarData();
->>>>>>> Test2backup
 };
 // #endregion
 
-<<<<<<< HEAD
-const getArtist = () => {
-  const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`;
-
-  fetch(url)
-    .then((response) => {
-      if (response.ok) return response.json();
-      throw new Error("Errore nel recupero dati artista");
-    })
-    .then((data) => {
-      const artistName = document.getElementById("artist-name");
-      if (artistName) artistName.innerText = data.name;
-
-      const monthlyListener = document.getElementById("monthly-listener");
-      if (monthlyListener) {
-        monthlyListener.innerText =
-          data.nb_fan.toLocaleString("it-IT") + " Monthly Listener";
-      }
-
-      const artistHero = document.querySelector(".artist-hero");
-      if (artistHero) {
-        artistHero.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #121212), url(${data.picture_xl})`;
-        artistHero.style.backgroundPosition = "top";
-        artistHero.style.backgroundSize = "cover";
-      }
-
-      loadArtistInfo(data);
-    })
-    .catch((error) => console.error("Errore getArtist:", error));
-};
-
-const loadAlbumCarousel = () => {
-  const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=artist:"${id}"`;
-  const container = document.getElementById("album-sidebar");
-
-  if (!container) return;
-=======
 // #region FUNZIONI PRINCIPALI (API)
 const getArtist = () => {
   const url = `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`;
->>>>>>> Test2backup
 
   fetch(url)
     .then((response) => {
@@ -122,11 +77,6 @@ const loadAlbumCarousel = () => {
         const isActive = index === 0 ? "active" : "";
         container.innerHTML += `
           <div class="carousel-item ${isActive}">
-<<<<<<< HEAD
-            <img src="${item.album.cover_big}" class="d-block w-100 rounded-2" alt="${item.album.title}" />
-            <div class="container position-absolute bottom-0 start-0 pb-2">
-              <p class="fw-bold mb-0 mt-1 text-light text-shadow text-truncate" style="font-size: 15px; max-width: 90%;">
-=======
             <img
               src="${item.album.cover_big}"
               class="d-block w-100 rounded-2"
@@ -137,7 +87,6 @@ const loadAlbumCarousel = () => {
                 class="fw-bold mb-0 mt-1 text-light text-truncate"
                 style="font-size: 15px; max-width: 90%;"
               >
->>>>>>> Test2backup
                 ${item.album.title}
               </p>
               <p class="text-light mb-0 text-truncate" style="font-size: 12px; max-width: 90%;">
@@ -157,35 +106,6 @@ const loadArtistInfo = (artist) => {
   container.innerHTML = `
     <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
     <div class="d-flex flex-column gap-3 mb-2">
-<<<<<<< HEAD
-      <div
-        class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
-        style="width: 52px; height: 52px"
-      >
-        <img
-          id="ia-img"
-          src="${artist.picture_big}"
-          alt="${artist.name}"
-          class="w-100 h-100 object-fit-cover"
-        />
-      </div>
-      <div>
-        <p id="ia-name" class="fw-bold mb-0 text-light">
-          ${artist.name}
-        </p>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <p class="text-light small mb-0">
-          Artista di fama internazionale!
-        </p>
-        <div class="ms-auto">
-          <button
-            class="btn btn-outline-light btn-sm rounded-pill px-3 small"
-          >
-            Segui
-          </button>
-        </div>
-=======
       <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden" style="width: 52px; height: 52px">
         <img src="${artist.picture_big}" alt="${artist.name}" class="w-100 h-100 object-fit-cover" />
       </div>
@@ -195,27 +115,10 @@ const loadArtistInfo = (artist) => {
       <div class="d-flex justify-content-between align-items-center">
         <p class="text-light small mb-0">Artista internazionale</p>
         <button class="btn btn-outline-light btn-sm rounded-pill px-3 small">Segui</button>
->>>>>>> Test2backup
       </div>
     </div>
 
     <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-<<<<<<< HEAD
-  <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
-  Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
-  Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
-  <br><br>
-  Con oltre <strong>${artist.nb_fan.toLocaleString()} fan</strong> su Deezer e <strong>${artist.nb_album} album</strong> pubblicati, 
-  il progetto musicale di <strong>${artist.name}</strong> continua a dominare le classifiche. I brani sono certificati platino e testimoniano la maturità artistica raggiunta in questi anni.
-  <br><br>
-  Il dato record: <strong>${artist.name}</strong> continua a crescere grazie allo streaming 
-  e alla capacità di restare una realtà rilevante per generazioni diverse, confermandosi un'icona della musica moderna.
-</p>
-  `;
-};
-
-initPage();
-=======
       <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
       Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
       Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
@@ -228,7 +131,6 @@ initPage();
     </p>
   `;
 };
->>>>>>> Test2backup
 // #endregion
 
 // #region SIDEBAR E UI
@@ -260,10 +162,6 @@ const loadSidebarData = () => {
     .catch((err) => console.error("Errore sidebar:", err));
 };
 
-<<<<<<< HEAD
-loadSidebarData();
-// #endregion
-=======
 // Toggle Sidebar (Assicurati che gli ID esistano nell'HTML)
 const sidebar = document.getElementById("sidebarLeft");
 const toggleBtn = document.getElementById("toggleSidebar");
@@ -278,4 +176,3 @@ if (toggleBtn && sidebar) {
 
 // AVVIO
 initPage();
->>>>>>> Test2backup

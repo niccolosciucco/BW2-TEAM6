@@ -340,10 +340,6 @@ main {
   height: calc(100vh - 80px);
 }
 
-<<<<<<< HEAD
-/* Search bar estetica */
-=======
->>>>>>> Test2backup
 #suggestions-container .list-group-item {
   transition: background-color 0.2s ease;
   cursor: pointer;
