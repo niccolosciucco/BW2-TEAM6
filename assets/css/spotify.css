@@ -385,6 +385,8 @@ main {
 .carousel-control-next {
   width: 5%;
   margin: 1em;
+  height: 10%;
+  top: 20%;
 }
 
 /* ANIMAZIONE ANNUNCIO  */
@@ -419,4 +421,52 @@ main {
     opacity: 0;
     transform: translateY(20px);
   }
+}
+
+.grey-scroll {
+  
+}
+
+.grey-scroll:hover {
+  background-color: #393939;
+}
+
+.grey-scroll:hover .text-artist {
+  color: white !important;
+}
+
+.btn_play_album {
+  background-color: #1DB954;
+  transition: transform 0.3s;
+}
+
+.btn_play_album:hover {
+  background-color: #2bd366;
+  transform: scale(1.03);
+  box-shadow: 0px 0px 2px #2bd366;
+}
+
+.btn_play_album i {
+  padding-left: 3px; 
+  padding-top: 3px;
+}
+
+.icon-white {
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.icon-white:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.icon-white:hover .text-secondary,
+.icon-white:hover i {
+  color: white !important;
+}
+
+.icon-white .text-secondary,
+.icon-white i {
+  transition: color 0.2s ease;
 }
