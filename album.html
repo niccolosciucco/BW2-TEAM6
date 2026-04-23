@@ -14,8 +14,16 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
+
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/spotify.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="bg-black d-flex flex-column min-vh-100 h-100">
     <header class="flex-shrink-0">
@@ -94,7 +102,9 @@
                     />
                   </button>
 
-                  <ul class="dropdown-menu dropdown-menu-end bg-spotify border-secondary">
+                  <ul
+                    class="dropdown-menu dropdown-menu-end bg-spotify border-secondary"
+                  >
                     <li>
                       <a
                         class="dropdown-item text-light hover-black"
@@ -329,7 +339,10 @@
         class="flex-grow-1 bg-spotify rounded-2 mx-2 d-flex flex-column flex-grow-1 min-h-0"
       >
         <!-- HERO -->
-        <div id="colore-medio" class="d-flex align-items-end rounded-2 gap-4 p-4">
+        <div
+          id="colore-medio"
+          class="d-flex align-items-end rounded-2 gap-4 p-4"
+        >
           <img
             id="album-cover"
             alt="cover"
@@ -565,9 +578,19 @@
                   <i class="bi bi-three-dots collapse-hidden"></i>
                 </button>
                 <button
+                  id="btn-expand"
                   class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
                 >
-                  <i class="bi bi-arrows-fullscreen collapse-hidden"></i>
+                  <i
+                    class="bi bi-arrows-fullscreen collapse-hidden icon-white"
+                  ></i>
+                </button>
+                <!--bottone fullscreen-->
+                <button
+                  id="btn-fullscreen"
+                  class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
+                >
+                  <i class="fas fa-expand-alt"></i>
                 </button>
               </div>
             </div>
@@ -793,7 +816,127 @@
           value="1"
         />
       </div>
+      <!--overlay fullscreen-->
+      <div
+        id="fullscreen-player"
+        style="
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: #121212;
+          z-index: 9999;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <button
+          id="btn-close-fullscreen"
+          class="btn btn-link text-secondary position-absolute top-0 end-0 p-3 fs-4"
+        >
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <img
+          id="fs-cover"
+          src=""
+          alt="cover"
+          class="rounded-3 mb-4 shadow-lg"
+          style="width: 500px; height: 500px; object-fit: cover"
+        />
+        <p id="fs-title" class="text-white fw-bold fs-4 mb-1"></p>
+        <p id="fs-artist" class="text-secondary mb-4"></p>
+
+        <div class="d-flex align-items-center gap-4">
+          <i class="bi bi-shuffle text-secondary fs-5"></i>
+          <i class="bi bi-skip-backward-fill text-light fs-5"></i>
+          <button
+            id="fs-play-btn"
+            class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 40px; height: 40px"
+          >
+            <i
+              class="bi bi-play-fill text-dark"
+              style="font-size: 20px; padding-left: 2px"
+            ></i>
+          </button>
+          <i class="bi bi-skip-forward-fill text-light fs-5"></i>
+          <i class="bi bi-repeat text-secondary fs-5"></i>
+        </div>
+        <div class="d-flex align-items-center gap-2 mt-3" style="width: 500px">
+          <small id="fs-current-time" class="text-secondary">0:00</small>
+          <input
+            id="fs-track-range"
+            type="range"
+            class="form-range flex-grow-1"
+            min="0"
+            max="29"
+            step="0.1"
+            value="0"
+          />
+          <small id="fs-duration" class="text-secondary">0:29</small>
+        </div>
+      </div>
     </footer>
+    <!--overlay fullscreen-->
+    <div
+      id="fullscreen-player"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #121212;
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <button
+        id="btn-close-fullscreen"
+        class="btn btn-link text-secondary position-absolute top-0 end-0 p-3 fs-4"
+      >
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      <img
+        id="fs-cover"
+        src=""
+        alt="cover"
+        class="rounded-3 mb-4 shadow-lg"
+        style="width: 500px; height: 500px; object-fit: cover"
+      />
+      <p id="fs-title" class="text-white fw-bold fs-4 mb-1"></p>
+      <p id="fs-artist" class="text-secondary mb-4"></p>
+
+      <div class="d-flex align-items-center gap-4">
+        <i class="bi bi-shuffle text-secondary fs-5"></i>
+        <i class="bi bi-skip-backward-fill text-light fs-5"></i>
+        <button
+          id="fs-play-btn"
+          class="btn btn-light rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 40px; height: 40px"
+        >
+          <i
+            class="bi bi-play-fill text-dark"
+            style="font-size: 20px; padding-left: 2px"
+          ></i>
+        </button>
+        <i class="bi bi-skip-forward-fill text-light fs-5"></i>
+        <i class="bi bi-repeat text-secondary fs-5"></i>
+      </div>
+      <div class="d-flex align-items-center gap-2 mt-3" style="width: 500px">
+        <small id="fs-current-time" class="text-secondary">0:00</small>
+        <input
+          id="fs-track-range"
+          type="range"
+          class="form-range flex-grow-1"
+          min="0"
+          max="29"
+          step="0.1"
+          value="0"
+        />
+        <small id="fs-duration" class="text-secondary">0:29</small>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -804,5 +947,6 @@
     <script src="./scripts/player.js"></script>
     <script src="./scripts/searchbar.js"></script>
     <script src="./scripts/album.js"></script>
+    <script src="./scripts/fullScreen.js"></script>
   </body>
 </html>

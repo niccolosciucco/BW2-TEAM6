@@ -220,6 +220,18 @@ const syncProgressBar = (audioInstance) => {
       const secs = Math.floor(current % 60);
       currentTimeLabel.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 
+      //fullscreen
+       const fsRange = document.getElementById("fs-track-range");
+    const fsCurrentTime = document.getElementById("fs-current-time");
+    if (fsRange) {
+      fsRange.max = duration;
+      fsRange.value = current;
+      fsRange.style.setProperty("--progress", `${percent}%`);
+    }
+    if (fsCurrentTime) {
+      fsCurrentTime.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    }
+
       animationId = requestAnimationFrame(update);
     }
   };
@@ -301,3 +313,4 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 // #endregion
+

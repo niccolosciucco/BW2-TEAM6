@@ -634,6 +634,42 @@ main {
   transition: none !important;
 }
 
+/*fullscreen*/
+
+#fs-track-range {
+  -webkit-appearance: none;
+  height: 4px;
+  background: #535353;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+#fs-track-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    #1db954 var(--progress, 0%),
+    #535353 var(--progress, 0%)
+  );
+}
+
+#fs-track-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  margin-top: -4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#fs-track-range:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
 .hover-black:hover {
   color: black !important;
 }
