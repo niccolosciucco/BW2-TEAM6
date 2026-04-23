@@ -590,39 +590,14 @@ main {
 .bg-spotify {
   background-color: #121212 !important;
 }
-#sidebarLeft, #sidebarRight {
-  flex: 0 0 auto; 
-  position: relative;
-}
-
-#sidebarLeft { width: 300px; }
-
-.resizer-v {
-  width: 4px;
-  cursor: col-resize;
-  background-color: transparent;
-  transition: background-color 0.2s;
-  z-index: 10;
-  margin: 0 2px;
-  flex-shrink: 0; 
-}
-
-
-.resizer-v:hover, 
-.resizing {
-  background-color: #1db954; 
-}
-
-
-.resizing-active #sidebarLeft,
-.resizing-active #sidebarRight {
-  transition: none !important;
-}
-
-
-#sidebarLeft, #sidebarRight {
+#sidebarLeft,
+#sidebarRight {
   flex: 0 0 auto;
   position: relative;
+}
+
+#sidebarLeft {
+  width: 300px;
 }
 
 .resizer-v {
@@ -635,9 +610,9 @@ main {
   flex-shrink: 0;
 }
 
-.resizer-v:hover, 
+.resizer-v:hover,
 .resizing {
-  background-color: #1db954 !important;
+  background-color: #1db954;
 }
 
 .resizing-active #sidebarLeft,
@@ -645,38 +620,22 @@ main {
   transition: none !important;
 }
 
-.sidebar-collapsed {
-  width: 65px !important;
-  min-width: 65px !important;
-  max-width: 65px !important;
-  flex: 0 0 65px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
+.resizer-v {
+  width: 4px;
+  cursor: col-resize;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  z-index: 10;
+  margin: 0 2px;
+  flex-shrink: 0;
 }
 
-.sidebar-collapsed p, 
-.sidebar-collapsed span, 
-.sidebar-collapsed small,
-.sidebar-collapsed .collapse-hidden,
-.sidebar-collapsed .justify-content-between, 
-.sidebar-collapsed .dropdown,
-.sidebar-collapsed img { 
-  display: none !important;
+.resizer-v:hover,
+.resizing {
+  background-color: #1db954 !important;
 }
 
-.sidebar-collapsed .d-flex {
-  width: 100% !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-#sidebarLeft.sidebar-collapsed #toggleSidebar,
-#sidebarRight.sidebar-collapsed #toggleSidebar2 {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 65px !important;
-  height: 60px !important;
-  padding: 0 !important;
+.resizing-active #sidebarLeft,
+.resizing-active #sidebarRight {
+  transition: none !important;
 }
