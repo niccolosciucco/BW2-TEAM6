@@ -81,17 +81,57 @@
               <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
               <a class="nav-link text-white fw-bold mx-2" href="#">Support</a>
               <div class="ms-2">
-                <img
-                  src="./assets/imgs/search/shrek.webp"
-                  alt="User Profile"
-                  class="rounded-circle border border-2 border-secondary"
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    object-fit: cover;
-                    cursor: default;
-                  "
-                />
+                <div class="dropdown">
+                  <button
+                    class="btn p-0 border-0 d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="./assets/imgs/search/shrek.webp"
+                      alt="User Profile"
+                      class="rounded-circle border border-2 border-secondary"
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        object-fit: cover;
+                        cursor: default;
+                      "
+                    />
+                  </button>
+
+                  <ul class="dropdown-menu dropdown-menu-end bg-spotify border-secondary">
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./profilepage.html"
+                      >
+                        Manage Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./profilepage.html"
+                      >
+                        Account
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./settingspage.html"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item text-danger" href="#">Log Out</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

@@ -109,12 +109,6 @@ body {
   display: none !important;
 }
 
-.dropdown-menu {
-  position: absolute !important;
-  left: 100% !important;
-  top: 0;
-}
-
 #sidebarLeft {
   flex-shrink: 0;
   display: flex;
@@ -676,3 +670,6 @@ main {
   opacity: 1;
 }
 
+.hover-black:hover {
+  color: black !important;
+}
