@@ -299,3 +299,10 @@ const loadSidebarData = () => {
 
 loadSidebarData();
 // #endregion
+// #region CLICKABLE HEART
+const heart = document.getElementById("heartClick")
+
+heart.addEventListener("click", ()=>{
+  heart.classList.toggle("heartClick")
+})
+// #endregion
