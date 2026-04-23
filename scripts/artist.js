@@ -56,16 +56,31 @@ const popularSongs = function (data) {
   const tracceArtista = document.getElementById("tracce-artista");
 
   for (let i = 0; i < 6; i++) {
+    const idBtn = `btn-track-artist-${data[i].id}-${i}`;
+    const safeTitle = data[i].title.replace(/'/g, "\\'");
+    const safeArtist = data[i].artist.name.replace(/'/g, "\\'");
+
     tracceArtista.innerHTML += `
-    <div
-      class="song-row d-flex justify-content-between align-items-center py-2 px-2">
-      <div class="d-flex align-items-center gap-3">
-        <span class="text-secondary">${i + 1}</span>
-        <img src="${data[i].album.cover_big}" width="40" />
-        <span class="text-white">${data[i].title}</span>
+      <div class="song-row d-flex justify-content-between align-items-center py-2 px-2 grey-scroll"
+           style="cursor: pointer;"
+           onclick="handleMusic('${safeTitle}', '${safeArtist}', '${data[i].album.cover_big}', '${data[i].preview}', false, true, '${idBtn}')">
+        
+        <div class="d-flex align-items-center gap-3">
+          <div style="width: 20px; flex-shrink: 0;" class="position-relative d-flex align-items-center justify-content-center">
+            <span class="text-secondary song-index">${i + 1}</span>
+            <button
+              id="${idBtn}"
+              class="song-play-btn btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle position-absolute"
+              style="width: 26px; height: 26px;">
+              <i class="bi bi-play-fill" style="font-size: 14px;"></i>
+            </button>
+          </div>
+          <img src="${data[i].album.cover_big}" width="40" class="rounded-1"/>
+          <span class="text-white">${data[i].title}</span>
+        </div>
+
+        <span class="text-secondary">${(data[i].duration / 60).toPrecision(3)}</span>
       </div>
-      <span class="text-secondary"> ${(data[i].duration / 60).toPrecision(3)}</span>
-    </div>
     `;
   }
 
@@ -117,6 +132,23 @@ const loadAlbumCarousel = () => {
     })
     .then((obj) => {
       container.innerHTML = ""; // Puliamo il contenitore
+
+      //playButton
+      const btnPlayArtist = document.getElementById("btn-play-artist");
+      if (btnPlayArtist) {
+        btnPlayArtist.onclick = () => {
+          const firstTrack = tracks[0];
+          handleMusic(
+            firstTrack.title,
+            firstTrack.artist.name,
+            firstTrack.album.cover_big,
+            firstTrack.preview,
+            false,
+            true,
+            "btn-play-artist",
+          );
+        };
+      }
 
       // L'endpoint /top restituisce la lista in obj.data
       const tracks = obj.data;
@@ -242,9 +274,9 @@ toggleBtn2.addEventListener("click", () => {
 initPage();
 
 // #region CLICKABLE HEART
-const heart = document.getElementById("heartClick")
+const heart = document.getElementById("heartClick");
 
-heart.addEventListener("click", ()=>{
-  heart.classList.toggle("heartClick")
-})
+heart.addEventListener("click", () => {
+  heart.classList.toggle("heartClick");
+});
 // #endregion
