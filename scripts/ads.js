@@ -273,3 +273,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // #endregion
+
+// #region Expand btn
+const btnExpand = document.getElementById("btn-expand");
+const sidebarRight = document.getElementById("sidebarRight");
+
+if (btnExpand && sidebarRight) {
+  btnExpand.addEventListener("click", () => {
+    // Controlliamo se è già espansa al massimo
+    const isExpanded = sidebarRight.style.width === "900px";
+
+    if (isExpanded) {
+      // RITRAI: Togliamo la larghezza forzata e torna a quella di default (es. 300px o collassata)
+      sidebarRight.style.removeProperty("width");
+    } else {
+      // ESPANDI: Se era chiusa, riapriamola prima
+      if (sidebarRight.classList.contains("sidebar-collapsed")) {
+        sidebarRight.classList.remove("sidebar-collapsed");
+      }
+      // Portiamola a 900px
+      sidebarRight.style.setProperty("width", "900px", "important");
+    }
+  });
+}
+
+// #endregion

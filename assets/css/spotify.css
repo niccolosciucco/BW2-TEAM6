@@ -460,12 +460,12 @@ main {
 
 .icon-white:hover {
   transform: scale(1.05);
-  color: white;
+  color: white !important;
 }
 
 .icon-white:hover .text-secondary,
 .icon-white:hover i {
-  color: white !important;
+  color: white;
 }
 
 .icon-white .text-secondary,
