@@ -325,9 +325,22 @@ getAlbum();
 const sidebar = document.getElementById("sidebarLeft");
 const toggleBtn = document.getElementById("toggleSidebar");
 
+const wrap = document.getElementById("wrapcollapse");
+const centerPlus = document.getElementById("centerPlus");
+
 toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("sidebar-collapsed");
   sidebar.classList.toggle("sidebar-expanded");
+  const isCollapsed = sidebar.classList.contains("sidebar-collapsed");
+
+  if (wrap) {
+    wrap.classList.toggle("flex-wrap", isCollapsed);
+  }
+
+  if (centerPlus) {
+    centerPlus.classList.toggle("justify-content-between", !isCollapsed);
+    centerPlus.classList.toggle("justify-content-center", isCollapsed);
+  }
 });
 
 const sidebar2 = document.getElementById("sidebarRight");
@@ -341,9 +354,11 @@ toggleBtn2.addEventListener("click", () => {
 // #endregion
 
 // #region CLICKABLE HEART
-const heart = document.getElementById("heartClick")
+const heart = document.getElementById("heartClick");
 
-heart.addEventListener("click", ()=>{
-  heart.classList.toggle("heartClick")
-})
+heart.addEventListener("click", () => {
+  heart.classList.toggle("heartClick");
+});
 // #endregion
+
+
