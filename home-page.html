@@ -79,14 +79,20 @@
               class="col-lg-3 d-none d-lg-flex justify-content-end align-items-center"
             >
               <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
-              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a
-              ><a href="./SignUp.html">
-                <button
-                  class="btn btn-light rounded-pill px-4 py-2 fw-bold ms-2"
-                >
-                  Log in
-                </button></a
-              >
+              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a>
+              <div class="ms-2">
+                <img
+                  src="./assets/imgs/search/shrek.webp"
+                  alt="User Profile"
+                  class="rounded-circle border border-2 border-secondary"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    cursor: default;
+                  "
+                />
+              </div>
             </div>
           </div>
 
@@ -107,14 +113,15 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1 h-100 min-h-0">
+    <main class="d-flex flex-grow-1 h-100 min-h-0 container-fluid">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
       <div
         id="sidebarLeft"
-        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded rounded-2 h-100 min-h-0"
+        style="background-color: #121212;"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -148,7 +155,7 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-dark overflow-visible">
+              <ul class="dropdown-menu bg-spotify overflow-visible border-1 border-secondary">
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -278,17 +285,19 @@
 
         <!--ELEMENT LIST-->
         <section
-          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+          class="overflow-auto hide-scrollbar flex-grow-1 min-h-0"
           id="playlist-album"
+          style="background-color: #121212;"
         ></section>
         <!-- </div> -->
       </div>
 
       <!-- Container main content -->
       <div
-        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+        class="flex-grow-1 rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+        
       >
-        <div class="bg-dark rounded-top-2 d-flex flex-column">
+        <div class="bg-dark bg-spotify rounded-top-2 d-flex flex-column">
           <!-- Content area -->
           <div id="playlist-card"></div>
           <div class="px-2 flex-grow-1 d-flex flex-column min-h-0">
@@ -308,7 +317,7 @@
 
               <!-- Album section -->
               <section
-                class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+                class="overflow-auto hide-scrollbar bg-spotify flex-grow-1 min-h-0"
               >
                 <div class="container">
                   <div
@@ -575,13 +584,13 @@
       </div>
 
       <!-- Container sidebar right-->
-
       <div
         id="sidebarRight"
-        class="d-none d-lg-block rounded-2 right-sidebar bg-dark"
+        class="d-none d-lg-block rounded-2 right-sidebar bg-spotify"
+        
       >
         <section
-          class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100 w-100"
+          class="overflow-auto hide-scrollbar bg-spotify rounded-2 h-100 w-100"
         >
           <div class="d-flex w-100 align-items-center">
             <div>
@@ -604,9 +613,12 @@
                   <i class="bi bi-three-dots collapse-hidden"></i>
                 </button>
                 <button
+                  id="btn-expand"
                   class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
                 >
-                  <i class="bi bi-arrows-fullscreen collapse-hidden"></i>
+                  <i
+                    class="bi bi-arrows-fullscreen collapse-hidden icon-white"
+                  ></i>
                 </button>
                 <!--bottone fullscreen-->
                 <button
@@ -662,7 +674,7 @@
 
           <!--VIDEO CORRELATI-->
 
-          <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
+          <p class="fw-bold px-3 mt-2 text-light">Similar Music Videos</p>
           <div
             id="carouselExample6"
             class="carousel slide position-relative mb-2"
@@ -703,9 +715,9 @@
             style="background-color: #1f1f1f"
           >
             <div class="d-flex align-items-center justify-content-between mb-1">
-              <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
+              <p class="fw-bold mb-0 text-light">Achievements</p>
               <a href="#" class="text-secondary text-decoration-none small"
-                >Mostra tutto</a
+                >Show all</a
               >
             </div>
 
@@ -717,14 +729,14 @@
                   Takagi &amp; Ketra
                 </p>
                 <p class="text-light-emphasis mb-0" style="font-size: 11px">
-                  Artista Principale
+                  Main artist
                 </p>
               </div>
               <button
                 class="btn btn-outline-light rounded-pill px-3"
                 style="font-size: 12px"
               >
-                Segui
+                Follow
               </button>
             </div>
           </div>
@@ -734,9 +746,9 @@
             style="background-color: #1f1f1f"
           >
             <div class="d-flex align-items-center justify-content-between mb-2">
-              <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
+              <p class="fw-bold mb-0 text-light">Next in queue</p>
               <a href="#" class="text-light-emphasis small text-decoration-none"
-                >Apri coda</a
+                >Open queue</a
               >
             </div>
             <div class="d-flex align-items-center gap-2">

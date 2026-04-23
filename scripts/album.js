@@ -216,7 +216,7 @@ const loadArtistInfo = (artist) => {
   if (!container) return;
 
   container.innerHTML = `
-    <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
+    <p class="fw-bold mb-2 text-light">Artist's information</p>
     <div class="d-flex flex-column gap-3 mb-2">
       <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden" style="width: 52px; height: 52px">
         <img src="${artist.picture_big}" alt="${artist.name}" class="w-100 h-100 object-fit-cover" />
@@ -225,21 +225,21 @@ const loadArtistInfo = (artist) => {
         <p class="fw-bold mb-0 text-light">${artist.name}</p>
       </div>
       <div class="d-flex justify-content-between align-items-center">
-        <p class="text-light small mb-0">Artista internazionale</p>
-        <button class="btn btn-outline-light btn-sm rounded-pill px-3 small">Segui</button>
+        <p class="text-light small mb-0">Internationally renowned artist</p>
+        <button class="btn btn-outline-light btn-sm rounded-pill px-3 small">Follow</button>
       </div>
     </div>
 
     <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-      <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
-      Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
-      Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
+      <strong>${artist.name}</strong> represents a benchmark in the contemporary music scene.
+      A career studded with successes that has led this artist to shine internationally.
+      Here are the pillars of this journey, including songs, albums, and the current phase of artistic production:
       <br><br>
-      Con oltre <strong>${artist.nb_fan.toLocaleString()} fan</strong> su Deezer e <strong>${artist.nb_album} album</strong> pubblicati, 
-      il progetto musicale di <strong>${artist.name}</strong> continua a dominare le classifiche. I brani testimoniano la maturità raggiunta in questi anni.
+      With more than <strong>${artist.nb_fan.toLocaleString()} fans</strong> on Deezer and <strong>${artist.nb_album} album</strong> published, 
+      <strong>${artist.name}</strong>'s musical project continues to dominate the charts. The songs demonstrate the maturity achieved over the years.
       <br><br>
-      Il dato record: <strong>${artist.name}</strong> continua a crescere grazie allo streaming 
-      e alla capacità di restare una realtà rilevante per generazioni diverse, confermandosi un'icona della musica moderna.
+      The record: <strong>${artist.name}</strong> continues to grow thanks to streaming
+      and its ability to remain relevant across generations, confirming themselves as an icon of modern music.
     </p>
   `;
 };
