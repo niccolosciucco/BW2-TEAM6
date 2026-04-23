@@ -563,3 +563,7 @@ main {
     text-shadow: 0 0 5px rgba(233, 30, 99, 0.4);
   }
 }
+
+.heartClick {
+  color: #1db954 !important;
+}

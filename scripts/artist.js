@@ -240,3 +240,11 @@ toggleBtn2.addEventListener("click", () => {
 
 // AVVIO
 initPage();
+
+// #region CLICKABLE HEART
+const heart = document.getElementById("heartClick")
+
+heart.addEventListener("click", ()=>{
+  heart.classList.toggle("heartClick")
+})
+// #endregion
