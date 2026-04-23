@@ -79,14 +79,20 @@
               class="col-lg-3 d-none d-lg-flex justify-content-end align-items-center"
             >
               <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
-              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a
-              ><a href="./SignUp.html">
-                <button
-                  class="btn btn-light rounded-pill px-4 py-2 fw-bold ms-2"
-                >
-                  Log in
-                </button></a
-              >
+              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a>
+              <div class="ms-2">
+                <img
+                  src="./assets/imgs/search/shrek.webp"
+                  alt="User Profile"
+                  class="rounded-circle border border-2 border-secondary"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                    cursor: default;
+                  "
+                />
+              </div>
             </div>
           </div>
 
@@ -107,7 +113,7 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1 h-100 min-h-0">
+    <main class="d-flex flex-grow-1 h-100 min-h-0 container-fluid">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
@@ -119,14 +125,18 @@
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
-        <div class="d-flex w-100 px-lg-2 justify-content-center align-items-center" id="wrapcollapse">
+        <div
+          class="d-flex w-100 px-lg-2 justify-content-center align-items-center"
+          id="wrapcollapse"
+        >
           <div class="mt-2">
             <button id="toggleSidebar" class="btn text-secondary">
               <i class="bi bi-layout-sidebar-inset-reverse"></i>
             </button>
           </div>
           <div
-            class="d-flex justify-content-between align-items-center text-light w-100 mt-2" id="centerPlus"
+            class="d-flex justify-content-between align-items-center text-light w-100 mt-2"
+            id="centerPlus"
           >
             <div class="d-flex align-items-center pt-3">
               <p>Your Library</p>
@@ -574,7 +584,6 @@
       </div>
 
       <!-- Container sidebar right-->
-
       <div
         id="sidebarRight"
         class="d-none d-lg-block rounded-2 right-sidebar bg-spotify"
@@ -604,9 +613,12 @@
                   <i class="bi bi-three-dots collapse-hidden"></i>
                 </button>
                 <button
+                  id="btn-expand"
                   class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
                 >
-                  <i class="bi bi-arrows-fullscreen collapse-hidden"></i>
+                  <i
+                    class="bi bi-arrows-fullscreen collapse-hidden icon-white"
+                  ></i>
                 </button>
               </div>
             </div>
