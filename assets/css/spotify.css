@@ -564,7 +564,6 @@ main {
   }
 }
 
-<<<<<<< HEAD
 .song-play-btn {
   display: none !important;
 }
@@ -584,8 +583,6 @@ main {
 .grey-scroll:has(.song-play-btn.btn-warning) .song-index {
   display: none !important;
 }
-=======
 .heartClick {
   color: #1db954 !important;
 }
->>>>>>> main
