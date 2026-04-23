@@ -69,3 +69,11 @@ const initDedicaSpeciale = () => {
 };
 
 window.addEventListener("load", initDedicaSpeciale);
+
+// #region CLICKABLE HEART
+const heart = document.getElementById("heartClick")
+
+heart.addEventListener("click", ()=>{
+  heart.classList.toggle("heartClick")
+})
+// #endregion
