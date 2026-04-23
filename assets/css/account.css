@@ -1,0 +1,66 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: "Circular Sp", Helvetica, Arial, sans-serif;
+}
+
+.spotify-card {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn-status {
+  background-color: #333;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.text-purple {
+  color: #b49bc8;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border-color: #333;
+  color: white;
+  padding: 1.2rem 1rem;
+  display: flex;
+  align-items: center;
+  border-left: none;
+  border-right: none;
+}
+
+.list-group-item:first-child {
+  border-top: none;
+}
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.icon-box {
+  width: 32px;
+  height: 32px;
+  background-color: #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.chevron {
+  margin-left: auto;
+  color: #b3b3b3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
