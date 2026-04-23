@@ -101,7 +101,9 @@
                     />
                   </button>
 
-                  <ul class="dropdown-menu dropdown-menu-end bg-spotify border-secondary">
+                  <ul
+                    class="dropdown-menu dropdown-menu-end bg-spotify border-secondary"
+                  >
                     <li>
                       <a
                         class="dropdown-item text-light hover-black"
@@ -335,7 +337,10 @@
       </div>
 
       <!-- Container main content -->
-      <div class="flex-grow-1 rounded-2 mx-2 d-flex flex-column h-100 min-h-0">
+      <div
+        id="homePage"
+        class="flex-grow-1 rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+      >
         <div class="bg-dark bg-spotify rounded-top-2 d-flex flex-column">
           <!-- Content area -->
           <div id="playlist-card"></div>
@@ -620,6 +625,378 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- ArtistPage -->
+      <div
+        id="artistPage"
+        class="flex-grow-1 bg-spotify rounded-2 mx-2 d-flex flex-column h-100 min-h-0 display-none"
+      >
+        <!-- HERO -->
+        <div
+          class="artist-hero d-flex flex-column justify-content-end p-4 h-100 rounded-top-2"
+        >
+          <h1 id="artist-name" class="text-white fw-bold display-4"></h1>
+          <p id="monthly-listener" class="text-light"></p>
+        </div>
+
+        <!-- ACTION BAR -->
+        <div class="d-flex align-items-center gap-3 px-4 py-3">
+          <button
+            id="btn-play-artist"
+            class="btn btn-success rounded-circle play-btn d-flex align-items-center justify-content-center"
+          >
+            <i class="bi bi-play-fill fs-4"></i>
+          </button>
+
+          <button class="btn btn-outline-light rounded-pill px-3">
+            Follow
+          </button>
+          <div class="dropdown dropend me-1">
+            <button
+              class="text-light bg-transparent border-0"
+              style="--bs-bg-opacity: 0.3"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              data-bs-boundary="viewport"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots text-light fs-4"></i>
+            </button>
+
+            <ul class="dropdown-menu bg-spotify border-secondary">
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-add text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light pe-2"
+                  href="#"
+                  style="display: inline"
+                >
+                  Follow
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-slash-circle text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Don't play this artist
+                </small>
+              </li>
+
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-broadcast text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Folder
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row justify-content-between">
+                <div class="d-flex">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-exclamation-octagon text-light ms-1"></i>
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Folder
+                    </small>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-box-arrow-up-right text-light"></i>
+                </div>
+              </li>
+              <li class="dropdown dropend">
+                <button
+                  class="dropdown-item text-light d-flex justify-content-between align-items-center"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="bi bi-box-arrow-up text-light mx-1"></i>
+                    Share
+                  </span>
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- INSIDE DROPDOWN MENU -->
+                <ul class="dropdown-menu bg-spotify border-secondary">
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-copy text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Copy link to artist
+                    </small>
+                  </li>
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-code-square text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Embed artist
+                    </small>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+
+        <!-- POPULAR -->
+        <div class="d-flex flex-column min-h-0 h-100">
+          <h5 class="text-white mb-3">Popular</h5>
+
+          <section
+            id="tracce-artista"
+            class="flex-grow-1 overflow-auto hide-scrollbar"
+          ></section>
+        </div>
+      </div>
+
+      <!-- Album Page -->
+
+      <div
+        id="albumPage"
+        class="flex-grow-1 bg-spotify rounded-2 mx-2 d-flex flex-column flex-grow-1 min-h-0 display-none"
+      >
+        <!-- HERO -->
+        <div
+          id="colore-medio"
+          class="d-flex align-items-end rounded-2 gap-4 p-4"
+        >
+          <img
+            id="album-cover"
+            alt="cover"
+            class="rounded-2 flex-shrink-0"
+            style="width: 220px; height: 220px; object-fit: cover"
+          />
+          <div>
+            <p class="text-light small mb-2">Album</p>
+            <h1
+              id="album-title"
+              class="fw-bold text-light mb-3"
+              style="font-size: 3rem"
+            ></h1>
+            <div class="d-flex align-items-center gap-2">
+              <img
+                id="cover-artist"
+                alt="artist"
+                class="rounded-circle flex-shrink-0"
+                style="width: 24px; height: 24px; object-fit: cover"
+              />
+              <span id="nome-artista" class="text-light"></span>
+              <span id="dettagli" class="text-light"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION BAR -->
+
+        <div class="d-flex align-items-center gap-3 px-4 py-3">
+          <button
+            id="btn-play-album"
+            class="btn btn_play_album rounded-circle d-flex align-items-center justify-content-center"
+          >
+            <i class="bi bi-play-fill fs-4"></i>
+          </button>
+          <button class="btn btn-link text-light p-0 link-opacity-75-hover">
+            <i class="bi bi-shuffle fs-4 icon-white"></i>
+          </button>
+          <button class="btn btn-link text-secondary p-0 link-opacity-75-hover">
+            <i class="bi bi-plus-circle fs-4 icon-white"></i>
+          </button>
+          <button class="btn btn-link text-secondary p-0 link-opacity-75-hover">
+            <i class="bi bi-arrow-down-circle fs-4 icon-white"></i>
+          </button>
+
+          <div class="dropdown dropend me-1">
+            <button
+              class="text-light bg-transparent border-0"
+              style="--bs-bg-opacity: 0.3"
+              type="button"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              data-bs-boundary="viewport"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots text-light fs-4"></i>
+            </button>
+
+            <ul class="dropdown-menu bg-spotify border-secondary">
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-add text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light pe-2"
+                  href="#"
+                  style="display: inline"
+                >
+                  Follow
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-slash-circle text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Don't play this artist
+                </small>
+              </li>
+
+              <li class="dropdown-item d-flex flex-row">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-broadcast text-light ms-1"></i>
+                </div>
+
+                <small
+                  class="dropdown-item text-light"
+                  href="#"
+                  style="display: inline"
+                >
+                  Folder
+                </small>
+              </li>
+              <li class="dropdown-item d-flex flex-row justify-content-between">
+                <div class="d-flex">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-exclamation-octagon text-light ms-1"></i>
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Folder
+                    </small>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-box-arrow-up-right text-light"></i>
+                </div>
+              </li>
+              <li class="dropdown dropend">
+                <button
+                  class="dropdown-item text-light d-flex justify-content-between align-items-center"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="bi bi-box-arrow-up text-light mx-1"></i>
+                    Share
+                  </span>
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- INSIDE DROPDOWN MENU -->
+                <ul class="dropdown-menu bg-spotify border-secondary">
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-copy text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Copy link to Album
+                    </small>
+                  </li>
+                  <li class="dropdown-item d-flex flex-row">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-code-square text-light ms-1"></i>
+                    </div>
+
+                    <small
+                      class="dropdown-item text-light"
+                      href="#"
+                      style="display: inline"
+                    >
+                      Embed album
+                    </small>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="ms-auto d-flex align-items-center gap-2 icon-white">
+            <span class="text-secondary small">Elenco</span>
+            <button
+              class="btn btn-link text-secondary p-0 link-opacity-75-hover"
+            >
+              <i class="bi bi-list-ul fs-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <!--TITOLO-->
+        <div
+          class="d-flex align-items-center px-4 py-2 border-bottom border-secondary text-secondary small mx-2"
+        >
+          <span style="width: 30px">#</span>
+          <span class="flex-grow-1 z-1">Titolo</span>
+
+          <span style="width: 400px" class="d-none d-xxl-inline"
+            >Riproduzioni</span
+          >
+
+          <span style="width: 60px" class="text-end d-lg-none d-xxl-inline">
+            <i class="bi bi-clock"></i>
+          </span>
+        </div>
+        <!-- TRACCE -->
+        <section
+          class="overflow-auto hide-scrollbar bg-spotify flex-grow-1 min-h-0"
+        >
+          <div id="elenco-brani" class="px-2 mt-2"></div>
+
+          <div class="px-4 py-4 mt-3">
+            <p id="release-date" class="text-secondary mb-1 small">
+              1 ottobre 2019
+            </p>
+            <p id="label" class="text-secondary mb-1 small">
+              An Island Records release
+            </p>
+            <p id="label-year" class="text-secondary mb-1 small">©</p>
+          </div>
+        </section>
       </div>
 
       <!-- Container sidebar right-->
@@ -960,9 +1337,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="./scripts/newscript.js"></script>
     <script src="./scripts/searchbar.js"></script>
     <script src="./scripts/ads.js"></script>
-    <script src="./scripts/home-page.js"></script>
     <script src="./scripts/player.js"></script>
     <script src="./scripts/fullScreen.js"></script>
   </body>
