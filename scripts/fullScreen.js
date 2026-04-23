@@ -54,3 +54,4 @@ if (fsRange) {
     if (audio) audio.currentTime = e.target.value;
   });
 }
+

@@ -219,7 +219,7 @@ const syncProgressBar = (audioInstance) => {
       const mins = Math.floor(current / 60);
       const secs = Math.floor(current % 60);
       currentTimeLabel.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-      
+
       //fullscreen
        const fsRange = document.getElementById("fs-track-range");
     const fsCurrentTime = document.getElementById("fs-current-time");
