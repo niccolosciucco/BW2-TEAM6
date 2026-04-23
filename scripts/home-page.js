@@ -305,8 +305,8 @@ const getAlbum = () => {
 
               <a href="#" 
                 id="${idBtn}"
-                class="play-button position-absolute top-50 end-0 translate-middle-y btn text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill me-1" 
-                style="width: 40px; height: 40px; font-size: 1.5rem; background-color: #1DB954"
+                class="play-button position-absolute top-50 end-0 btn-success translate-middle-y btn text-black p-0 d-flex align-items-center justify-content-center rounded-circle bi bi-play-fill me-1" 
+                style="width: 40px; height: 40px; font-size: 1.5rem;"
                 onclick="handleMusic('${data.title}', '${data.artist.name}', '${data.cover_big}', '${data.tracks.data[0].preview}', false, true, '${idBtn}')">
               </a>
             </div>
