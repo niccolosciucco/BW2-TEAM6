@@ -564,9 +564,39 @@ main {
   }
 }
 
-#sidebarLeft {
+
+#sidebarLeft, #sidebarRight {
   flex: 0 0 auto; 
-  width: 300px; 
+  position: relative;
+}
+
+#sidebarLeft { width: 300px; }
+
+.resizer-v {
+  width: 4px;
+  cursor: col-resize;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  z-index: 10;
+  margin: 0 2px;
+  flex-shrink: 0; 
+}
+
+
+.resizer-v:hover, 
+.resizing {
+  background-color: #1db954; 
+}
+
+
+.resizing-active #sidebarLeft,
+.resizing-active #sidebarRight {
+  transition: none !important;
+}
+
+
+#sidebarLeft, #sidebarRight {
+  flex: 0 0 auto;
   position: relative;
 }
 
@@ -577,21 +607,20 @@ main {
   transition: background-color 0.2s;
   z-index: 10;
   margin: 0 2px;
+  flex-shrink: 0;
 }
 
 .resizer-v:hover, 
 .resizing {
-  background-color: #1db954; 
-  width: 4px;
+  background-color: #1db954 !important;
 }
 
-.resizing-active #sidebarLeft {
+.resizing-active #sidebarLeft,
+.resizing-active #sidebarRight {
   transition: none !important;
 }
 
-/* --- RESET SIDEBAR COLLASSATA --- */
-
-#sidebarLeft.sidebar-collapsed {
+.sidebar-collapsed {
   width: 65px !important;
   min-width: 65px !important;
   max-width: 65px !important;
@@ -603,8 +632,10 @@ main {
 .sidebar-collapsed p, 
 .sidebar-collapsed span, 
 .sidebar-collapsed small,
+.sidebar-collapsed .collapse-hidden,
 .sidebar-collapsed .justify-content-between, 
-.sidebar-collapsed .dropdown { 
+.sidebar-collapsed .dropdown,
+.sidebar-collapsed img { 
   display: none !important;
 }
 
@@ -615,42 +646,7 @@ main {
   margin: 0 !important;
 }
 
-#sidebarLeft.sidebar-collapsed #toggleSidebar {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 65px !important;
-  height: 60px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.sidebar-collapsed img {
-  display: none !important;
-}
-
-/* --- RESET SIDEBAR DESTRA COLLASSATA --- */
-
-#sidebarRight.sidebar-collapsed {
-  width: 65px !important;
-  min-width: 65px !important;
-  max-width: 65px !important;
-  flex: 0 0 65px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-}
-
-#sidebarRight.sidebar-collapsed .collapse-hidden,
-#sidebarRight.sidebar-collapsed p,
-#sidebarRight.sidebar-collapsed section div.justify-content-between {
-  display: none !important;
-}
-
-#sidebarRight.sidebar-collapsed .d-flex {
-  justify-content: center !important;
-  width: 100% !important;
-}
-
+#sidebarLeft.sidebar-collapsed #toggleSidebar,
 #sidebarRight.sidebar-collapsed #toggleSidebar2 {
   display: flex !important;
   justify-content: center !important;
@@ -658,19 +654,4 @@ main {
   width: 65px !important;
   height: 60px !important;
   padding: 0 !important;
-  margin: 0 !important;
-}
-
-#sidebarRight.sidebar-collapsed #toggleSidebar2 i {
-  display: block !important;
-  visibility: visible !important;
-}
-
-#resizerRight:hover, #resizerRight.resizing {
-  background-color: #1db954; 
-  width: 4px;
-}
-
-.resizing-active #sidebarRight {
-  transition: none !important;
 }

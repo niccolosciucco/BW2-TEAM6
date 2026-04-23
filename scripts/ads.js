@@ -123,16 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
     resizer.id = "resizerLeft";
     resizer.className = "resizer-v";
 
-    // 2. Inseriscilo nel DOM
     sidebarLeft.after(resizer);
 
-    // 3. LOGICA DI RESIZE (Deve stare qui dentro perché il resizer esiste ora!)
     const handleMouseMove = (e) => {
       // Se è collassata non ridimensionare
       if (sidebarLeft.classList.contains("sidebar-collapsed")) return;
 
       let newWidth = e.clientX;
-      if (newWidth > 250 && newWidth < 600) {
+      if (newWidth > 250 && newWidth < 900) {
         sidebarLeft.style.setProperty('width', newWidth + 'px', 'important');
       }
     };
@@ -156,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// --- GUARDIA DI PULIZIA (Può stare fuori perché osserva la sidebar che esiste già) ---
 {
   const sidebar = document.getElementById("sidebarLeft");
   if (sidebar) {
@@ -192,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let newWidth = window.innerWidth - e.clientX;
 
-      if (newWidth > 200 && newWidth < 900) {
+      if (newWidth > 200 && newWidth < 900) {                                                       // Per aumentare o diminuire quanto è espandibile la sidebar
         sidebarRight.style.setProperty('width', newWidth + 'px', 'important');
       }
     };
@@ -238,9 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
-
-// #endregion
-
 document.addEventListener("DOMContentLoaded", () => {
   const sidebarRight = document.getElementById("sidebarRight");
 
@@ -250,17 +244,13 @@ document.addEventListener("DOMContentLoaded", () => {
     resizerR.id = "resizerRight";
     resizerR.className = "resizer-v";
 
-    // 2. Inseriscilo PRIMA della sidebar destra 
-    // (così sta tra il contenuto centrale e la sidebar)
     sidebarRight.before(resizerR);
 
     // 3. Logica di Resize
     const handleMouseMoveRight = (e) => {
-      // Calcola la nuova larghezza (distanza dal bordo destro dello schermo)
       let newWidth = window.innerWidth - e.clientX;
 
-      // Limiti: min 200px, max 600px (modificabili)
-      if (newWidth > 200 && newWidth < 600) {
+      if (newWidth > 200 && newWidth < 900) {                                             // Per aumentare o diminuire quanto è espandibile la sidebar
         sidebarRight.style.setProperty('width', newWidth + 'px', 'important');
       }
     };
@@ -282,3 +272,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// #endregion
