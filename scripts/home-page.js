@@ -211,7 +211,7 @@ const loadArtistInfo = () => {
       const artist = obj.data[0].artist;
 
       container.innerHTML = `
-        <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
+        <p class="fw-bold mb-2 text-light">Artist's information</p>
         <div class="d-flex flex-column gap-3 mb-2">
           <div
             class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
@@ -231,24 +231,24 @@ const loadArtistInfo = () => {
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <p class="text-light small mb-0">
-              Artista di fama internazionale!
+              Internationally renowned artist!
             </p>
             <div class="ms-auto">
               <button
                 class="btn btn-outline-light btn-sm rounded-pill px-3 small"
               >
-                Segui
+                Follow
               </button>
             </div>
           </div>
         </div>
 
         <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-          Punto di riferimento nel panorama musicale contemporaneo:   
-          una figura capace di collezionare numerosi riconoscimenti 
-          certificati e di definire il suono del proprio tempo. Grazie 
-          a una carriera costellata di successi e collaborazioni di rilievo, 
-          ha ottenuto traguardi straordinari tra produzioni e brani iconici.
+          A key figure in the contemporary music scene:
+          a figure capable of collecting numerous certified awards
+          and defining the sound of his time. Thanks
+          to a career studded with successes and notable collaborations,
+          he has achieved extraordinary milestones with iconic productions and songs.
         </p>
       `;
     })
@@ -360,5 +360,3 @@ heart.addEventListener("click", () => {
   heart.classList.toggle("heartClick");
 });
 // #endregion
-
-

@@ -102,9 +102,10 @@
     </header>
     <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- LEFT SIDEBAR -->
-     <div
+    <div
         id="sidebarLeft"
-        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
+        class="d-flex flex-column d-none d-lg-flex sidebar-expanded rounded-2 h-100 min-h-0"
+        style="background-color: #121212;"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -134,7 +135,7 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-dark overflow-visible">
+              <ul class="dropdown-menu bg-spotify overflow-visible border-1 border-secondary">
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -264,15 +265,16 @@
 
         <!--ELEMENT LIST-->
         <section
-          class="overflow-auto hide-scrollbar bg-dark flex-grow-1 min-h-0"
+          class="overflow-auto hide-scrollbar flex-grow-1 min-h-0"
           id="playlist-album"
+          style="background-color: #121212;"
         ></section>
         <!-- </div> -->
       </div>
 
       <!-- CENTER CONTENT -->
       <div
-        class="flex-grow-1 bg-dark rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
+        class="flex-grow-1 bg-spotify rounded-2 mx-2 d-flex flex-column h-100 min-h-0"
       >
         <!-- HERO -->
         <div
@@ -427,12 +429,13 @@
 
       <!-- RIGHT SIDEBAR -->
 
-      <div
+     <div
         id="sidebarRight"
-        class="d-none d-lg-block rounded-2 right-sidebar bg-dark"
+        class="d-none d-lg-block rounded-2 right-sidebar bg-spotify"
+        
       >
         <section
-          class="overflow-auto hide-scrollbar bg-dark rounded-2 h-100 w-100"
+          class="overflow-auto hide-scrollbar bg-spotify rounded-2 h-100 w-100"
         >
           <div class="d-flex w-100 align-items-center">
             <div>
@@ -506,7 +509,7 @@
 
           <!--VIDEO CORRELATI-->
 
-          <p class="fw-bold px-3 mt-2 text-light">Video musicali correlati</p>
+          <p class="fw-bold px-3 mt-2 text-light">Similar Music Videos</p>
           <div
             id="carouselExample6"
             class="carousel slide position-relative mb-2"
@@ -547,9 +550,9 @@
             style="background-color: #1f1f1f"
           >
             <div class="d-flex align-items-center justify-content-between mb-1">
-              <p class="fw-bold mb-0 text-light">Riconoscimenti</p>
+              <p class="fw-bold mb-0 text-light">Achievements</p>
               <a href="#" class="text-secondary text-decoration-none small"
-                >Mostra tutto</a
+                >Show all</a
               >
             </div>
 
@@ -561,14 +564,14 @@
                   Takagi &amp; Ketra
                 </p>
                 <p class="text-light-emphasis mb-0" style="font-size: 11px">
-                  Artista Principale
+                  Main artist
                 </p>
               </div>
               <button
                 class="btn btn-outline-light rounded-pill px-3"
                 style="font-size: 12px"
               >
-                Segui
+                Follow
               </button>
             </div>
           </div>
@@ -578,9 +581,9 @@
             style="background-color: #1f1f1f"
           >
             <div class="d-flex align-items-center justify-content-between mb-2">
-              <p class="fw-bold mb-0 text-light">Prossimo in coda</p>
+              <p class="fw-bold mb-0 text-light">Next in queue</p>
               <a href="#" class="text-light-emphasis small text-decoration-none"
-                >Apri coda</a
+                >Open queue</a
               >
             </div>
             <div class="d-flex align-items-center gap-2">

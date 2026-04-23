@@ -586,3 +586,7 @@ main {
 .heartClick {
   color: #1db954 !important;
 }
+
+.bg-spotify {
+  background-color: #121212 !important;
+}
