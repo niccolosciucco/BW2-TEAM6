@@ -55,6 +55,22 @@ const getAlbum = () => {
       const albumCover = document.getElementById("album-cover");
       albumCover.setAttribute("src", data.cover_big);
 
+      const btnPlayAlbum = document.getElementById("btn-play-album");
+      btnPlayAlbum.onclick = () => {
+        const firstTrack = data.tracks.data[0];
+        const safeTitle = firstTrack.title.replace(/'/g, "\\'");
+        const safeArtist = firstTrack.artist.name.replace(/'/g, "\\'");
+        handleMusic(
+          firstTrack.title,
+          firstTrack.artist.name,
+          data.cover_big,
+          firstTrack.preview,
+          false,
+          true,
+          "btn-play-album",
+        );
+      };
+
       //   chiamata ad una funzione che ritorna il colore medio di una foto
       //   dato che è un url e non una foto vera e propria, prima bisogna trasformarla
       // quel colore sarà usato nel background della pagiana
@@ -94,24 +110,39 @@ const getAlbum = () => {
           Math.floor(Math.random() * (max - min + 1)) + min
         ).toLocaleString("it-IT");
 
-        div.innerHTML += `
-        <div class="d-flex align-items-center px-3 py-2 rounded text-light grey-scroll">
-          <span class="text-secondary small" style="width: 30px; flex-shrink: 0;">${index + 1}</span>
-          
-          <div class="flex-grow-1 overflow-hidden">
-            <p class="mb-0 text-truncate link">${title.title}</p>
-            <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
-              <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
-              <span class="text-secondary text-truncate link text-artist">${title.artist.name}</span>
-            </p>
-          </div>
+        const idBtn = `btn-track-${title.id}-${index}`;
+        const safeTitle = title.title.replace(/'/g, "\\'");
+        const safeArtist = title.artist.name.replace(/'/g, "\\'");
 
-          <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">${randomNum}</span>
-          
-          <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
-            ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
-          </span>
-        </div>`;
+        div.innerHTML += `
+    <div class="d-flex align-items-center px-3 py-2 rounded text-light grey-scroll"
+         style="cursor: pointer;"
+         onclick="handleMusic('${safeTitle}', '${safeArtist}', '${data.cover_big}', '${title.preview}', false, true, '${idBtn}')">
+
+      <div style="width: 30px; flex-shrink: 0;" class="position-relative d-flex align-items-center justify-content-center">
+        <span class="text-secondary small song-index">${index + 1}</span>
+        <button
+          id="${idBtn}"
+          class="song-play-btn btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle position-absolute"
+          style="width: 26px; height: 26px;">
+          <i class="bi bi-play-fill" style="font-size: 14px;"></i>
+        </button>
+      </div>
+
+      <div class="flex-grow-1 overflow-hidden ms-3">
+        <p class="mb-0 text-truncate link">${title.title}</p>
+        <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
+          <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
+          <span class="text-secondary text-truncate link text-artist">${title.artist.name}</span>
+        </p>
+      </div>
+
+      <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">${randomNum}</span>
+      
+      <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
+        ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
+      </span>
+    </div>`;
       });
 
       const releaseDate = document.getElementById("release-date");
