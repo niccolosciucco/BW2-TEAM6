@@ -113,14 +113,14 @@
         </div>
       </nav>
     </header>
-    <main class="d-flex flex-grow-1 h-100 min-h-0">
+    <main class="d-flex flex-grow-1 h-100 min-h-0 container-fluid">
       <!-- Container principale main -->
       <!-- <div class="container-fluid"> -->
       <!-- <div class="row g-3"> -->
       <!-- Container sidebar left -->
       <div
         id="sidebarLeft"
-        class="d-flex flex-column d-none d-lg-flex sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
+        class="d-flex flex-column d-none d-lg-flex sidebar sidebar-expanded bg-dark rounded-2 h-100 min-h-0"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
@@ -581,7 +581,6 @@
       </div>
 
       <!-- Container sidebar right-->
-
       <div
         id="sidebarRight"
         class="d-none d-lg-block rounded-2 right-sidebar bg-dark"
@@ -610,9 +609,12 @@
                   <i class="bi bi-three-dots collapse-hidden"></i>
                 </button>
                 <button
+                  id="btn-expand"
                   class="btn btn-link p-0 link-secondary link-opacity-70-hover text-decoration-none"
                 >
-                  <i class="bi bi-arrows-fullscreen collapse-hidden"></i>
+                  <i
+                    class="bi bi-arrows-fullscreen collapse-hidden icon-white"
+                  ></i>
                 </button>
               </div>
             </div>
