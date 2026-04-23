@@ -1,0 +1,51 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-container {
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 60px;
+  max-width: 900px;
+  width: 100%;
+}
+.vr-divider {
+  border-left: 1px solid #282828;
+  height: 250px;
+  margin: 0 auto;
+}
+.btn-spotify {
+  background-color: #1ed760;
+  color: black;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 12px 35px;
+  border: none;
+  transition: transform 0.2s;
+}
+.btn-spotify:hover {
+  background-color: #1fdf64;
+  transform: scale(1.04);
+}
+.qr-code {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 180px;
+}
+.text-muted-custom {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+a {
+  color: white;
+  text-decoration: underline;
+}
+a:hover {
+  color: #1ed760;
+}

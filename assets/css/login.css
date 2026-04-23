@@ -1,0 +1,119 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 450px;
+  padding: 32px;
+  text-align: center;
+}
+
+.spotify-logo {
+  width: 40px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  background-color: #121212;
+  border: 1px solid #727272;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  background-color: #121212;
+  border-color: white;
+  color: white;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.btn-continue {
+  background-color: #1ed760;
+  color: black;
+  border: none;
+  font-weight: 700;
+  border-radius: 500px;
+  padding: 14px;
+  width: 100%;
+  margin-top: 20px;
+  transition: transform 0.1s;
+}
+
+.btn-continue:hover {
+  background-color: #1fdf64;
+  transform: scale(1.02);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 30px 0;
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #292929;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.5em;
+}
+.divider:not(:empty)::after {
+  margin-left: 0.5em;
+}
+
+.btn-outline-social {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #727272;
+  border-radius: 500px;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+
+.btn-outline-social:hover {
+  border-color: white;
+  color: white;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
