@@ -19,7 +19,7 @@
   </head>
   <body class="bg-black d-flex flex-column min-vh-100 h-100">
     <header class="flex-shrink-0">
-       <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid d-block">
           <div class="row align-items-center g-0">
             <div class="col-auto col-lg-3">
@@ -72,14 +72,60 @@
               class="col-lg-3 d-none d-lg-flex justify-content-end align-items-center"
             >
               <a class="nav-link text-white fw-bold mx-2" href="#">Premium</a>
-              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a
-              ><a href="./SignUp.html">
-                <button
-                  class="btn btn-light rounded-pill px-4 py-2 fw-bold ms-2"
-                >
-                  Log in
-                </button></a
-              >
+              <a class="nav-link text-white fw-bold mx-2" href="#">Support</a>
+              <div class="ms-2">
+                <div class="dropdown">
+                  <button
+                    class="btn p-0 border-0 d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="./assets/imgs/search/shrek.webp"
+                      alt="User Profile"
+                      class="rounded-circle border border-2 border-secondary"
+                      style="
+                        width: 40px;
+                        height: 40px;
+                        object-fit: cover;
+                        cursor: default;
+                      "
+                    />
+                  </button>
+
+                  <ul class="dropdown-menu dropdown-menu-end bg-spotify">
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./profilepage.html"
+                      >
+                        Manage Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./profilepage.html"
+                      >
+                        Account
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item text-light hover-black"
+                        href="./settingspage.html"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item text-danger" href="#">Log Out</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -102,21 +148,25 @@
     </header>
     <main class="d-flex flex-grow-1 h-100 min-h-0">
       <!-- LEFT SIDEBAR -->
-     <div
+      <div
         id="sidebarLeft"
         class="d-flex flex-column d-none d-lg-flex sidebar-expanded rounded-2 h-100 min-h-0"
-        style="background-color: #121212;"
+        style="background-color: #121212"
       >
         <!-- <div class="bg-dark rounded-top-2"> -->
         <!-- Hero sidebar -->
-        <div class="d-flex w-100 px-lg-2 justify-content-center align-items-center" id="wrapcollapse">
+        <div
+          class="d-flex w-100 px-lg-2 justify-content-center align-items-center"
+          id="wrapcollapse"
+        >
           <div class="mt-2">
             <button id="toggleSidebar" class="btn text-secondary">
               <i class="bi bi-layout-sidebar-inset-reverse"></i>
             </button>
           </div>
           <div
-            class="d-flex justify-content-between align-items-center text-light w-100 mt-2" id="centerPlus"
+            class="d-flex justify-content-between align-items-center text-light w-100 mt-2"
+            id="centerPlus"
           >
             <div class="d-flex align-items-center pt-3">
               <p>Your Library</p>
@@ -135,7 +185,9 @@
                 ><span class="collapse-hidden">Create</span>
               </button>
 
-              <ul class="dropdown-menu bg-spotify overflow-visible border-1 border-secondary">
+              <ul
+                class="dropdown-menu bg-spotify overflow-visible border-1 border-secondary"
+              >
                 <li class="dropdown-item d-flex flex-row">
                   <div class="d-flex align-items-center">
                     <i class="bi bi-music-note-beamed me-2 text-light ms-1"></i>
@@ -267,7 +319,7 @@
         <section
           class="overflow-auto hide-scrollbar flex-grow-1 min-h-0"
           id="playlist-album"
-          style="background-color: #121212;"
+          style="background-color: #121212"
         ></section>
         <!-- </div> -->
       </div>
@@ -488,7 +540,6 @@
       <div
         id="sidebarRight"
         class="d-none d-lg-block rounded-2 right-sidebar bg-spotify"
-        
       >
         <section
           class="overflow-auto hide-scrollbar bg-spotify rounded-2 h-100 w-100"
