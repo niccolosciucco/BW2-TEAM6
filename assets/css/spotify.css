@@ -564,6 +564,25 @@ main {
   }
 }
 
+.song-play-btn {
+  display: none !important;
+}
+
+.grey-scroll:hover .song-index {
+  display: none !important;
+}
+
+.grey-scroll:hover .song-play-btn {
+  display: flex !important;
+}
+
+.song-play-btn.btn-warning {
+  display: flex !important;
+}
+
+.grey-scroll:has(.song-play-btn.btn-warning) .song-index {
+  display: none !important;
+}
 .heartClick {
   color: #1db954 !important;
 }

@@ -55,6 +55,22 @@ const getAlbum = () => {
       const albumCover = document.getElementById("album-cover");
       albumCover.setAttribute("src", data.cover_big);
 
+      const btnPlayAlbum = document.getElementById("btn-play-album");
+      btnPlayAlbum.onclick = () => {
+        const firstTrack = data.tracks.data[0];
+        const safeTitle = firstTrack.title.replace(/'/g, "\\'");
+        const safeArtist = firstTrack.artist.name.replace(/'/g, "\\'");
+        handleMusic(
+          firstTrack.title,
+          firstTrack.artist.name,
+          data.cover_big,
+          firstTrack.preview,
+          false,
+          true,
+          "btn-play-album",
+        );
+      };
+
       //   chiamata ad una funzione che ritorna il colore medio di una foto
       //   dato che è un url e non una foto vera e propria, prima bisogna trasformarla
       // quel colore sarà usato nel background della pagiana
@@ -94,24 +110,39 @@ const getAlbum = () => {
           Math.floor(Math.random() * (max - min + 1)) + min
         ).toLocaleString("it-IT");
 
-        div.innerHTML += `
-        <div class="d-flex align-items-center px-3 py-2 rounded text-light grey-scroll">
-          <span class="text-secondary small" style="width: 30px; flex-shrink: 0;">${index + 1}</span>
-          
-          <div class="flex-grow-1 overflow-hidden">
-            <p class="mb-0 text-truncate link">${title.title}</p>
-            <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
-              <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
-              <span class="text-secondary text-truncate link text-artist">${title.artist.name}</span>
-            </p>
-          </div>
+        const idBtn = `btn-track-${title.id}-${index}`;
+        const safeTitle = title.title.replace(/'/g, "\\'");
+        const safeArtist = title.artist.name.replace(/'/g, "\\'");
 
-          <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">${randomNum}</span>
-          
-          <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
-            ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
-          </span>
-        </div>`;
+        div.innerHTML += `
+    <div class="d-flex align-items-center px-3 py-2 rounded text-light grey-scroll"
+         style="cursor: pointer;"
+         onclick="handleMusic('${safeTitle}', '${safeArtist}', '${data.cover_big}', '${title.preview}', false, true, '${idBtn}')">
+
+      <div style="width: 30px; flex-shrink: 0;" class="position-relative d-flex align-items-center justify-content-center">
+        <span class="text-secondary small song-index">${index + 1}</span>
+        <button
+          id="${idBtn}"
+          class="song-play-btn btn btn-success text-black p-0 d-flex align-items-center justify-content-center rounded-circle position-absolute"
+          style="width: 26px; height: 26px;">
+          <i class="bi bi-play-fill" style="font-size: 14px;"></i>
+        </button>
+      </div>
+
+      <div class="flex-grow-1 overflow-hidden ms-3">
+        <p class="mb-0 text-truncate link">${title.title}</p>
+        <p class="mb-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 12px">
+          <span class="badge bg-secondary text-dark" style="font-size: 10px; flex-shrink: 0;">E</span>
+          <span class="text-secondary text-truncate link text-artist">${title.artist.name}</span>
+        </p>
+      </div>
+
+      <span class="text-secondary small d-none d-xxl-inline" style="width: 400px; flex-shrink: 0;">${randomNum}</span>
+      
+      <span class="text-secondary small text-end d-lg-none d-xxl-inline" style="width: 60px; flex-shrink: 0;">
+        ${Math.floor(title.duration / 60)}:${(title.duration % 60).toString().padStart(2, "0")}
+      </span>
+    </div>`;
       });
 
       const releaseDate = document.getElementById("release-date");
@@ -123,6 +154,12 @@ const getAlbum = () => {
       const labelYear = document.getElementById("label-year");
       labelYear.innerText +=
         " " + data.release_date.slice(0, 4) + " " + data.label;
+      const artistId = data.artist.id;
+      fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/artist/${data.artist.id}`,
+      )
+        .then((res) => res.json())
+        .then((fullArtist) => loadArtistInfo(fullArtist));
     })
     .catch((error) => {
       console.log(error);
@@ -173,86 +210,62 @@ const loadAlbumCarousel = () => {
 };
 
 loadAlbumCarousel();
-// #endregion
 
-// #region RICONOSCIMENTI SIDEBAR DESTRA
-const loadArtistInfo = () => {
-  // Usiamo l'endpoint search filtrando per l'artista specifico, è più affidabile
-  const url =
-    "https://striveschool-api.herokuapp.com/api/deezer/search?q=marco%20mengoni";
+const loadArtistInfo = (artist) => {
   const container = document.getElementById("informazioni");
-
   if (!container) return;
 
-  fetch(url)
-    .then((res) => res.json())
-    .then((obj) => {
-      // Prendiamo i dati dell'artista dal primo risultato della ricerca
-      const artist = obj.data[0].artist;
+  container.innerHTML = `
+    <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
+    <div class="d-flex flex-column gap-3 mb-2">
+      <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden" style="width: 52px; height: 52px">
+        <img src="${artist.picture_big}" alt="${artist.name}" class="w-100 h-100 object-fit-cover" />
+      </div>
+      <div>
+        <p class="fw-bold mb-0 text-light">${artist.name}</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="text-light small mb-0">Artista internazionale</p>
+        <button class="btn btn-outline-light btn-sm rounded-pill px-3 small">Segui</button>
+      </div>
+    </div>
 
-      container.innerHTML = `
-        <p class="fw-bold mb-2 text-light">Informazioni sull'artista</p>
-        <div class="d-flex flex-column gap-3 mb-2">
-          <div
-            class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 bg-secondary overflow-hidden"
-            style="width: 52px; height: 52px"
-          >
-            <img
-              id="ia-img"
-              src="${artist.picture_big}"
-              alt="${artist.name}"
-              class="w-100 h-100 object-fit-cover"
-            />
-          </div>
-          <div>
-            <p id="ia-name" class="fw-bold mb-0 text-light">
-              ${artist.name}
-            </p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <p class="text-light small mb-0">
-              Artista di fama internazionale!
-            </p>
-            <div class="ms-auto">
-              <button
-                class="btn btn-outline-light btn-sm rounded-pill px-3 small"
-              >
-                Segui
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
-        <strong>${artist.name}</strong> è uno dei talenti più cristallini e premiati del panorama musicale italiano contemporaneo. 
-        La sua carriera, iniziata con la vittoria a X Factor nel 2009, è costellata di successi che lo hanno reso un punto di riferimento anche a livello internazionale.
-        Ecco i pilastri del suo successo tra canzoni, album e l'attuale fase della sua carriera:
-        L'essenziale (2013): Il brano della consacrazione definitiva e della prima vittoria a Sanremo.
-        Guerriero (2014): Un vero inno di protezione e forza, certificato 6 volte Platino.
-        Ti ho voluto bene veramente (2015): Uno dei suoi video più visti, girato tra i paesaggi spettacolari dell'Islanda.
-        Due vite (2023): Il successo della maturità, che ha dominato le classifiche europee dopo il Festival di Sanremo.
-        Tra il 2021 e il 2023, Mengoni ha realizzato un progetto monumentale diviso in tre capitoli, ognuno con un'anima diversa:
-        Terra: Un ritorno alle origini, tra soul, blues e suoni acustici (Cambia un uomo).
-        Pelle: Dedicato alle contaminazioni, ai viaggi e all'incontro con altre culture (No Stress).
-        Prisma: Il capitolo finale che riflette le mille sfaccettature dell'uomo e dell'artista (Due vite).
-        Il dato record: Marco ha superato la soglia degli 80 dischi di platino complessivi, un numero che continua a crescere grazie allo streaming 
-        e alla sua capacità di restare rilevante per generazioni diverse.
-        </p>
-      `;
-    })
-    .catch((err) => console.error("Errore caricamento artista:", err));
+    <p class="text-light-emphasis mb-0 small" style="line-height: 1.8">
+      <strong>${artist.name}</strong> rappresenta un punto di riferimento nel panorama musicale contemporaneo. 
+      Una carriera costellata di successi che ha portato questa firma a brillare anche a livello internazionale.
+      Ecco i pilastri di questo percorso tra canzoni, album e l'attuale fase della produzione artistica:
+      <br><br>
+      Con oltre <strong>${artist.nb_fan.toLocaleString()} fan</strong> su Deezer e <strong>${artist.nb_album} album</strong> pubblicati, 
+      il progetto musicale di <strong>${artist.name}</strong> continua a dominare le classifiche. I brani testimoniano la maturità raggiunta in questi anni.
+      <br><br>
+      Il dato record: <strong>${artist.name}</strong> continua a crescere grazie allo streaming 
+      e alla capacità di restare una realtà rilevante per generazioni diverse, confermandosi un'icona della musica moderna.
+    </p>
+  `;
 };
 
-loadArtistInfo();
 // #endregion
 
 // #region COLLASSO SIDEBAR
 const sidebar = document.getElementById("sidebarLeft");
 const toggleBtn = document.getElementById("toggleSidebar");
 
+const wrap = document.getElementById("wrapcollapse");
+const centerPlus = document.getElementById("centerPlus");
+
 toggleBtn.addEventListener("click", () => {
   sidebar.classList.toggle("sidebar-collapsed");
   sidebar.classList.toggle("sidebar-expanded");
+  const isCollapsed = sidebar.classList.contains("sidebar-collapsed");
+
+  if (wrap) {
+    wrap.classList.toggle("flex-wrap", isCollapsed);
+  }
+
+  if (centerPlus) {
+    centerPlus.classList.toggle("justify-content-between", !isCollapsed);
+    centerPlus.classList.toggle("justify-content-center", isCollapsed);
+  }
 });
 
 const sidebar2 = document.getElementById("sidebarRight");
@@ -264,6 +277,7 @@ toggleBtn2.addEventListener("click", () => {
 });
 
 // #endregion
+
 
 // #region SIDEBAR CONTENUTO SINISTRO
 const loadSidebarData = () => {
@@ -299,7 +313,6 @@ const loadSidebarData = () => {
 
 loadSidebarData();
 // #endregion
-
 // #region CLICKABLE HEART
 const heart = document.getElementById("heartClick")
 
